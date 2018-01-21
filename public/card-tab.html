@@ -18,49 +18,101 @@
     <h4>Emojis Attached to <span id="card-title">...</span></h4>
     
     <div id="container">
-      <div id="list"></div>
+      <div id="list">
+        
+          <div class="pp-simple-box pp-bg-white">
+             <section>
+                <label class="pp-input-wrap">
+                <b class="pp-label-text">Shopping</b>      
+                <select id="shopping" name="shopping" class="pp-custom-select" onchange="populaEmpresa($(this).val())"> 
+                </select>
+                </label>
+              
+                <label class="pp-input-wrap">
+                <b class="pp-label-text">Empresa</b> 
+                <select id="empresa" name="empresa" class="pp-custom-select" onchange="alert(this.selectedIndex)"> 
+                </select>
+                </label>
+                
+                <label class="pp-input-wrap">
+                <b class="pp-label-text">Tipo de Alteração</b> 
+                <select id="tipo" name="tipo" class="pp-custom-select" onchange=""> 
+                </select>
+                </label>
+                  
+                <label class="pp-input-wrap">
+                <b class="pp-label-text">CPF/CNPJ Fornecedor</b> 
+                <input id="cpf" name="cpf" type="text" placeholder="CPF/CNPJ Fornecedor" tabindex="0" class="pp-input">
+                </label>
+                       
+                <label class="pp-input-wrap">
+                <b class="pp-label-text">Fornecedor</b> 
+                <select id="fornecedor" name="fornecedor" class="pp-custom-select" onchange=""> 
+                </select>
+                </label>
+                  
+                <label class="pp-input-wrap">
+                <b class="pp-label-text">Número de Documento</b> 
+                <select id="num_documento" name="num_documento" class="pp-custom-select" onchange=""> 
+                </select>
+                </label>
+                      
+                <label class="pp-input-wrap">
+                <b class="pp-label-text">Valor</b> 
+                <select id="valor" name="num_documento" class="pp-custom-select" onchange=""> 
+                </select>
+                </label>
+                   
+                <label class="pp-input-wrap">
+                <b class="pp-label-text">Multa/Juros</b> 
+                <select id="multa" name="multa" class="pp-custom-select" onchange=""> 
+                </select>
+                </label>
+                       
+                <label class="pp-input-wrap">
+                <b class="pp-label-text">Valor Multa</b> 
+                <select id="valor_multa" name="valor_multa" class="pp-custom-select" onchange=""> 
+                </select>
+                </label>
+                 
+                <label class="pp-input-wrap">
+                <b class="pp-label-text">Vencimento Anterior</b> 
+                <select id="vencimento_anterior" name="vencimento_anterior" class="pp-custom-select" onchange=""> 
+                </select>
+                </label>
+                       
+                <label class="pp-input-wrap">
+                <b class="pp-label-text">Vencimento Novo</b> 
+                <input id="vencimento_novo" name="vencimento_novo" type="text" placeholder="Vencimento Novo" tabindex="0" class="pp-input">
+                </label>
+                     
+                <label class="pp-input-wrap">
+                <b class="pp-label-text">Condicão de Pagamento</b> 
+                <select id="condicao_pagamento" name="condicao_pagamento" class="pp-custom-select" onchange=""> 
+                </select>
+                </label>
+                     
+                <label class="pp-input-wrap">
+                <b class="pp-label-text">Condicão de Pagamento</b> 
+                <select id="forma_pagamento" name="forma_pagamento" class="pp-custom-select" onchange=""> 
+                </select>
+                </label>
+                   
+                <label class="pp-input-wrap">
+                <b class="pp-label-text">Historico</b> 
+                <input id="historico" name="historico" type="text" placeholder="Historico" tabindex="0" class="pp-input">
+                </label>
+                                                            
+             </section>
+          </div>
+
+          <a href="javascript:close()" class="pp-btn"><span>Salvar</span></a>
+
+      </div>
     </div>
     
     <!-- Pipefy Apps SDK.js -->
     <script src="https://d1ukdhoxof1oxs.cloudfront.net/pipefy-client.js"></script>
-    <script src="./js/emoji.js"></script>
-    <script>
-      p = PipefyApp.init();
-      
-      PipefyApp.render(function() {
-        var list = document.getElementById('list');
-        
-        p.card().then(function(card) {
-          document.getElementById('card-title').textContent = card.title;
-        });
-        
-        
-        p.cardAttachments().then((attachments) => {
-          
-          return attachments.filter(function(attachment){
-            return attachment.url.indexOf('https://emojipedia.org') === 0;
-          });
-        }).then(function(attachments) {
-          var links = document.createElement("div");
-          
-          attachments.forEach(function(emoji) {
-            var link = document.createElement("a"); 
-            var title = document.createTextNode(emoji.name); 
-            link.appendChild(title);
-            
-            link.title = emoji.name;
-            link.href = emoji.url;
-            link.target = 'blank';
-            
-            links.appendChild(link);
-          });
-          
-          list.innerHTML = '';
-          list.appendChild(links);
-          
-          PipefyApp.resizeTo("#list");
-        });
-      });
-    </script>
+    <script src="./js/card-tab.js"></script>
   </body>
 </html>
