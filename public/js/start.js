@@ -34,7 +34,7 @@ PipefyApp.initCall({
   
   'card-tab': function(p, pipe) {
      return {
-       icon: 'https://cdn.glitch.com/03813ab1-4482-45be-b7f7-74e8948d7ae7%2Ficon-blue.svg?1505357332379',
+       icon: './images/icon_grande.svg',
        title: 'Card Tab',
        url: './card-tab.html',
        claimedAttachments: function(attachments) {
@@ -44,12 +44,12 @@ PipefyApp.initCall({
          });
        },
        buttons: [
-         {
+         /*{
            text: '🔥 Add Emoji',
            callback: function(p) {
                alert("salvar");
            }
-         },
+         },*/
        ]
      }
   }
