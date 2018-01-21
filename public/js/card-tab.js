@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       }
 
       function close(){
-        p.set('card', 'public', 'empresa'.$('#empresa').val());
+        p.set('card', 'public', 'empresa',$('#empresa').val());
         p.get('card', 'public', 'empresa').then((empresa) => {
           console.log(empresa); // return actual value stored
         }).catch((error) => {
