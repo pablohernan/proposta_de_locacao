@@ -41,8 +41,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
       }
 
       function close(){
-        p.get('card', 'public', 'test').then((test) => {
-          console.log(test); // return actual value stored
+        p.set('card', 'public', 'empresa'.$('#empresa').val());
+        p.get('card', 'public', 'empresa').then((empresa) => {
+          console.log(empresa); // return actual value stored
         }).catch((error) => {
           // Handle error
           console.log(error);
