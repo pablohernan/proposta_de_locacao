@@ -47,7 +47,6 @@ PipefyApp.initCall({
          {
            text: '🔥 Add Emoji',
            callback: function(p) {
-             p.dropdown({
                alert("salvar");
            }
          },
