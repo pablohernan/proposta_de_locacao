@@ -35,7 +35,7 @@ PipefyApp.initCall({
   'card-tab': function(p, pipe) {
      return {
        icon: './images/icon_grande.svg',
-       title: 'Card Tab',
+       title: 'DM Consultoria',
        url: './card-tab.html',
        claimedAttachments: function(attachments) {
          // Iterate by all attachment to claim attachments from Emojipedia
