@@ -1,3 +1,6 @@
+  
+
+document.addEventListener("DOMContentLoaded", function(event) {
       p = PipefyApp.init();
       PipefyApp.resizeTo("#list");
       
@@ -47,3 +50,5 @@
         p.showNotification('Formulario salvo!', 'success');
         
       }
+
+});      
