@@ -5,11 +5,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
       PipefyApp.resizeTo("#list");
       
       PipefyApp.render(function() {
-        var list = document.getElementById('list');
-        
-        p.card().then(function(card) {
-          document.getElementById('card-title').textContent = card.title;
-        });
 
       });
 
