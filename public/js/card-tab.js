@@ -63,8 +63,8 @@ function populaEmpresa(value){
 function salvar(){
 
   $( ".salvar" ).each(function( index ) {
-    console.log( index + ": " + $( this ).attr('id') + ' :' + $( this ).val().toString() );
-    p.set('card', 'public', $( this ).attr('id'),$( this ).val().toString());
+    console.log( index + ": " + $( this ).attr('id') + ' :' + String($( this ).val()) );
+    p.set('card', 'public', $( this ).attr('id') , String($( this ).val()) );
   }); 
 
 }
