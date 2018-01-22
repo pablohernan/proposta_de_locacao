@@ -54,14 +54,10 @@ function populaEmpresa(value){
 
 function salvar(){
 
-p.set('card', 'public', 'titulo','Teste');
-
-/*
   $( ".salvar" ).each(function( index ) {
     //console.log( index + ": " + $( this ).attr('id') + ' :' + $( this ).val() );
     p.set('card', 'public', $( this ).attr('id'),$( this ).val());
   }); 
- */ 
 
 }
 
