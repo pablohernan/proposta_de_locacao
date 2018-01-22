@@ -72,7 +72,7 @@ function salvar(){
 
 
 function popular(){
-
+try{
   p.fields().then((fields) => {
     console.log(fields); 
   });
@@ -87,6 +87,7 @@ function popular(){
     });
 
   });
+}catch(e){}
 
 }
 
