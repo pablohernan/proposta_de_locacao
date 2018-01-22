@@ -76,18 +76,18 @@ function popular(){
   p.fields().then((fields) => {
     console.log(fields); 
   });
-/*
+
   console.log('## get ##');
-  $( ".salvar" ).each(function( index ) {
-    console.log( $( this ).attr('id') + ' : ' + String($( this ).val()) );
+  $( ".salvar" ).each(function( index ) {   
     p.get('card', 'public', $( this ).attr('id') ).then((campo) => {
+      console.log( $( this ).attr('id') + ' : ' + campo );
       $( '#' + $( this ).attr('id') ).val(campo);
     }).catch((error) => {
       console.log(error);
     });
 
   });
-*/
+
 }
 
 function close(){
