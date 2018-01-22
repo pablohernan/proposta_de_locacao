@@ -48,6 +48,14 @@ function populaEmpresa(value){
         for( var i = 0 ; i < data.length ; i++ ){
             $('#empresa').append('<option value=' + data[i].value + '>id do shopping:' + value + ' - ' +data[i].text + '</option>'); 
         }     
+
+        // set value apos carregar
+        p.get('card', 'public', 'empresa' ).then((campo) => {
+          $( '#' + $( '#empresa' ).attr('id') ).val(campo);
+        }).catch((error) => {
+          console.log(error);
+        });
+
   });
   /* popula empresa*/
 }
@@ -55,8 +63,8 @@ function populaEmpresa(value){
 function salvar(){
 
   $( ".salvar" ).each(function( index ) {
-    console.log( index + ": " + $( this ).attr('id') + ' :' + "'"+$( this ).attr('id'),$( this ).val()+"'" );
-    p.set('card', 'public', "'"+$( this ).attr('id'),$( this ).val()+"'");
+    console.log( index + ": " + $( this ).attr('id') + ' :' + "'"+$( this ).val()+"'" );
+    p.set('card', 'public', $( this ).attr('id'),"'"+$( this ).val()+"'");
   }); 
 
 }
@@ -67,10 +75,8 @@ function popular(){
   $( ".salvar" ).each(function( index ) {
     //console.log( index + ": " + $( this ).attr('id') + ' :' + $( this ).val() );
     p.get('card', 'public', $( this ).attr('id') ).then((campo) => {
-      //console.log(empresa); // return actual value stored
       $( '#' + $( this ).attr('id') ).val(campo);
     }).catch((error) => {
-      // Handle error
       console.log(error);
     });
 
