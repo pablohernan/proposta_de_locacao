@@ -62,8 +62,8 @@ function populaEmpresa(value){
 
 function salvar(){
 
+  console.log('## set ##');
   $( ".salvar" ).each(function( index ) {
-    console.log('## set ##');
     console.log( $( this ).attr('id') + ' : ' + String($( this ).val()) );
     p.set('card', 'public', $( this ).attr('id') , String($( this ).val()) );
   }); 
@@ -77,8 +77,8 @@ function popular(){
     console.log(fields); 
   });
 
+  console.log('## get ##');
   $( ".salvar" ).each(function( index ) {
-    console.log('## get ##');
     console.log( $( this ).attr('id') + ' : ' + String($( this ).val()) );
     p.get('card', 'public', $( this ).attr('id') ).then((campo) => {
       $( '#' + $( this ).attr('id') ).val(campo);
