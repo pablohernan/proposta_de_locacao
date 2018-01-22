@@ -34,7 +34,7 @@ PipefyApp.initCall({
   
   'card-tab': function(p, pipe) {
      return {
-       icon: '.icon-icon_grande',//'./images/icon_grande.svg',
+       icon: './images/icon_grande.svg',
        title: 'DM Consultoria',
        url: './card-tab.html',
        claimedAttachments: function(attachments) {
