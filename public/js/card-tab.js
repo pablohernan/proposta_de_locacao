@@ -21,30 +21,32 @@ document.addEventListener("DOMContentLoaded", function(event) {
       });
       /* popula shopping*/
 
-      function populaEmpresa(value){
-        /* popula empresa*/
-        $.ajax({ 
-            url: "/services/empresas.json?"+Math.random()
-        }).then(function(data) {
-              //var data = JSON.parse(data);  
-              $('#empresa').html('');
-              for( var i = 0 ; i < data.length ; i++ ){
-                  $('#empresa').append('<option value=' + data[i].value + '>id do shopping:' + value + ' - ' +data[i].text + '</option>'); 
-              }     
-        });
-        /* popula empresa*/
-      }
-
-      function close(){
-        p.set('card', 'public', 'empresa',$('#empresa').val());
-        p.get('card', 'public', 'empresa').then((empresa) => {
-          console.log(empresa); // return actual value stored
-        }).catch((error) => {
-          // Handle error
-          console.log(error);
-        });
-        p.showNotification('Formulario salvo!', 'success');
-        
-      }
-
 });      
+
+
+
+function populaEmpresa(value){
+  /* popula empresa*/
+  $.ajax({ 
+      url: "/services/empresas.json?"+Math.random()
+  }).then(function(data) {
+        //var data = JSON.parse(data);  
+        $('#empresa').html('');
+        for( var i = 0 ; i < data.length ; i++ ){
+            $('#empresa').append('<option value=' + data[i].value + '>id do shopping:' + value + ' - ' +data[i].text + '</option>'); 
+        }     
+  });
+  /* popula empresa*/
+}
+
+function close(){
+  p.set('card', 'public', 'empresa',$('#empresa').val());
+  p.get('card', 'public', 'empresa').then((empresa) => {
+    console.log(empresa); // return actual value stored
+  }).catch((error) => {
+    // Handle error
+    console.log(error);
+  });
+  p.showNotification('Formulario salvo!', 'success');
+  
+}
