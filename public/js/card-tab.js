@@ -76,7 +76,7 @@ function popular(){
   p.fields().then((fields) => {
     console.log(fields); 
   });
-
+/*
   console.log('## get ##');
   $( ".salvar" ).each(function( index ) {
     console.log( $( this ).attr('id') + ' : ' + String($( this ).val()) );
@@ -87,7 +87,7 @@ function popular(){
     });
 
   });
-
+*/
 }
 
 function close(){
