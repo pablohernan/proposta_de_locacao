@@ -1,16 +1,26 @@
   
 
-document.addEventListener("DOMContentLoaded", function(event) {
-      p = PipefyApp.init();
-      PipefyApp.resizeTo("#list");
-      
-      PipefyApp.render(function() {
+var localVersion = true;
 
-      });
+var path = '';
+if(localVersion){
+ path = 'http://localhost/pipefy/forms/start-form-js/public'
+}
+
+document.addEventListener("DOMContentLoaded", function(event) {
+      
+      try{
+        p = PipefyApp.init();
+        PipefyApp.resizeTo("#list");
+        
+        PipefyApp.render(function() {
+
+        });
+      }catch(e){console.log(e)}
 
       /* popula shopping*/
       $.ajax({ 
-          url: "/services/shoppings.json?"+Math.random()
+          url: path+ "/services/shoppings.json?"+Math.random()
       }).then(function(data) {
             //var data = JSON.parse(data);  
             for( var i = 0 ; i < data.length ; i++ ){
@@ -21,6 +31,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
       });
       /* popula shopping*/
 
+      // popula todos los campos
+      popular();
+
 });      
 
 
@@ -28,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 function populaEmpresa(value){
   /* popula empresa*/
   $.ajax({ 
-      url: "/services/empresas.json?"+Math.random()
+      url: path+ "/services/empresas.json?"+Math.random()
   }).then(function(data) {
         //var data = JSON.parse(data);  
         $('#empresa').html('');
@@ -39,14 +52,34 @@ function populaEmpresa(value){
   /* popula empresa*/
 }
 
-function close(){
-  p.set('card', 'public', 'empresa',$('#empresa').val());
-  p.get('card', 'public', 'empresa').then((empresa) => {
-    console.log(empresa); // return actual value stored
-  }).catch((error) => {
-    // Handle error
-    console.log(error);
+function salvar(){
+
+  $( ".salvar" ).each(function( index ) {
+    //console.log( index + ": " + $( this ).attr('id') + ' :' + $( this ).val() );
+    p.set('card', 'public', $( this ).attr('id'),$( this ).val());
+  }); 
+
+}
+
+
+function popular(){
+
+  $( ".salvar" ).each(function( index ) {
+    //console.log( index + ": " + $( this ).attr('id') + ' :' + $( this ).val() );
+    p.get('card', 'public', $( this ).attr('id') ).then((campo) => {
+      //console.log(empresa); // return actual value stored
+      $( '#' + $( this ).attr('id') ).val(campo);
+    }).catch((error) => {
+      // Handle error
+      console.log(error);
+    });
+
   });
+
+}
+
+function close(){
+  salvar();
   p.showNotification('Formulario salvo!', 'success');
   
 }

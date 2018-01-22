@@ -24,83 +24,83 @@
              <section>
                 <label class="pp-input-wrap">
                 <b class="pp-label-text">Shopping</b>      
-                <select id="shopping" name="shopping" class="pp-custom-select" onchange="populaEmpresa($(this).val())"> 
+                <select id="shopping" name="shopping" class="pp-custom-select salvar" onchange="populaEmpresa($(this).val())"> 
                 </select>
                 </label>
               
                 <label class="pp-input-wrap">
                 <b class="pp-label-text">Empresa</b> 
-                <select id="empresa" name="empresa" class="pp-custom-select" onchange="alert(this.selectedIndex)"> 
+                <select id="empresa" name="empresa" class="pp-custom-select salvar" onchange="alert(this.selectedIndex)"> 
                 </select>
                 </label>
                 
                 <label class="pp-input-wrap">
                 <b class="pp-label-text">Tipo de Alteração</b> 
-                <select id="tipo" name="tipo" class="pp-custom-select" onchange=""> 
+                <select id="tipo" name="tipo" class="pp-custom-select salvar" onchange=""> 
                 </select>
                 </label>
                   
                 <label class="pp-input-wrap">
                 <b class="pp-label-text">CPF/CNPJ Fornecedor</b> 
-                <input id="cpf" name="cpf" type="text" placeholder="CPF/CNPJ Fornecedor" tabindex="0" class="pp-input">
+                <input id="cpf" name="cpf" type="text" placeholder="CPF/CNPJ Fornecedor" tabindex="0" class="pp-input salvar">
                 </label>
                        
                 <label class="pp-input-wrap">
                 <b class="pp-label-text">Fornecedor</b> 
-                <select id="fornecedor" name="fornecedor" class="pp-custom-select" onchange=""> 
+                <select id="fornecedor" name="fornecedor" class="pp-custom-select salvar" onchange=""> 
                 </select>
                 </label>
                   
                 <label class="pp-input-wrap">
                 <b class="pp-label-text">Número de Documento</b> 
-                <select id="num_documento" name="num_documento" class="pp-custom-select" onchange=""> 
+                <select id="num_documento" name="num_documento" class="pp-custom-select salvar" onchange=""> 
                 </select>
                 </label>
                       
                 <label class="pp-input-wrap">
                 <b class="pp-label-text">Valor</b> 
-                <select id="valor" name="num_documento" class="pp-custom-select" onchange=""> 
+                <select id="valor" name="num_documento" class="pp-custom-select salvar" onchange=""> 
                 </select>
                 </label>
                    
                 <label class="pp-input-wrap">
                 <b class="pp-label-text">Multa/Juros</b> 
-                <select id="multa" name="multa" class="pp-custom-select" onchange=""> 
+                <select id="multa" name="multa" class="pp-custom-select salvar" onchange=""> 
                 </select>
                 </label>
                        
                 <label class="pp-input-wrap">
                 <b class="pp-label-text">Valor Multa</b> 
-                <select id="valor_multa" name="valor_multa" class="pp-custom-select" onchange=""> 
+                <select id="valor_multa" name="valor_multa" class="pp-custom-select salvar" onchange=""> 
                 </select>
                 </label>
                  
                 <label class="pp-input-wrap">
                 <b class="pp-label-text">Vencimento Anterior</b> 
-                <select id="vencimento_anterior" name="vencimento_anterior" class="pp-custom-select" onchange=""> 
+                <select id="vencimento_anterior" name="vencimento_anterior" class="pp-custom-select salvar" onchange=""> 
                 </select>
                 </label>
                        
                 <label class="pp-input-wrap">
                 <b class="pp-label-text">Vencimento Novo</b> 
-                <input id="vencimento_novo" name="vencimento_novo" type="text" placeholder="Vencimento Novo" tabindex="0" class="pp-input">
+                <input id="vencimento_novo" name="vencimento_novo" type="text" placeholder="Vencimento Novo" tabindex="0" class="pp-input salvar">
                 </label>
                      
                 <label class="pp-input-wrap">
                 <b class="pp-label-text">Condicão de Pagamento</b> 
-                <select id="condicao_pagamento" name="condicao_pagamento" class="pp-custom-select" onchange=""> 
+                <select id="condicao_pagamento" name="condicao_pagamento" class="pp-custom-select salvar" onchange=""> 
                 </select>
                 </label>
                      
                 <label class="pp-input-wrap">
                 <b class="pp-label-text">Condicão de Pagamento</b> 
-                <select id="forma_pagamento" name="forma_pagamento" class="pp-custom-select" onchange=""> 
+                <select id="forma_pagamento" name="forma_pagamento" class="pp-custom-select salvar" onchange=""> 
                 </select>
                 </label>
                    
                 <label class="pp-input-wrap">
                 <b class="pp-label-text">Historico</b> 
-                <input id="historico" name="historico" type="text" placeholder="Historico" tabindex="0" class="pp-input">
+                <input id="historico" name="historico" type="text" placeholder="Historico" tabindex="0" class="pp-input salvar">
                 </label>
                                                             
              </section>
@@ -113,10 +113,18 @@
       </div>
     </div>
     
-    <!-- Pipefy Apps SDK.js -->
+    <!-- Pipefy Apps SDK.js 
     <script src="https://d1ukdhoxof1oxs.cloudfront.net/pipefy-client.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" media="all" href="https://s3.amazonaws.com/pipestyle/3.5.12/assets/stylesheets/platform-apps.css" />    
     <script src="./js/card-tab.js"></script>
+    -->
+
+    <!-- LOCAL -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" media="all" href="https://s3.amazonaws.com/pipestyle/3.5.12/assets/stylesheets/platform-apps.css" />    
+    <script src="http://localhost/pipefy/forms/start-form-js/public/js/card-tab.js?o"></script>
+    <!-- LOCAL -->
+
   </body>
 </html>
