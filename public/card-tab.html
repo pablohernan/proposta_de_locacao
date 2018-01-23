@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" media="all" href="https://app.pipefy.com/apps/style.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
     <link rel="stylesheet" media="all" href="./css/style.css?4" />
 
     <style>
@@ -124,27 +126,60 @@
                 </label>   
                 <a href="javascript:close()" class="pp-ico-add"> adicionar</a>
 
-                <div class="pp-table-content">  
 
- <div data-pp-module="collapse" data-target="#collapse1" class="pp-collapse">
-    <a href="#" class="pp-collapse-header">
-      <h3 class="pp-collapse-title">Collape title</h3>
-    </a>
-    <div class="pp-collapse-body" id="collapse1">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing...</p>
+
+<div id="accordion">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Item #1
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+        <p><b>Grupo de Pagamento: </b><span class="item1">lalala</span></p>
+        <p><b>Centro de Custo: </b><span class="item2">lalala</span></p>
+        <p><b>Valor: </b><span class="item3">lalala</span></p>
+      </div>
     </div>
   </div>
-
-   <div data-pp-module="collapse" data-target="#collapse1" class="pp-collapse">
-    <a href="#" class="pp-collapse-header">
-      <h3 class="pp-collapse-title">Collape title</h3>
-    </a>
-    <div class="pp-collapse-body" id="collapse1">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing...</p>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Item #2
+        </button>
+      </h5>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+      <div class="card-body">
+        <p><b>Grupo de Pagamento: </b><span class="item1">lalala</span></p>
+        <p><b>Centro de Custo: </b><span class="item2">lalala</span></p>
+        <p><b>Valor: </b><span class="item3">lalala</span></p>
+      </div>
     </div>
   </div>
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Item #3
+        </button>
+      </h5>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+      <div class="card-body">
+        <p><b>Grupo de Pagamento: </b><span class="item1">lalala</span></p>
+        <p><b>Centro de Custo: </b><span class="item2">lalala</span></p>
+        <p><b>Valor: </b><span class="item3">lalala</span></p>
+      </div>
+    </div>
+  </div>
+</div>
 
-                </div>
                 
 
 
@@ -164,10 +199,12 @@
     <script src="https://d1ukdhoxof1oxs.cloudfront.net/pipefy-client.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" media="all" href="https://s3.amazonaws.com/pipestyle/3.5.12/assets/stylesheets/platform-apps.css" />    
-    <script src="./js/card-tab.js"></script>
-    
+    <script src="./js/card-tab.js"></script>    
     <script src="./js/data-base.js"></script>
-<script src="https://d3l2kwhcxt3ou6.cloudfront.net/3.8.70/assets/javascripts/pipestyle.js"></script>
+
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>    
+
 
     
 
