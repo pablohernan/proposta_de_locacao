@@ -8,10 +8,10 @@ function addLine(){
 	var centro = $( "#centro" ).val();
 	var valor_custo = $( "#valor_custo" ).val();
 
-	var line = '<div class="card" onclick="resize()">'+
+	var line = '<div class="card">'+
     '<div class="card-header" id="heading'+lineNumber+'">'+
       '<h5 class="mb-0">'+
-        '<button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse'+lineNumber+'" aria-expanded="false" aria-controls="collapse'+lineNumber+'">'+
+        '<button onclick="resize()" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse'+lineNumber+'" aria-expanded="false" aria-controls="collapse'+lineNumber+'">'+
          ' Item #'+lineNumber+' '+
         '</button>'+
       '</h5>'+
