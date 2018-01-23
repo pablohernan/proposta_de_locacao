@@ -11,7 +11,7 @@ function addLine(){
 	var line = '<div class="card">'+
     '<div class="card-header" id="heading'+lineNumber+'">'+
       '<h5 class="mb-0">'+
-        '<button onclick="resize()" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse'+lineNumber+'" aria-expanded="false" aria-controls="collapse'+lineNumber+'">'+
+        '<button onclick="setTimeout(function(){ resize(); }, 1000);" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse'+lineNumber+'" aria-expanded="false" aria-controls="collapse'+lineNumber+'">'+
          ' Item #'+lineNumber+' '+
         '</button>'+
       '</h5>'+
