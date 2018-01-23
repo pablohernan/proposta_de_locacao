@@ -34,12 +34,12 @@ var body = {
   		'{  field_id: "VALOR", field_value: "1" }] '+
   	'}) { table_record { id title due_date record_fields { name value } } } }'
 }
-
+/*
 var body = {
     'query': 'mutation { createTable(input: { organization_id: 1 name: "Table example"description: "Table that comtain some data"public: true authorization: write }) { table { id name description public authorization } } }'
 };
 
-
+*/
 
 request.send(JSON.stringify(body));
 
