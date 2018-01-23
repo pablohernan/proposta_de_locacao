@@ -10,8 +10,9 @@
     "compression": "^1.7.0",
     "cors": "^2.8.4",
     "express": "^4.15.4",
-    "request-promise": "^4.2.1",
-    "request": "^2.81.0"
+    "react-pipestyle": "^0.1.32",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.1"
   },
   "engines": {
     "node": "8.1.x"
