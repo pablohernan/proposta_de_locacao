@@ -27,4 +27,6 @@ function addLine(){
 
   $( "#accordion" ).append( line );
 
+  PipefyApp.resizeTo("#list");
+
 }
