@@ -96,3 +96,8 @@ function close(){
   p.showNotification('Formulario salvo!', 'success');
   
 }
+
+
+function resize(){
+  PipefyApp.resizeTo("#list");
+}

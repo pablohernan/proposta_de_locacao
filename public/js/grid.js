@@ -8,7 +8,7 @@ function addLine(){
 	var centro = $( "#centro" ).val();
 	var valor_custo = $( "#valor_custo" ).val();
 
-	var line = '<div class="card">'+
+	var line = '<div class="card" onclick="resize()">'+
     '<div class="card-header" id="heading'+lineNumber+'">'+
       '<h5 class="mb-0">'+
         '<button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse'+lineNumber+'" aria-expanded="false" aria-controls="collapse'+lineNumber+'">'+
@@ -27,6 +27,6 @@ function addLine(){
 
   $( "#accordion" ).append( line );
 
-  PipefyApp.resizeTo("#list");
+  resize();
 
 }
