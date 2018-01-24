@@ -59,7 +59,8 @@ function populaEmpresa(value){
 
         // set value apos carregar
         p.get('card', 'public', 'empresa' ).then((campo) => {
-          $( '#' + $( '#empresa' ).attr('id') ).val(campo);
+          if(campo != null && campo != '')
+            $( '#' + $( '#empresa' ).attr('id') ).val(campo);
         }).catch((error) => {
           console.log(error);
         });
@@ -103,8 +104,10 @@ try{
   console.log('## get ##');
   $( ".salvar" ).each(function( index ) {   
     p.get('card', 'public', $( this ).attr('id') ).then((campo) => {
-      console.log( $( this ).attr('id') + ' : ' + campo );
-      $( '#' + $( this ).attr('id') ).val(campo);
+      if(campo != null && campo != ''){
+        console.log( $( this ).attr('id') + ' : ' + campo );
+        $( '#' + $( this ).attr('id') ).val(campo);
+      }
     }).catch((error) => {
       console.log(error);
     });
