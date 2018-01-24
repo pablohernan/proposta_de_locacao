@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         });
 
         p.card().then(function(card) {
-          console.log('CARD_ID:'+card) // { id: '23abc', ... }
+          console.log('CARD_ID:'+card.id) // { id: '23abc', ... }
           cardId = card.id;
         });
 
@@ -81,8 +81,20 @@ function salvar(){
 }
 /* salvar */ 
 
+
+/* popular */
+function popular_grid(obj){
+  for(var i = 0; i<obj ; i++){
+    grid_addLine(obj[i].GRUPODEPAGAMENTO ,obj[i].CENTRODECUSTO,obj[i].VALOR);
+  }
+}
+
 function popular(){
 try{
+
+  // populo com os dados da tabela
+  db_select(popular_grid);
+
   p.fields().then((fields) => {
     console.log(fields); 
   });
@@ -101,13 +113,29 @@ try{
 
 }
 
+function addLine(){
+
+  var grupo = $( "#grupo" ).val();
+  var centro = $( "#centro" ).val();
+  var valor_custo = $( "#valor_custo" ).val();
+
+  /* insert db */
+  db_insert(cardId,grupo,grupo,centro,centro,valor_custo);
+  /* add line */
+  grid_addLine(grupo,centro,valor_custo);
+
+}
+
+
+
 function close(){
   salvar();
   p.showNotification('Formulario salvo!', 'success');
   
 }
 
-
 function resize(){
   PipefyApp.resizeTo("#list");
 }
+
+

@@ -1,16 +1,9 @@
 
 
 
-function addLine(){
+function grid_addLine(grupo,centro,valor_custo){
 
-	var lineNumber = $( "#accordion" ).find(".card").length + 1;
-	var grupo = $( "#grupo" ).val();
-	var centro = $( "#centro" ).val();
-	var valor_custo = $( "#valor_custo" ).val();
-
-  /* insert db */
-  db_insert(cardId,grupo,grupo,centro,centro,valor_custo);
-
+  var lineNumber = $( "#accordion" ).find(".card").length + 1;
 
 	var line = '<div class="card">'+
     '<div class="card-header" id="heading'+lineNumber+'">'+

@@ -87,7 +87,7 @@ function db_insertCallBackFn(response){
 
 
 /* count */
-function db_count(callBackFn){
+function db_count(){
 
   var request = new XMLHttpRequest();
 
@@ -97,7 +97,11 @@ function db_count(callBackFn){
   request.setRequestHeader('Authorization', 'Bearer '+apiKey);
 
   request.onreadystatechange = function () {
-    callBackFn(this);
+    if (this.readyState === 4) {
+      console.log('Status:', this.status);
+      console.log('Headers:', this.getAllResponseHeaders());
+      console.log('Body:', this.responseText);
+    }
   };
 
   var body = {
@@ -107,15 +111,50 @@ function db_count(callBackFn){
 
 }
 
-function db_countCallBackFn(response){
-    if (response.readyState === 4) {
-      console.log('Status:', response.status);
-      console.log('Headers:', response.getAllResponseHeaders());
-      console.log('Body:', response.responseText);
-      return JSON.parse(response.responseText).data.table.table_records_count;
-    }
-}
 /* count */
+
+
+/* select */
+
+function db_select(callBackFn){
+
+  var request = new XMLHttpRequest();
+
+  request.open('POST', 'https://app.pipefy.com/queries');
+
+  request.setRequestHeader('Content-Type', 'application/json');
+  request.setRequestHeader('Authorization', 'Bearer '+apiKey);
+
+  request.onreadystatechange = function () {
+    if (this.readyState === 4) {
+      console.log('Status:', this.status);
+      console.log('Headers:', this.getAllResponseHeaders());
+      console.log('Body:', this.responseText);
+
+      var ret = new Array();
+      var edges = JSON.parse(this.responseText).data.table_records.edges;
+      for(var i = 0; i< edges.length ; i++){
+          var itens = edges[i].node.record_fields;
+          var obj = {}
+          for(var x = 0; x<itens.length ; x++){
+              obj[itens[x].name] = itens[x].value;
+          }
+          ret.push(obj);
+      }
+      callBackFn(ret);
+    }
+  };
+
+  var body = {
+    'query': '{ table_records( table_id: "'+tableId+'") { edges { node { id record_fields { name value } } } }}'
+  };
+
+  request.send(JSON.stringify(body));
+
+}
+
+
+/* select */
 
 
 
