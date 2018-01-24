@@ -16,6 +16,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
         PipefyApp.render(function() {
 
         });
+
+        p.card().then(function(card) {
+          console.log(card) // { id: '23abc', ... }
+          var cardId = card.id;
+        });
+
       }catch(e){console.log(e)}
 
       /* popula shopping*/
@@ -60,7 +66,27 @@ function populaEmpresa(value){
   /* popula empresa*/
 }
 
-function salvar(){
+
+/* salvar */
+function getDataSalvar(){
+  db_count(getCount);
+}
+
+function getNewIndex(response){
+    if (response.readyState === 4) {
+      var count = JSON.parse(response.responseText).data.table.table_records_count;
+      salvar( count + 1 );
+    }
+}
+
+function salvar(index){
+
+  var grupo = $('grupo').val();
+  var centro = $('centro').val();
+  var valor = $('valor_custo').val();
+
+  console.log('## table_insert ##');
+  db_insert(cardId,index,grupo,grupo,centro,centro,valor,db_insertCallBackFn);
 
   console.log('## set ##');
   $( ".salvar" ).each(function( index ) {
@@ -69,7 +95,7 @@ function salvar(){
   }); 
 
 }
-
+/* salvar */ 
 
 function popular(){
 try{
@@ -92,7 +118,7 @@ try{
 }
 
 function close(){
-  salvar();
+  getDataSalvar();
   p.showNotification('Formulario salvo!', 'success');
   
 }

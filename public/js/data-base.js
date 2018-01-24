@@ -1,50 +1,4 @@
-
-
-
-
-var apiKey = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJ1c2VyIjp7ImlkIjoxMzI5NjcsImVtYWlsIjoicHJhcGV0dGlAZ21haWwuY29tIiwiYXBwbGljYXRpb24iOjQ2MzF9fQ.jXx183WEqstCvgJkxQHFN72IMNklPqdM5IT0txevy_S5PPdQ_bcKaflGGVE1YjFrP7aX7XS7pdxjrMk27CHN8A';
-
-var request = new XMLHttpRequest();
-
-request.open('POST', 'https://app.pipefy.com/queries');
-
-request.setRequestHeader('Content-Type', 'application/json');
-request.setRequestHeader('Authorization', 'Bearer '+apiKey);
-
-request.onreadystatechange = function () {
-  if (this.readyState === 4) {
-    console.log('Status:', this.status);
-    console.log('Headers:', this.getAllResponseHeaders());
-    console.log('Body:', this.responseText);
-  }
-};
-
-var body = {
-  'query': 'mutation { createTableRecord(input: '+
-  	'{ table_id: "ALTERACAOPAGAMENTO_GRID1" '+
-  		'title: "exemplo 1" '+
-  		'due_date: "2017-12-31T00:00-03:00" '+
-  		'fields_attributes: ['+
-  		'{  field_id: "CARDID", field_value: "2" }, '+
-  		'{  field_id: "INDEX", field_value: "2" }, '+
-  		'{  field_id: "GRUPODEPAGAMENTO", field_value: "2" }, '+
-  		'{  field_id: "GRUPODEPAGAMENTOID", field_value: "2" }, '+
-  		'{  field_id: "CENTRODECUSTO", field_value: "2" }, '+
-  		'{  field_id: "CENTRODECUSTOID", field_value: "2" }, '+
-  		'{  field_id: "VALOR", field_value: "1" }] '+
-  	'}) { table_record { id title due_date record_fields { name value } } } }'
-}
 /*
-var body = {
-    'query': 'mutation { createTable(input: { organization_id: 1 name: "Table example"description: "Table that comtain some data"public: true authorization: write }) { table { id name description public authorization } } }'
-};
-
-*/
-
-request.send(JSON.stringify(body));
-
-/*
-
 ALTERACAOPAGAMENTO_GRID1
 
 CARDID
@@ -55,3 +9,77 @@ CENTRODECUSTO
 CENTRODECUSTOID
 VALOR
 */
+
+var apiKey = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJ1c2VyIjp7ImlkIjoxMzI5NjcsImVtYWlsIjoicHJhcGV0dGlAZ21haWwuY29tIiwiYXBwbGljYXRpb24iOjQ2MzF9fQ.jXx183WEqstCvgJkxQHFN72IMNklPqdM5IT0txevy_S5PPdQ_bcKaflGGVE1YjFrP7aX7XS7pdxjrMk27CHN8A';
+var tableId = "UXvncDbC";
+
+function db_insert(cardid,index,grupodepagamento,grupodepagamentoid,centrodecusto,centrodecustoid,valor,callBackFn){
+
+  var request = new XMLHttpRequest();
+
+  request.open('POST', 'https://app.pipefy.com/queries');
+
+  request.setRequestHeader('Content-Type', 'application/json');
+  request.setRequestHeader('Authorization', 'Bearer '+apiKey);
+
+  request.onreadystatechange = function () {
+    callBackFn(this);
+  };
+
+  var body = {
+    'query': 'mutation { createTableRecord( input: { '+    
+    'table_id: "'+tableId+'"  '+    
+    'fields_attributes: ['+        
+      '{ field_id: "cardid", field_value: "'+cardid+'" },'+        
+      '{ field_id: "index", field_value: "'+index+'" }, '+       
+      '{ field_id: "grupodepagamento", field_value: "'+grupodepagamento+'" },'+    
+      '{ field_id: "grupodepagamentoid", field_value: "'+grupodepagamentoid+'" },'+       
+      '{ field_id: "centrodecusto", field_value: "'+centrodecusto+'" },'+        
+      '{ field_id: "centrodecustoid", field_value: "'+centrodecustoid+'" },'+        
+      '{ field_id: "valor", field_value: "'+valor+'" },'+
+    ']}  ) {table_record { id } }}'
+  };
+  request.send(JSON.stringify(body));
+}
+
+function db_insertCallBackFn(response){
+    if (response.readyState === 4) {
+      console.log('Status:', response.status);
+      console.log('Headers:', response.getAllResponseHeaders());
+      console.log('Body:', response.responseText);
+    }
+}
+/* insert */
+
+/* count */
+function db_count(callBackFn){
+
+  var request = new XMLHttpRequest();
+
+  request.open('POST', 'https://app.pipefy.com/queries');
+
+  request.setRequestHeader('Content-Type', 'application/json');
+  request.setRequestHeader('Authorization', 'Bearer '+apiKey);
+
+  request.onreadystatechange = function () {
+    callBackFn(this);
+  };
+
+  var body = {
+    'query': 'query {table(id: "UXvncDbC") {table_records_count}}'
+  };
+  request.send(JSON.stringify(body));
+
+}
+
+function db_countCallBackFn(response){
+    if (response.readyState === 4) {
+      console.log('Status:', response.status);
+      console.log('Headers:', response.getAllResponseHeaders());
+      console.log('Body:', response.responseText);
+      return JSON.parse(response.responseText).data.table.table_records_count;
+    }
+}
+
+
+
