@@ -85,7 +85,8 @@ function salvar(){
 /* popular */
 function popular_grid(obj){
   for(var i = 0; i<obj.length ; i++){
-    grid_addLine(obj[i].GRUPODEPAGAMENTO ,obj[i].CENTRODECUSTO,obj[i].VALOR);
+    if(obj[i].CARDID == cardId)
+      grid_addLine(obj[i].GRUPODEPAGAMENTO ,obj[i].CENTRODECUSTO,obj[i].VALOR);
   }
 }
 
