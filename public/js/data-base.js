@@ -13,7 +13,37 @@ VALOR
 var apiKey = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJ1c2VyIjp7ImlkIjoxMzI5NjcsImVtYWlsIjoicHJhcGV0dGlAZ21haWwuY29tIiwiYXBwbGljYXRpb24iOjQ2MzF9fQ.jXx183WEqstCvgJkxQHFN72IMNklPqdM5IT0txevy_S5PPdQ_bcKaflGGVE1YjFrP7aX7XS7pdxjrMk27CHN8A';
 var tableId = "UXvncDbC";
 
-function db_insert(cardid,index,grupodepagamento,grupodepagamentoid,centrodecusto,centrodecustoid,valor,callBackFn){
+
+/* insert */
+function db_insert(cardid,grupodepagamento,grupodepagamentoid,centrodecusto,centrodecustoid,valor){
+
+  var request = new XMLHttpRequest();
+
+  request.open('POST', 'https://app.pipefy.com/queries');
+
+  request.setRequestHeader('Content-Type', 'application/json');
+  request.setRequestHeader('Authorization', 'Bearer '+apiKey);
+
+  request.onreadystatechange = function () {
+    if (this.readyState === 4) {
+      console.log('Status:', this.status);
+      console.log('Headers:', this.getAllResponseHeaders());
+      console.log('Body:', this.responseText);
+
+      var index = JSON.parse(this.responseText).data.table.table_records_count + 1;
+      db_insert_index(index,cardid,grupodepagamento,grupodepagamentoid,centrodecusto,centrodecustoid,valor,db_insertCallBackFn);
+
+    }    
+  };
+
+  var body = {
+    'query': 'query {table(id: "'+tableId+'") {table_records_count}}'
+  };
+  request.send(JSON.stringify(body));
+
+}
+
+function db_insert_index(index,cardid,grupodepagamento,grupodepagamentoid,centrodecusto,centrodecustoid,valor,callBackFn){
 
   var request = new XMLHttpRequest();
 
@@ -49,7 +79,12 @@ function db_insertCallBackFn(response){
       console.log('Body:', response.responseText);
     }
 }
+
 /* insert */
+
+
+
+
 
 /* count */
 function db_count(callBackFn){
@@ -66,7 +101,7 @@ function db_count(callBackFn){
   };
 
   var body = {
-    'query': 'query {table(id: "UXvncDbC") {table_records_count}}'
+    'query': 'query {table(id: "'+tableId+'") {table_records_count}}'
   };
   request.send(JSON.stringify(body));
 
@@ -80,6 +115,11 @@ function db_countCallBackFn(response){
       return JSON.parse(response.responseText).data.table.table_records_count;
     }
 }
+/* count */
+
+
+db_insert('4','4','4','4','4','4');
+
 
 
 

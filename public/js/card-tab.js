@@ -68,25 +68,7 @@ function populaEmpresa(value){
 
 
 /* salvar */
-function getDataSalvar(){
-  db_count(getNewIndex);
-}
-
-function getNewIndex(response){
-    if (response.readyState === 4) {
-      var count = JSON.parse(response.responseText).data.table.table_records_count;
-      salvar( count + 1 );
-    }
-}
-
-function salvar(index){
-
-  var grupo = $('grupo').val();
-  var centro = $('centro').val();
-  var valor = $('valor_custo').val();
-
-  console.log('## table_insert ##');
-  db_insert(cardId,index,grupo,grupo,centro,centro,valor,db_insertCallBackFn);
+function salvar(){
 
   console.log('## set ##');
   $( ".salvar" ).each(function( index ) {
@@ -118,7 +100,7 @@ try{
 }
 
 function close(){
-  getDataSalvar();
+  salvar();
   p.showNotification('Formulario salvo!', 'success');
   
 }

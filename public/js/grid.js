@@ -8,6 +8,10 @@ function addLine(){
 	var centro = $( "#centro" ).val();
 	var valor_custo = $( "#valor_custo" ).val();
 
+  /* insert db */
+  db_insert(cardId,grupo,grupo,centro,centro,valor_custo);
+
+
 	var line = '<div class="card">'+
     '<div class="card-header" id="heading'+lineNumber+'">'+
       '<h5 class="mb-0">'+
