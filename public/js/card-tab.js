@@ -7,6 +7,8 @@ if(localVersion){
  path = 'http://localhost/pipefy/forms/start-form-js/public'
 }
 
+var cardId;
+
 document.addEventListener("DOMContentLoaded", function(event) {
       
       try{
@@ -18,8 +20,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
         });
 
         p.card().then(function(card) {
-          console.log(card) // { id: '23abc', ... }
-          var cardId = card.id;
+          console.log('CARD_ID:'+card) // { id: '23abc', ... }
+          cardId = card.id;
         });
 
       }catch(e){console.log(e)}

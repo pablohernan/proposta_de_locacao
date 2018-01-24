@@ -118,8 +118,5 @@ function db_countCallBackFn(response){
 /* count */
 
 
-db_insert('4','4','4','4','4','4');
-
-
 
 
