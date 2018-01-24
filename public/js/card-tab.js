@@ -69,7 +69,7 @@ function populaEmpresa(value){
 
 /* salvar */
 function getDataSalvar(){
-  db_count(getCount);
+  db_count(getNewIndex);
 }
 
 function getNewIndex(response){
