@@ -102,7 +102,7 @@ try{
   });
 
   console.log('## get ##');
-  $( ".salvar" ).each(function( index ) {   
+  $( ".save" ).each(function( index ) {   
     p.get('card', 'public', $( this ).attr('id') ).then((campo) => {
       if(campo != 'null' && campo != null && campo != ''){
         console.log( $( this ).attr('id') + ' : ' + campo );
@@ -119,22 +119,33 @@ try{
 
 function addLine(){
 
-  var grupo = $( "#grupo" ).val();
-  var centro = $( "#centro" ).val();
-  var valor_custo = $( "#valor_custo" ).val();
+  if(!rc_showMesagesGrid('grid1')){
+      var grupo = $( "#grupo" ).val();
+      var centro = $( "#centro" ).val();
+      var valor_custo = $( "#valor_custo" ).val();
 
-  /* insert db */
-  db_insert(cardId,grupo,grupo,centro,centro,valor_custo);
-  /* add line */
-  grid_addLine(grupo,centro,valor_custo);
+      /* insert db */
+      db_insert(cardId,grupo,grupo,centro,centro,valor_custo);
+      /* add line */
+      grid_addLine(grupo,centro,valor_custo);
+  }else{
+      p.showNotification('Deve preencher os campos obrigatorios (*)', 'error');
+  }
 
 }
 
 
 
 function close(){
-  salvar();
-  p.showNotification('Formulario salvo!', 'success');
+
+  if(!rc_showMesages()){
+      salvar();
+      p.showNotification('Formulario salvo!', 'success');
+  }else{
+      p.showNotification('Deve preencher os campos obrigatorios (*)', 'error');
+  }
+
+
   
 }
 

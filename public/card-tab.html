@@ -28,7 +28,7 @@
                 <label class="pp-input-wrap">
                 <b class="pp-label-text">Shopping</b>      
                     <div class="pp-custom-select">
-                        <select id="shopping" name="shopping" tabindex="0" class="pp-select salvar" onchange="populaEmpresa($(this).val())">    
+                        <select id="shopping" name="shopping" tabindex="0" class="pp-select save" onchange="populaEmpresa($(this).val())">    
                         </select>
                     </div>
                 </label>
@@ -36,7 +36,7 @@
                 <label class="pp-input-wrap">
                 <b class="pp-label-text">Empresa</b>                
                     <div class="pp-custom-select">
-                        <select id="empresa" name="empresa" tabindex="0" class="pp-select salvar">    
+                        <select id="empresa" name="empresa" tabindex="0" class="pp-select save">    
                         </select>
                     </div>
                 </label>
@@ -44,20 +44,20 @@
                 <label class="pp-input-wrap">
                 <b class="pp-label-text">Tipo de Alteração</b> 
                     <div class="pp-custom-select">
-                        <select id="tipo" name="tipo" tabindex="0" class="pp-select salvar">    
+                        <select id="tipo" name="tipo" tabindex="0" class="pp-select save">    
                         </select>
                     </div>
                 </label>
                   
                 <label class="pp-input-wrap">
                 <b class="pp-label-text">CPF/CNPJ Fornecedor</b> 
-                <input id="cpf" name="cpf" type="text" placeholder="CPF/CNPJ Fornecedor" tabindex="0" class="pp-input salvar">
+                <input id="cpf" name="cpf" type="text" tabindex="0" class="pp-input save mask-cpf">
                 </label>
                        
                 <label class="pp-input-wrap">
                 <b class="pp-label-text">Fornecedor</b> 
                     <div class="pp-custom-select">
-                        <select id="fornecedor" name="fornecedor" tabindex="0" class="pp-select salvar">    
+                        <select id="fornecedor" name="fornecedor" tabindex="0" class="pp-select save">    
                         </select>
                     </div>                
                 </label>
@@ -65,7 +65,7 @@
                 <label class="pp-input-wrap">
                 <b class="pp-label-text">Número de Documento</b> 
                     <div class="pp-custom-select">
-                        <select id="num_documento" name="num_documento" tabindex="0" class="pp-select salvar">    
+                        <select id="num_documento" name="num_documento" tabindex="0" class="pp-select save">    
                         </select>
                     </div>   
                 </label>
@@ -73,21 +73,23 @@
                 <label class="pp-input-wrap">
                 <b class="pp-label-text">Valor</b> 
                     <div class="pp-custom-select">
-                        <select id="valor" name="valor" tabindex="0" class="pp-select salvar">    
+                        <select id="valor" name="valor" tabindex="0" class="pp-select save">    
                         </select>
                     </div>                 
                 </label>
                    
                 <label class="pp-input-wrap">
                 <b class="pp-label-text">Multa/Juros</b> 
-                <select id="multa" name="multa" class="pp-custom-select salvar" onchange=""> 
-                </select>
+                    <div class="pp-custom-select">
+                        <select id="multa" name="multa" tabindex="0" class="pp-select save">    
+                        </select>
+                    </div>                   
                 </label>
                        
                 <label class="pp-input-wrap">
                 <b class="pp-label-text">Valor Multa</b> 
                     <div class="pp-custom-select">
-                        <select id="valor_multa" name="valor_multa" tabindex="0" class="pp-select salvar">    
+                        <select id="valor_multa" name="valor_multa" tabindex="0" class="pp-select save">    
                         </select>
                     </div>                   
                 </label>
@@ -95,20 +97,20 @@
                 <label class="pp-input-wrap">
                 <b class="pp-label-text">Vencimento Anterior</b> 
                     <div class="pp-custom-select">
-                        <select id="vencimento_anterior" name="vencimento_anterior" tabindex="0" class="pp-select salvar">    
+                        <select id="vencimento_anterior" name="vencimento_anterior" tabindex="0" class="pp-select save">    
                         </select>
                     </div> 
                 </label>
                        
-                <label class="pp-input-wrap">
-                <b class="pp-label-text">Vencimento Novo</b> 
-                <input id="vencimento_novo" name="vencimento_novo" type="text" placeholder="Vencimento Novo" tabindex="0" class="pp-input salvar">
+                <label class="pp-input-wrap  required">
+                    <b class="pp-label-text">Vencimento Novo</b> 
+                    <input id="vencimento_novo" name="vencimento_novo" type="text" tabindex="0" class="pp-input save mask-date">
                 </label>
                      
                 <label class="pp-input-wrap">
                 <b class="pp-label-text">Condicão de Pagamento</b> 
                     <div class="pp-custom-select">
-                        <select id="condicao_pagamento" name="condicao_pagamento"  tabindex="0" class="pp-select salvar">    
+                        <select id="condicao_pagamento" name="condicao_pagamento"  tabindex="0" class="pp-select save">    
                         </select>
                     </div>                 
                 </label>
@@ -116,32 +118,32 @@
                 <label class="pp-input-wrap">
                 <b class="pp-label-text">Condicão de Pagamento</b> 
                     <div class="pp-custom-select">
-                        <select id="forma_pagamento" name="forma_pagamento" tabindex="0" class="pp-select salvar">    
+                        <select id="forma_pagamento" name="forma_pagamento" tabindex="0" class="pp-select save">    
                         </select>
                     </div>
                 </label>
                    
-                <label class="pp-input-wrap">
-                <b class="pp-label-text">Historico</b> 
-                <input id="historico" name="historico" type="text" placeholder="Historico" tabindex="0" class="pp-input salvar">
+                <label class="pp-input-wrap required">
+                    <b class="pp-label-text">Historico</b> 
+                    <input id="historico" name="historico" type="text" tabindex="0" class="pp-input save">
                 </label>                   
 
                 <br>
                 <br>
 
-                <div class="pp-table-content">   
+                <div class="pp-table-content" id="grid1">   
                 <br>
-                <label class="pp-input-wrap">
-                <b class="pp-label-text">Grupo de Pagamento</b> 
-                <input id="grupo" name="grupo" type="text" placeholder="Grupo de Pagamento" tabindex="0" class="pp-input">
+                <label class="pp-input-wrap required">
+                    <b class="pp-label-text">Grupo de Pagamento</b> 
+                    <input id="grupo" name="grupo" type="text" tabindex="0" class="pp-input">
                 </label>    
-                <label class="pp-input-wrap">
-                <b class="pp-label-text">Centro de Custo</b> 
-                <input id="centro" name="centro" type="text" placeholder="Centro de Custo" tabindex="0" class="pp-input">
+                <label class="pp-input-wrap required">
+                    <b class="pp-label-text">Centro de Custo</b> 
+                    <input id="centro" name="centro" type="text" tabindex="0" class="pp-input">
                 </label>    
-                <label class="pp-input-wrap">
-                <b class="pp-label-text">Valor</b> 
-                <input id="valor_custo" name="valor_custo" type="text" placeholder="Valor" tabindex="0" class="pp-input">
+                <label class="pp-input-wrap required">
+                    <b class="pp-label-text">Valor</b> 
+                    <input id="valor_custo" name="valor_custo" type="text" tabindex="0" class="pp-input">
                 </label>   
                 <a href="javascript:addLine()" class="pp-ico-add"> adicionar</a>
 
@@ -164,9 +166,11 @@
     <script src="https://d1ukdhoxof1oxs.cloudfront.net/pipefy-client.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" media="all" href="https://s3.amazonaws.com/pipestyle/3.5.12/assets/stylesheets/platform-apps.css" />    
-    <script src="./js/card-tab.js?a11"></script>    
-    <script src="./js/data-base.js?a221111aa54aaa1"></script>
-    <script src="./js/grid.js?a1"></script>
+    <script src="./js/card-tab.js?a111sa21"></script>    
+    <script src="./js/data-base.js?a22s1111aa54a1aaa1"></script>
+    <script src="./js/grid.js?1a1sa"></script>
+    <script src="./js/mask.js?a11sa"></script>
+    <script src="./js/required.js?a112151454s6a"></script>
 
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" crossorigin="anonymous"></script>    
