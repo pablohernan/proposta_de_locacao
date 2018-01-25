@@ -3,7 +3,7 @@
 var Promise = PipefyApp.Promise;
 
 PipefyApp.initCall({
-  
+  /*
   'card-badges': function(p, context) {
     return [
       {
@@ -30,7 +30,7 @@ PipefyApp.initCall({
         title: 'Sample fixed badge',
       }
     ]
-  },
+  },*/
   
   'card-tab': function(p, pipe) {
      return {
