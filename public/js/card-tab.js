@@ -1,6 +1,6 @@
   
 
-var localVersion = false;
+var localVersion = true;
 
 var path = '';
 if(localVersion){
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
       }catch(e){console.log(e)}
 
-      /* SHOPPING*/
+      /* SHOPPING
       $.ajax({ 
           url: path+ "/services/SHOPPING.json?"+Math.random()
       }).then(function(data) {
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             //if(data.length>0)
               //populaEmpresa(data[0].value);
       });
-      /* SHOPPING*/
+      *//* SHOPPING*/
 
       /* CENTRO_CUSTO_COD*/
       $.ajax({ 
@@ -140,8 +140,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
             //var data = JSON.parse(data);  
             $('#NRO_DO_DOCUMENTO').append('<option value="" selected>::selecione::</option>'); 
             for( var i = 0 ; i < data.length ; i++ ){
-                $('#NRO_DO_DOCUMENTO').append('<option value=' + data[i].value + '>' + data[i].value + ' - ' +data[i].text + '</option>'); 
+                $('#NRO_DO_DOCUMENTO').append('<option vencimento="'+data[i].vencimento+'" valor="'+data[i].valor+'" value="' + data[i].value + '">' + data[i].value + ' - ' +data[i].text + '</option>'); 
             } 
+
+            $('#NRO_DO_DOCUMENTO').change(function(){
+              populaVencimento(this.options[this.selectedIndex].getAttribute('vencimento'));
+              populaValor(this.options[this.selectedIndex].getAttribute('valor'));
+            })
 
             // set value apos carregar
             p.get('card', 'public', 'NRO_DO_DOCUMENTO' ).then((campo) => {
@@ -292,5 +297,15 @@ function close(){
 function resize(){
   PipefyApp.resizeTo("#list");
 }
+
+function populaVencimento(vencimento){
+  $('#VENCIMENTO_ANTERIOR').val(vencimento);
+}
+
+function populaValor(valor){
+  $('#VALOR').val(valor);
+}
+
+
 
 

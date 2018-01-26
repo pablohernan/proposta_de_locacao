@@ -25,17 +25,20 @@
         
           <div class="pp-simple-box pp-bg-white">
              <section>
+               
+<!--
                 <label class="pp-input-wrap required">
                 <b class="pp-label-text">Shopping</b>      
                     <div class="pp-custom-select">
                         <select id="SHOPPING" name="SHOPPING" tabindex="0" class="pp-select save" >
-                        <!--
+
                         onchange="populaEmpresa($(this).val())"
-                        -->    
+   
                         </select>
                     </div>
                 </label>
-              
+-->
+
                 <label class="pp-input-wrap required">
                 <b class="pp-label-text">Empresa</b>                
                     <div class="pp-custom-select">
@@ -81,11 +84,8 @@
                 </label>
                       
                 <label class="pp-input-wrap">
-                <b class="pp-label-text">Valor</b> 
-                    <div class="pp-custom-select">
-                        <select id="VALOR" name="VALOR" tabindex="0" class="pp-select save">    
-                        </select>
-                    </div>                 
+                <b class="pp-label-text">Valor</b>  
+                    <input disabled="disabled" id="VALOR" name="VALOR"  type="text" tabindex="0" class="pp-input save">
                 </label>
                    
                 <label class="pp-input-wrap required">
@@ -106,10 +106,7 @@
                  
                 <label class="pp-input-wrap">
                 <b class="pp-label-text">Vencimento Anterior</b> 
-                    <div class="pp-custom-select">
-                        <select id="VENCIMENTO_ANTERIOR" name="VENCIMENTO_ANTERIOR" tabindex="0" class="pp-select save">    
-                        </select>
-                    </div> 
+                    <input disabled="disabled" id="VENCIMENTO_ANTERIOR" name="VENCIMENTO_ANTERIOR"  type="text" tabindex="0" class="pp-input save">                    
                 </label>
                        
                 <label class="pp-input-wrap  required">
