@@ -42,9 +42,16 @@
                 </label>
                 
                 <label class="pp-input-wrap">
-                <b class="pp-label-text">Tipo de Alteração</b> 
+                <b class="pp-label-text">Tipo de Alteração</b>
                     <div class="pp-custom-select">
-                        <select id="TIPO_DE_ALTERACAO_DESC" name="TIPO_DE_ALTERACAO_DESC" tabindex="0" class="pp-select save">    
+                        <select id="TIPO_DE_ALTERACAO_DESC" name="TIPO_DE_ALTERACAO_DESC" tabindex="0" class="pp-select save">   
+                            <option value="">::selecione::</option>
+                            <option value="1">Condição</option>
+                            <option value="2">Forma</option>
+                            <option value="3">Vencimento</option>
+                            <option value="4">Pagamento de compras</option>
+                            <option value="5">Classificação de despesa/ Centro de custo</option>
+                            <option value="6">Histórico</option> 
                         </select>
                     </div>
                 </label>
@@ -82,6 +89,9 @@
                 <b class="pp-label-text">Multa/Juros</b> 
                     <div class="pp-custom-select">
                         <select id="MULTA_JUROS_COD" name="MULTA_JUROS_COD" tabindex="0" class="pp-select save">    
+                            <option value="" selected="selected">::selecione::</option>
+                            <option value="1">Sim</option>
+                            <option value="0">Não</option>                        
                         </select>
                     </div>                   
                 </label>
@@ -89,8 +99,7 @@
                 <label class="pp-input-wrap">
                 <b class="pp-label-text">Valor Multa</b> 
                     <div class="pp-custom-select">
-                        <select id="VALOR_MULTA_JUROS" name="VALOR_MULTA_JUROS" tabindex="0" class="pp-select save">    
-                        </select>
+                        <input id="VALOR_MULTA_JUROS" name="VALOR_MULTA_JUROS" type="text" tabindex="0" class="pp-input save">
                     </div>                   
                 </label>
                  
@@ -118,7 +127,12 @@
                 <label class="pp-input-wrap">
                 <b class="pp-label-text">Forma de Pagamento</b> 
                     <div class="pp-custom-select">
-                        <select id="FORMA_DE_PAGAMENTO_COD" name="FORMA_DE_PAGAMENTO_COD" tabindex="0" class="pp-select save">    
+                        <select id="FORMA_DE_PAGAMENTO_COD" name="FORMA_DE_PAGAMENTO_COD" tabindex="0" class="pp-select save">  
+                            <option value="" selected="selected">::selecione::</option>
+                            <option value="Boleto">Boleto</option>
+                            <option value="Depósito">Depósito</option>
+                            <option value="Cheque Administrativo">Cheque Administrativo</option>
+                            <option value="Ordem de Pagamento">Ordem de Pagamento</option>
                         </select>
                     </div>
                 </label>
@@ -130,21 +144,30 @@
 
                 <br>
                 <br>
-                
+
 
                 <div class="pp-table-content" id="grid1">   
                 <br>
                 <label class="pp-input-wrap required">
                     <b class="pp-label-text">Grupo de Pagamento</b> 
-                    <input id="CLASSIFICACAO_DEPESA_COD" name="CLASSIFICACAO_DEPESA_COD" type="text" tabindex="0" class="pp-input">
+                    <div class="pp-custom-select">
+                        <select id="CLASSIFICACAO_DESPESA_COD" name="CLASSIFICACAO_DEPESA_COD" tabindex="0" class="pp-select">    
+                        </select>
+                    </div>
                 </label>    
                 <label class="pp-input-wrap required">
                     <b class="pp-label-text">Centro de Custo</b> 
-                    <input id="CENTRO_CUSTO_COD" name="CENTRO_CUSTO_COD" type="text" tabindex="0" class="pp-input">
+                    <div class="pp-custom-select">
+                        <select id="CENTRO_CUSTO_COD" name="CENTRO_CUSTO_COD" tabindex="0" class="pp-select">    
+                        </select>
+                    </div>
                 </label>    
                 <label class="pp-input-wrap required">
                     <b class="pp-label-text">Valor</b> 
-                    <input id="VALOR_GRID" name="VALOR_GRID" type="text" tabindex="0" class="pp-input">
+                    <div class="pp-custom-select">
+                        <select id="VALOR_GRID" name="VALOR_GRID" tabindex="0" class="pp-select">    
+                        </select>
+                    </div>                
                 </label>   
                 <a href="javascript:addLine()" class="pp-ico-add"> adicionar</a>
 
@@ -168,7 +191,8 @@
     <!-- Pipefy Apps SDK.js -->
     <script src="https://d1ukdhoxof1oxs.cloudfront.net/pipefy-client.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" media="all" href="https://s3.amazonaws.com/pipestyle/3.5.12/assets/stylesheets/platform-apps.css" />    
+    <link rel="stylesheet" media="all" href="https://s3.amazonaws.com/pipestyle/3.5.12/assets/stylesheets/platform-apps.css" />   
+    <script src="./js/htmlentities.js?a1a12151454s6a"></script>     
     <script src="./js/card-tab.js?a111asa21"></script>    
     <script src="./js/data-base.js?a22s1111aaa54a1aaa1"></script>
     <script src="./js/grid.js?1a1asa"></script>

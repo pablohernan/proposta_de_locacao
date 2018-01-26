@@ -26,18 +26,79 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
       }catch(e){console.log(e)}
 
-      /* popula shopping*/
+      /* SHOPPING*/
       $.ajax({ 
-          url: path+ "/services/shoppings.json?"+Math.random()
+          url: path+ "/services/SHOPPING.json?"+Math.random()
       }).then(function(data) {
             //var data = JSON.parse(data);  
+            $('#SHOPPING').append('<option value="">::selecione::</option>'); 
             for( var i = 0 ; i < data.length ; i++ ){
                 $('#SHOPPING').append('<option value=' + data[i].value + '>' + data[i].value + ' - ' +data[i].text + '</option>'); 
             } 
             if(data.length>0)
               populaEmpresa(data[0].value);
       });
-      /* popula shopping*/
+      /* SHOPPING*/
+
+      /* CENTRO_CUSTO_COD*/
+      $.ajax({ 
+          url: path+ "/services/CENTRO_CUSTO_COD.json?"+Math.random()
+      }).then(function(data) {
+            //var data = JSON.parse(data);  
+            $('#CENTRO_CUSTO_COD').append('<option value="">::selecione::</option>'); 
+            for( var i = 0 ; i < data.length ; i++ ){
+                $('#CENTRO_CUSTO_COD').append('<option value=' + data[i].value + '>' + data[i].value + ' - ' +data[i].text + '</option>'); 
+            } 
+      });
+      /* CENTRO_CUSTO_COD*/
+
+      /* CLASSIFICACAO_DESPESA_COD*/
+      $.ajax({ 
+          url: path+ "/services/CLASSIFICACAO_DESPESA_COD.json?"+Math.random()
+      }).then(function(data) {
+            //var data = JSON.parse(data);  
+            $('#CLASSIFICACAO_DESPESA_COD').append('<option value="">::selecione::</option>'); 
+            for( var i = 0 ; i < data.length ; i++ ){
+                $('#CLASSIFICACAO_DESPESA_COD').append('<option value=' + data[i].value + '>' + data[i].value + ' - ' +data[i].text + '</option>'); 
+            } 
+      });
+      /* CLASSIFICACAO_DESPESA_COD*/
+
+      /* CONDICAO_DE_PAGAMENTO_COD*/
+      $.ajax({ 
+          url: path+ "/services/CONDICAO_DE_PAGAMENTO_COD.json?"+Math.random()
+      }).then(function(data) {
+            //var data = JSON.parse(data);  
+            $('#CONDICAO_DE_PAGAMENTO_COD').append('<option value="">::selecione::</option>'); 
+            for( var i = 0 ; i < data.length ; i++ ){
+                $('#CONDICAO_DE_PAGAMENTO_COD').append('<option value=' + data[i].value + '>' + data[i].value + ' - ' +data[i].text + '</option>'); 
+            } 
+      });
+      /* CONDICAO_DE_PAGAMENTO_COD*/
+
+      /* FORNECEDOR_COD*/
+      $.ajax({ 
+          url: path+ "/services/FORNECEDOR_COD.json?"+Math.random(),
+      }).then(function(data) {
+            //var data = JSON.parse(data);  
+            $('#FORNECEDOR_COD').append('<option value="">::selecione::</option>'); 
+            for( var i = 0 ; i < data.length ; i++ ){
+                $('#FORNECEDOR_COD').append('<option value=' + data[i].value + '>' + data[i].value + ' - ' + data[i].text + '</option>'); 
+            } 
+      });
+      /* FORNECEDOR_COD*/
+
+      /* NRO_DO_DOCUMENTO*/
+      $.ajax({ 
+          url: path+ "/services/NRO_DO_DOCUMENTO.json?"+Math.random()
+      }).then(function(data) {
+            //var data = JSON.parse(data);  
+            $('#NRO_DO_DOCUMENTO').append('<option value="">::selecione::</option>'); 
+            for( var i = 0 ; i < data.length ; i++ ){
+                $('#NRO_DO_DOCUMENTO').append('<option value=' + data[i].value + '>' + data[i].value + ' - ' +data[i].text + '</option>'); 
+            } 
+      });
+      /* FORNECEDOR_COD*/      
 
       // popula todos los campos
       popular();
@@ -49,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 function populaEmpresa(value){
   /* popula empresa*/
   $.ajax({ 
-      url: path+ "/services/empresas.json?"+Math.random()
+      url: path+ "/services/EMPRESA_COD.json?"+Math.random()
   }).then(function(data) {
         //var data = JSON.parse(data);  
         $('#EMPRESA_COD').html('');
@@ -120,7 +181,7 @@ try{
 function addLine(){
 
   if(!rc_showMesagesGrid('grid1')){
-      var grupo = $( "#CLASSIFICACAO_DEPESA_COD" ).val();
+      var grupo = $( "#CLASSIFICACAO_DESPESA_COD" ).val();
       var centro = $( "#CENTRO_CUSTO_COD" ).val();
       var valor_custo = $( "#VALOR_GRID" ).val();
 
@@ -129,7 +190,7 @@ function addLine(){
       /* add line */
       grid_addLine(grupo,centro,valor_custo);
   }else{
-      p.showNotification('Deve preencher os campos obrigatorios (*)', 'error');
+      p.showNotification('Deve preencher os campos obrigatórios (*)', 'error');
       resize();
   }
 
@@ -144,7 +205,7 @@ function close(){
       p.showNotification('Formulario salvo!', 'success');
       p.closeCard();
   }else{
-      p.showNotification('Deve preencher os campos obrigatorios (*)', 'error');
+      p.showNotification('Deve preencher os campos obrigatórios (*)', 'error');
       resize();
   }
 
