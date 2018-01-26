@@ -28,7 +28,7 @@
                 <label class="pp-input-wrap">
                 <b class="pp-label-text">Shopping</b>      
                     <div class="pp-custom-select">
-                        <select id="shopping" name="shopping" tabindex="0" class="pp-select save" onchange="populaEmpresa($(this).val())">    
+                        <select id="SHOPPING" name="SHOPPING" tabindex="0" class="pp-select save" onchange="populaEmpresa($(this).val())">    
                         </select>
                     </div>
                 </label>
@@ -36,7 +36,7 @@
                 <label class="pp-input-wrap">
                 <b class="pp-label-text">Empresa</b>                
                     <div class="pp-custom-select">
-                        <select id="empresa" name="empresa" tabindex="0" class="pp-select save">    
+                        <select id="EMPRESA_COD" name="EMPRESA_COD" tabindex="0" class="pp-select save">    
                         </select>
                     </div>
                 </label>
@@ -44,20 +44,20 @@
                 <label class="pp-input-wrap">
                 <b class="pp-label-text">Tipo de Alteração</b> 
                     <div class="pp-custom-select">
-                        <select id="tipo" name="tipo" tabindex="0" class="pp-select save">    
+                        <select id="TIPO_DE_ALTERACAO_DESC" name="TIPO_DE_ALTERACAO_DESC" tabindex="0" class="pp-select save">    
                         </select>
                     </div>
                 </label>
                   
                 <label class="pp-input-wrap">
                 <b class="pp-label-text">CPF/CNPJ Fornecedor</b> 
-                <input id="cpf" name="cpf" type="text" tabindex="0" class="pp-input save mask-cpf">
+                <input id="FORNECEDOR_CONSULTA" name="FORNECEDOR_CONSULTA" type="text" tabindex="0" class="pp-input save mask-cpf">
                 </label>
                        
                 <label class="pp-input-wrap">
                 <b class="pp-label-text">Fornecedor</b> 
                     <div class="pp-custom-select">
-                        <select id="fornecedor" name="fornecedor" tabindex="0" class="pp-select save">    
+                        <select id="FORNECEDOR_COD" name="FORNECEDOR_COD" tabindex="0" class="pp-select save">    
                         </select>
                     </div>                
                 </label>
@@ -65,7 +65,7 @@
                 <label class="pp-input-wrap">
                 <b class="pp-label-text">Número de Documento</b> 
                     <div class="pp-custom-select">
-                        <select id="num_documento" name="num_documento" tabindex="0" class="pp-select save">    
+                        <select id="NRO_DO_DOCUMENTO" name="NRO_DO_DOCUMENTO" tabindex="0" class="pp-select save">    
                         </select>
                     </div>   
                 </label>
@@ -73,7 +73,7 @@
                 <label class="pp-input-wrap">
                 <b class="pp-label-text">Valor</b> 
                     <div class="pp-custom-select">
-                        <select id="valor" name="valor" tabindex="0" class="pp-select save">    
+                        <select id="VALOR" name="VALOR" tabindex="0" class="pp-select save">    
                         </select>
                     </div>                 
                 </label>
@@ -81,7 +81,7 @@
                 <label class="pp-input-wrap">
                 <b class="pp-label-text">Multa/Juros</b> 
                     <div class="pp-custom-select">
-                        <select id="multa" name="multa" tabindex="0" class="pp-select save">    
+                        <select id="MULTA_JUROS_COD" name="MULTA_JUROS_COD" tabindex="0" class="pp-select save">    
                         </select>
                     </div>                   
                 </label>
@@ -89,7 +89,7 @@
                 <label class="pp-input-wrap">
                 <b class="pp-label-text">Valor Multa</b> 
                     <div class="pp-custom-select">
-                        <select id="valor_multa" name="valor_multa" tabindex="0" class="pp-select save">    
+                        <select id="VALOR_MULTA_JUROS" name="VALOR_MULTA_JUROS" tabindex="0" class="pp-select save">    
                         </select>
                     </div>                   
                 </label>
@@ -97,53 +97,54 @@
                 <label class="pp-input-wrap">
                 <b class="pp-label-text">Vencimento Anterior</b> 
                     <div class="pp-custom-select">
-                        <select id="vencimento_anterior" name="vencimento_anterior" tabindex="0" class="pp-select save">    
+                        <select id="VENCIMENTO_ANTERIOR" name="VENCIMENTO_ANTERIOR" tabindex="0" class="pp-select save">    
                         </select>
                     </div> 
                 </label>
                        
                 <label class="pp-input-wrap  required">
                     <b class="pp-label-text">Vencimento Novo</b> 
-                    <input id="vencimento_novo" name="vencimento_novo" type="text" tabindex="0" class="pp-input save mask-date">
+                    <input id="VENCIMENTO_NOVO" name="VENCIMENTO_NOVO" type="text" tabindex="0" class="pp-input save mask-date">
                 </label>
                      
                 <label class="pp-input-wrap">
                 <b class="pp-label-text">Condicão de Pagamento</b> 
                     <div class="pp-custom-select">
-                        <select id="condicao_pagamento" name="condicao_pagamento"  tabindex="0" class="pp-select save">    
+                        <select id="CONDICAO_DE_PAGAMENTO_COD" name="CONDICAO_DE_PAGAMENTO_COD"  tabindex="0" class="pp-select save">    
                         </select>
                     </div>                 
                 </label>
                      
                 <label class="pp-input-wrap">
-                <b class="pp-label-text">Condicão de Pagamento</b> 
+                <b class="pp-label-text">Forma de Pagamento</b> 
                     <div class="pp-custom-select">
-                        <select id="forma_pagamento" name="forma_pagamento" tabindex="0" class="pp-select save">    
+                        <select id="FORMA_DE_PAGAMENTO_COD" name="FORMA_DE_PAGAMENTO_COD" tabindex="0" class="pp-select save">    
                         </select>
                     </div>
                 </label>
                    
                 <label class="pp-input-wrap required">
                     <b class="pp-label-text">Historico</b> 
-                    <input id="historico" name="historico" type="text" tabindex="0" class="pp-input save">
+                    <input id="HISTORICO" name="HISTORICO" type="text" tabindex="0" class="pp-input save">
                 </label>                   
 
                 <br>
                 <br>
+                
 
                 <div class="pp-table-content" id="grid1">   
                 <br>
                 <label class="pp-input-wrap required">
                     <b class="pp-label-text">Grupo de Pagamento</b> 
-                    <input id="grupo" name="grupo" type="text" tabindex="0" class="pp-input">
+                    <input id="CLASSIFICACAO_DEPESA_COD" name="CLASSIFICACAO_DEPESA_COD" type="text" tabindex="0" class="pp-input">
                 </label>    
                 <label class="pp-input-wrap required">
                     <b class="pp-label-text">Centro de Custo</b> 
-                    <input id="centro" name="centro" type="text" tabindex="0" class="pp-input">
+                    <input id="CENTRO_CUSTO_COD" name="CENTRO_CUSTO_COD" type="text" tabindex="0" class="pp-input">
                 </label>    
                 <label class="pp-input-wrap required">
                     <b class="pp-label-text">Valor</b> 
-                    <input id="valor_custo" name="valor_custo" type="text" tabindex="0" class="pp-input">
+                    <input id="VALOR_GRID" name="VALOR_GRID" type="text" tabindex="0" class="pp-input">
                 </label>   
                 <a href="javascript:addLine()" class="pp-ico-add"> adicionar</a>
 

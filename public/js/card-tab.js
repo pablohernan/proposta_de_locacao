@@ -120,9 +120,9 @@ try{
 function addLine(){
 
   if(!rc_showMesagesGrid('grid1')){
-      var grupo = $( "#grupo" ).val();
-      var centro = $( "#centro" ).val();
-      var valor_custo = $( "#valor_custo" ).val();
+      var grupo = $( "#CLASSIFICACAO_DEPESA_COD" ).val();
+      var centro = $( "#CENTRO_CUSTO_COD" ).val();
+      var valor_custo = $( "#VALOR_GRID" ).val();
 
       /* insert db */
       db_insert(cardId,grupo,grupo,centro,centro,valor_custo);
