@@ -35,6 +35,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
             for( var i = 0 ; i < data.length ; i++ ){
                 $('#SHOPPING').append('<option value=' + data[i].value + '>' + data[i].value + ' - ' +data[i].text + '</option>'); 
             } 
+
+            // set value apos carregar
+            p.get('card', 'public', 'SHOPPING' ).then((campo) => {
+              if(campo != 'null' && campo != null && campo != '')
+                $( '#' + $( '#SHOPPING' ).attr('id') ).val(campo);
+            }).catch((error) => {
+              console.log(error);
+            }); 
+            
             //if(data.length>0)
               //populaEmpresa(data[0].value);
       });
@@ -49,6 +58,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
             for( var i = 0 ; i < data.length ; i++ ){
                 $('#CENTRO_CUSTO_COD').append('<option value=' + data[i].value + '>' + data[i].value + ' - ' +data[i].text + '</option>'); 
             } 
+
+            // set value apos carregar
+            p.get('card', 'public', 'CENTRO_CUSTO_COD' ).then((campo) => {
+              if(campo != 'null' && campo != null && campo != '')
+                $( '#' + $( '#CENTRO_CUSTO_COD' ).attr('id') ).val(campo);
+            }).catch((error) => {
+              console.log(error);
+            });   
+
       });
       /* CENTRO_CUSTO_COD*/
 
@@ -61,6 +79,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
             for( var i = 0 ; i < data.length ; i++ ){
                 $('#CLASSIFICACAO_DESPESA_COD').append('<option value=' + data[i].value + '>' + data[i].value + ' - ' +data[i].text + '</option>'); 
             } 
+
+            // set value apos carregar
+            p.get('card', 'public', 'CLASSIFICACAO_DESPESA_COD' ).then((campo) => {
+              if(campo != 'null' && campo != null && campo != '')
+                $( '#' + $( '#CLASSIFICACAO_DESPESA_COD' ).attr('id') ).val(campo);
+            }).catch((error) => {
+              console.log(error);
+            });   
+
       });
       /* CLASSIFICACAO_DESPESA_COD*/
 
@@ -73,6 +100,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
             for( var i = 0 ; i < data.length ; i++ ){
                 $('#CONDICAO_DE_PAGAMENTO_COD').append('<option value=' + data[i].value + '>' + data[i].value + ' - ' +data[i].text + '</option>'); 
             } 
+
+            // set value apos carregar
+            p.get('card', 'public', 'CONDICAO_DE_PAGAMENTO_COD' ).then((campo) => {
+              if(campo != 'null' && campo != null && campo != '')
+                $( '#' + $( '#CONDICAO_DE_PAGAMENTO_COD' ).attr('id') ).val(campo);
+            }).catch((error) => {
+              console.log(error);
+            });   
+
       });
       /* CONDICAO_DE_PAGAMENTO_COD*/
 
@@ -85,6 +121,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
             for( var i = 0 ; i < data.length ; i++ ){
                 $('#FORNECEDOR_COD').append('<option value=' + data[i].value + '>' + data[i].value + ' - ' + data[i].text + '</option>'); 
             } 
+
+            // set value apos carregar
+            p.get('card', 'public', 'FORNECEDOR_COD' ).then((campo) => {
+              if(campo != 'null' && campo != null && campo != '')
+                $( '#' + $( '#FORNECEDOR_COD' ).attr('id') ).val(campo);
+            }).catch((error) => {
+              console.log(error);
+            });   
+
       });
       /* FORNECEDOR_COD*/
 
@@ -97,6 +142,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
             for( var i = 0 ; i < data.length ; i++ ){
                 $('#NRO_DO_DOCUMENTO').append('<option value=' + data[i].value + '>' + data[i].value + ' - ' +data[i].text + '</option>'); 
             } 
+
+            // set value apos carregar
+            p.get('card', 'public', 'NRO_DO_DOCUMENTO' ).then((campo) => {
+              if(campo != 'null' && campo != null && campo != '')
+                $( '#' + $( '#NRO_DO_DOCUMENTO' ).attr('id') ).val(campo);
+            }).catch((error) => {
+              console.log(error);
+            });   
+
       });
       /* FORNECEDOR_COD*/      
 
@@ -109,7 +163,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
             $('#EMPRESA_COD').append('<option value="">::selecione::</option>'); 
             for( var i = 0 ; i < data.length ; i++ ){
                 $('#EMPRESA_COD').append('<option value=' + data[i].value + '>id do shopping:' + value + ' - ' +data[i].text + '</option>'); 
-            }     
+            }   
+
+            // set value apos carregar
+            p.get('card', 'public', 'EMPRESA_COD' ).then((campo) => {
+              if(campo != 'null' && campo != null && campo != '')
+                $( '#' + $( '#EMPRESA_COD' ).attr('id') ).val(campo);
+            }).catch((error) => {
+              console.log(error);
+            });              
 
       });
       /* EMPRESA_COD*/
