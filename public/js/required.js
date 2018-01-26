@@ -12,7 +12,8 @@ function rc_showMesages(){
 	$('.required').each(function(index){		
 		
 		/* inputs */
-		if($(this).find('.pp-input').val() == '' && $(this).find('.pp-input').hasClass('save')){
+		if($(this).find('.pp-input').length > 0 && $.trim($(this).find('.pp-input').val()) == '' && $(this).find('.pp-input').hasClass('save')){
+			$(this).find('.pp-input').focus();
 			$(this).addClass('pp-error');
 
 			if($(this).find('.pp-help-message').length==0)
@@ -28,7 +29,8 @@ function rc_showMesages(){
 		}
 
 		/* selects */
-		if($(this).find('.pp-select').val() == '' && $(this).find('.pp-input').hasClass('save')){
+		if($(this).find('.pp-select').length > 0 && $.trim($(this).find('.pp-select').val()) && $(this).find('.pp-input').hasClass('save')){
+			$(this).find('.pp-select').focus();
 			$(this).addClass('pp-error');
 			
 			if($(this).find('.pp-help-message').length==0)
@@ -57,6 +59,7 @@ function rc_showMesagesGrid(id){
 		
 		/* inputs */
 		if( $(this).find('.pp-input').length > 0 && $.trim($(this).find('.pp-input').val()) == '' ){
+			$(this).find('.pp-input').focus();
 			$(this).addClass('pp-error');
 
 			if($(this).find('.pp-help-message').length==0)
@@ -73,6 +76,7 @@ function rc_showMesagesGrid(id){
 
 		/* selects */
 		if( $(this).find('.pp-select').length > 0 && $.trim($(this).find('.pp-select').val()) == '' ){
+			$(this).find('.pp-select').focus();
 			$(this).addClass('pp-error');
 
 			if($(this).find('.pp-help-message').length==0)
