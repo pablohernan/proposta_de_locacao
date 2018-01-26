@@ -162,7 +162,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             //var data = JSON.parse(data);  
             $('#EMPRESA_COD').append('<option value="">::selecione::</option>'); 
             for( var i = 0 ; i < data.length ; i++ ){
-                $('#EMPRESA_COD').append('<option value=' + data[i].value + '>id do shopping:' + value + ' - ' +data[i].text + '</option>'); 
+                $('#EMPRESA_COD').append('<option value=' + data[i].value + '>' + data[i].text + '</option>'); 
             }   
 
             // set value apos carregar
