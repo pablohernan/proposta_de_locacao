@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
           url: path+ "/services/SHOPPING.json?"+Math.random()
       }).then(function(data) {
             //var data = JSON.parse(data);  
-            $('#SHOPPING').append('<option value="">::selecione::</option>'); 
+            $('#SHOPPING').append('<option value="" selected>::selecione::</option>'); 
             for( var i = 0 ; i < data.length ; i++ ){
                 $('#SHOPPING').append('<option value=' + data[i].value + '>' + data[i].value + ' - ' +data[i].text + '</option>'); 
             } 
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
           url: path+ "/services/CENTRO_CUSTO_COD.json?"+Math.random()
       }).then(function(data) {
             //var data = JSON.parse(data);  
-            $('#CENTRO_CUSTO_COD').append('<option value="">::selecione::</option>'); 
+            $('#CENTRO_CUSTO_COD').append('<option value="" selected>::selecione::</option>'); 
             for( var i = 0 ; i < data.length ; i++ ){
                 $('#CENTRO_CUSTO_COD').append('<option value=' + data[i].value + '>' + data[i].value + ' - ' +data[i].text + '</option>'); 
             } 
@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
           url: path+ "/services/CLASSIFICACAO_DESPESA_COD.json?"+Math.random()
       }).then(function(data) {
             //var data = JSON.parse(data);  
-            $('#CLASSIFICACAO_DESPESA_COD').append('<option value="">::selecione::</option>'); 
+            $('#CLASSIFICACAO_DESPESA_COD').append('<option value="" selected>::selecione::</option>'); 
             for( var i = 0 ; i < data.length ; i++ ){
                 $('#CLASSIFICACAO_DESPESA_COD').append('<option value=' + data[i].value + '>' + data[i].value + ' - ' +data[i].text + '</option>'); 
             } 
@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
           url: path+ "/services/CONDICAO_DE_PAGAMENTO_COD.json?"+Math.random()
       }).then(function(data) {
             //var data = JSON.parse(data);  
-            $('#CONDICAO_DE_PAGAMENTO_COD').append('<option value="">::selecione::</option>'); 
+            $('#CONDICAO_DE_PAGAMENTO_COD').append('<option value="" selected>::selecione::</option>'); 
             for( var i = 0 ; i < data.length ; i++ ){
                 $('#CONDICAO_DE_PAGAMENTO_COD').append('<option value=' + data[i].value + '>' + data[i].value + ' - ' +data[i].text + '</option>'); 
             } 
@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
           url: path+ "/services/FORNECEDOR_COD.json?"+Math.random(),
       }).then(function(data) {
             //var data = JSON.parse(data);  
-            $('#FORNECEDOR_COD').append('<option value="">::selecione::</option>'); 
+            $('#FORNECEDOR_COD').append('<option value="" selected>::selecione::</option>'); 
             for( var i = 0 ; i < data.length ; i++ ){
                 $('#FORNECEDOR_COD').append('<option value=' + data[i].value + '>' + data[i].value + ' - ' + data[i].text + '</option>'); 
             } 
@@ -138,7 +138,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
           url: path+ "/services/NRO_DO_DOCUMENTO.json?"+Math.random()
       }).then(function(data) {
             //var data = JSON.parse(data);  
-            $('#NRO_DO_DOCUMENTO').append('<option value="">::selecione::</option>'); 
+            $('#NRO_DO_DOCUMENTO').append('<option value="" selected>::selecione::</option>'); 
             for( var i = 0 ; i < data.length ; i++ ){
                 $('#NRO_DO_DOCUMENTO').append('<option value=' + data[i].value + '>' + data[i].value + ' - ' +data[i].text + '</option>'); 
             } 
@@ -160,7 +160,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
           url: path+ "/services/EMPRESA_COD.json?"+Math.random()
       }).then(function(data) {
             //var data = JSON.parse(data);  
-            $('#EMPRESA_COD').append('<option value="">::selecione::</option>'); 
+            $('#EMPRESA_COD').append('<option value="" selected>::selecione::</option>'); 
             for( var i = 0 ; i < data.length ; i++ ){
                 $('#EMPRESA_COD').append('<option value=' + data[i].value + '>' + data[i].text + '</option>'); 
             }   
