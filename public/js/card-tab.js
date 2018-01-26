@@ -74,7 +74,7 @@ function populaEmpresa(value){
 function salvar(){
 
   console.log('## set ##');
-  $( ".salvar" ).each(function( index ) {
+  $( ".save" ).each(function( index ) {
     console.log( $( this ).attr('id') + ' : ' + String($( this ).val()) );
     p.set('card', 'public', $( this ).attr('id') , String($( this ).val()) );
   }); 
