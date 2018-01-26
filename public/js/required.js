@@ -29,7 +29,7 @@ function rc_showMesages(){
 		}
 
 		/* selects */
-		if($(this).find('.pp-select').length > 0 && $.trim($(this).find('.pp-select').val()) && $(this).find('.pp-input').hasClass('save')){
+		if($(this).find('.pp-select').length > 0 && $.trim($(this).find('.pp-select').val()) == '' && $(this).find('.pp-select').hasClass('save')){
 			$(this).find('.pp-select').focus();
 			$(this).addClass('pp-error');
 			
