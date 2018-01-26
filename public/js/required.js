@@ -17,7 +17,7 @@ function rc_showMesages(){
 			$(this).addClass('pp-error');
 
 			if($(this).find('.pp-help-message').length==0)
-				$(this).append('<span class="pp-help-message">Campo obrigatorio</span>');
+				$(this).append('<span class="pp-help-message">Campo obrigatório</span>');
 			
 			$(this).find('.pp-input').keypress(function(event) {
 		    event = event || window.event;
@@ -34,7 +34,7 @@ function rc_showMesages(){
 			$(this).addClass('pp-error');
 			
 			if($(this).find('.pp-help-message').length==0)
-				$(this).append('<span class="pp-help-message">Campo obrigatorio</span>');
+				$(this).append('<span class="pp-help-message">Campo obrigatório</span>');
 
 			$(this).find('.pp-select').keypress(function(event) {
 		    event = event || window.event;
@@ -63,7 +63,7 @@ function rc_showMesagesGrid(id){
 			$(this).addClass('pp-error');
 
 			if($(this).find('.pp-help-message').length==0)
-				$(this).append('<span class="pp-help-message">Campo obrigatorio</span>');
+				$(this).append('<span class="pp-help-message">Campo obrigatório</span>');
 			
 			$(this).find('.pp-input').keypress(function(event) {
 		    event = event || window.event;
@@ -80,7 +80,7 @@ function rc_showMesagesGrid(id){
 			$(this).addClass('pp-error');
 
 			if($(this).find('.pp-help-message').length==0)
-				$(this).append('<span class="pp-help-message">Campo obrigatorio</span>');
+				$(this).append('<span class="pp-help-message">Campo obrigatório</span>');
 
 			$(this).find('.pp-select').keypress(function(event) {
 		    event = event || window.event;
