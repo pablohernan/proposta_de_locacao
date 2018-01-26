@@ -12,7 +12,7 @@ function rc_showMesages(){
 	$('.required').each(function(index){		
 		
 		/* inputs */
-		if($(this).find('.pp-input') && $(this).find('.pp-input').val().trim() == '' && $(this).find('.pp-input').hasClass('save')){
+		if($(this).find('.pp-input').val() == '' && $(this).find('.pp-input').hasClass('save')){
 			$(this).addClass('pp-error');
 
 			if($(this).find('.pp-help-message').length==0)
@@ -28,7 +28,7 @@ function rc_showMesages(){
 		}
 
 		/* selects */
-		if($(this).find('.pp-select') $(this).find('.pp-select').val().trim() == '' && $(this).find('.pp-input').hasClass('save')){
+		if($(this).find('.pp-select').val() == '' && $(this).find('.pp-input').hasClass('save')){
 			$(this).addClass('pp-error');
 			
 			if($(this).find('.pp-help-message').length==0)
@@ -56,7 +56,7 @@ function rc_showMesagesGrid(id){
 	$('#'+id).find('.required').each(function(index){		
 		
 		/* inputs */
-		if($(this).find('.pp-input') && $(this).find('.pp-input').val().trim() == '' ){
+		if( $(this).find('.pp-input').length > 0 && $.trim($(this).find('.pp-input').val()) == '' ){
 			$(this).addClass('pp-error');
 
 			if($(this).find('.pp-help-message').length==0)
@@ -72,7 +72,7 @@ function rc_showMesagesGrid(id){
 		}
 
 		/* selects */
-		if($(this).find('.pp-select') && $(this).find('.pp-select').val().trim() == '' ){
+		if( $(this).find('.pp-select').length > 0 && $.trim($(this).find('.pp-select').val()) == '' ){
 			$(this).addClass('pp-error');
 
 			if($(this).find('.pp-help-message').length==0)
