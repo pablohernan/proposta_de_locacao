@@ -65,7 +65,7 @@ function rc_showMesagesGrid(id){
 			if($(this).find('.pp-help-message').length==0)
 				$(this).append('<span class="pp-help-message">Campo obrigatório</span>');
 			
-			$(this).find('.pp-input').change(function(event) {
+			$(this).find('.pp-input').keypress(function(event) {
 		    event = event || window.event;
 		    var target = event.target || evtobj.srcElement; 
 	    	$('#'+target.id).parent().removeClass('pp-error');
@@ -82,7 +82,7 @@ function rc_showMesagesGrid(id){
 			if($(this).find('.pp-help-message').length==0)
 				$(this).append('<span class="pp-help-message">Campo obrigatório</span>');
 
-			$(this).find('.pp-select').keypress(function(event) {
+			$(this).find('.pp-select').change(function(event) {
 		    event = event || window.event;
 		    var target = event.target || evtobj.srcElement; 
 	    	$('#'+target.id).parent().parent().removeClass('pp-error');
