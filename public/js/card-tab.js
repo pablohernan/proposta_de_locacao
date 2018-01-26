@@ -1,6 +1,6 @@
   
 
-var localVersion = false;
+var localVersion = true;
 
 var path = '';
 if(localVersion){
