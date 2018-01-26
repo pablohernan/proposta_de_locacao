@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             }).catch((error) => {
               console.log(error);
             }); 
-            
+
             //if(data.length>0)
               //populaEmpresa(data[0].value);
       });
@@ -177,7 +177,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       /* EMPRESA_COD*/
 
       // popula todos los campos
-      popular();
+     // popular();
 
 });      
 
