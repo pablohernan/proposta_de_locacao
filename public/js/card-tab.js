@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       }).then(function(data) {
             //var data = JSON.parse(data);  
             for( var i = 0 ; i < data.length ; i++ ){
-                $('#shopping').append('<option value=' + data[i].value + '>' + data[i].value + ' - ' +data[i].text + '</option>'); 
+                $('#SHOPPING').append('<option value=' + data[i].value + '>' + data[i].value + ' - ' +data[i].text + '</option>'); 
             } 
             if(data.length>0)
               populaEmpresa(data[0].value);
@@ -52,15 +52,15 @@ function populaEmpresa(value){
       url: path+ "/services/empresas.json?"+Math.random()
   }).then(function(data) {
         //var data = JSON.parse(data);  
-        $('#empresa').html('');
+        $('#EMPRESA_COD').html('');
         for( var i = 0 ; i < data.length ; i++ ){
-            $('#empresa').append('<option value=' + data[i].value + '>id do shopping:' + value + ' - ' +data[i].text + '</option>'); 
+            $('#EMPRESA_COD').append('<option value=' + data[i].value + '>id do shopping:' + value + ' - ' +data[i].text + '</option>'); 
         }     
 
         // set value apos carregar
-        p.get('card', 'public', 'empresa' ).then((campo) => {
+        p.get('card', 'public', 'EMPRESA_COD' ).then((campo) => {
           if(campo != 'null' && campo != null && campo != '')
-            $( '#' + $( '#empresa' ).attr('id') ).val(campo);
+            $( '#' + $( '#EMPRESA_COD' ).attr('id') ).val(campo);
         }).catch((error) => {
           console.log(error);
         });
