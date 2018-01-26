@@ -142,6 +142,7 @@ function close(){
   if(!rc_showMesages()){
       salvar();
       p.showNotification('Formulario salvo!', 'success');
+      p.closeCard();
   }else{
       p.showNotification('Deve preencher os campos obrigatorios (*)', 'error');
       resize();
