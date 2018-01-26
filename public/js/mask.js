@@ -28,7 +28,7 @@ $.getScript('./js/jquery.mask.js', function()
 
   $('.mask-money').mask('000.000.000.000.000,00', {reverse: true, placeholder: "__.___.___/____-__"});
 
-  $('.mask-money2').mask("#.##0,00", {reverse: true, placeholder: "_,__"});
+  $('.mask-money2').mask("#.##0,00", {reverse: true, placeholder: "_,__ R$"});
 
   $('.mask-ip_address').mask('099.099.099.099', {placeholder: "___.___.___.___"});
 
