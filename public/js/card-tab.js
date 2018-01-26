@@ -177,7 +177,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       /* EMPRESA_COD*/
 
       // popula todos los campos
-     // popular();
+      popular();
 
 });      
 
