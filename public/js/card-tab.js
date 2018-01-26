@@ -35,8 +35,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
             for( var i = 0 ; i < data.length ; i++ ){
                 $('#SHOPPING').append('<option value=' + data[i].value + '>' + data[i].value + ' - ' +data[i].text + '</option>'); 
             } 
-            if(data.length>0)
-              populaEmpresa(data[0].value);
+            //if(data.length>0)
+              //populaEmpresa(data[0].value);
       });
       /* SHOPPING*/
 
@@ -99,6 +99,20 @@ document.addEventListener("DOMContentLoaded", function(event) {
             } 
       });
       /* FORNECEDOR_COD*/      
+
+
+      /* EMPRESA_COD*/
+      $.ajax({ 
+          url: path+ "/services/EMPRESA_COD.json?"+Math.random()
+      }).then(function(data) {
+            //var data = JSON.parse(data);  
+            $('#EMPRESA_COD').append('<option value="">::selecione::</option>'); 
+            for( var i = 0 ; i < data.length ; i++ ){
+                $('#EMPRESA_COD').append('<option value=' + data[i].value + '>id do shopping:' + value + ' - ' +data[i].text + '</option>'); 
+            }     
+
+      });
+      /* EMPRESA_COD*/
 
       // popula todos los campos
       popular();
