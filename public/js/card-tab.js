@@ -130,6 +130,7 @@ function addLine(){
       grid_addLine(grupo,centro,valor_custo);
   }else{
       p.showNotification('Deve preencher os campos obrigatorios (*)', 'error');
+      resize();
   }
 
 }
@@ -143,6 +144,7 @@ function close(){
       p.showNotification('Formulario salvo!', 'success');
   }else{
       p.showNotification('Deve preencher os campos obrigatorios (*)', 'error');
+      resize();
   }
 
 
