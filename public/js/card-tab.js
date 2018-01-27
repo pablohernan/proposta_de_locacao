@@ -182,7 +182,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       /* EMPRESA_COD*/
 
       // popula todos los campos
-      setTimeout( function(){popular();}, 1000};
+      setTimeout( function(){popular();}, 1000);
 
 });      
 
