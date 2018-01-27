@@ -23,13 +23,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
           console.log('CARD_ID:'+card.id) // { id: '23abc', ... }
           cardId = card.id;
         });
-
+/*
         p.modal({
           url: './images/icon_grande.svg',
           height: '70%',
           width: '70%',
         });
-
+*/
       }catch(e){console.log(e)}
 
       /* SHOPPING
