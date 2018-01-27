@@ -24,6 +24,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
           cardId = card.id;
         });
 
+        p.modal({
+          url: './images/icon_grande.svg',
+          height: '70%',
+          width: '70%',
+        });
+
       }catch(e){console.log(e)}
 
       /* SHOPPING
