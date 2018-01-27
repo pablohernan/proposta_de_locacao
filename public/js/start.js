@@ -1,7 +1,7 @@
 /* global PipefyApp, emojis */
 document.addEventListener("DOMContentLoaded", function(event) {
 
-    console.log('##START##')
+    console.log('##START##');
     var Promise = PipefyApp.Promise;
     PipefyApp.initCall({
       /*
