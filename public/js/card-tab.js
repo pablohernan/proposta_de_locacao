@@ -318,6 +318,7 @@ function populaValor(valor){
 function showList(){
   $('#load').hide();
   $('#list').show();
+  resize();
 }
 
 
