@@ -57,10 +57,10 @@ function getEntradas(callBackFn){
 
   var objsArray = $( ".save" ).toArray();
   p.get('card', 'public', objsArray[entradas.length].id ).then((campo) => {
-      entradas[objsArray[entradas.length].id] = campo;
+      entradas.push({'name' : objsArray[entradas.length].id , 'value' : campo});
       getEntradas(callBackFn);
   }).catch((error) => {
-      entradas[objsArray[entradas.length].id] = null;
+      entradas.push({'name' : objsArray[entradas.length].id , 'value' : null});
       getEntradas(callBackFn);
   });
 
