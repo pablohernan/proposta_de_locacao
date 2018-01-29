@@ -230,7 +230,7 @@ function populaSelects(){
       });
       /* EMPRESA_COD*/
 
-      //setTimeout( function(){popular();}, 1000);
+      setTimeout( function(){popular();}, 1000);
 
 }
 
