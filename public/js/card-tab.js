@@ -53,7 +53,7 @@ var entradas = [];
 function setEntradas(callBackFn){
 
   if($( ".save" ).length == entradas.length)
-    callBackFn();
+    return callBackFn();
 
   var objsArray = $( ".save" ).toArray();
   p.get('card', 'public', objsArray[entradas.length].id ).then((campo) => {
