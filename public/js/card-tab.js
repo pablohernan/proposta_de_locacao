@@ -224,7 +224,7 @@ function populaSelects(){
                 var selected = '';
                 if(getEntrada('EMPRESA_COD') == data[i].value)    
                   selected = 'selected'; 
-                $('#EMPRESA_COD').append('<option value=' + data[i].value + '>' + data[i].text + '</option>'); 
+                $('#EMPRESA_COD').append('<option '+selected+' value=' + data[i].value + '>' + data[i].text + '</option>'); 
             }              
 
       });
