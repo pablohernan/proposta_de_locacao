@@ -40,9 +40,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
            url: './card-tab.html',
            claimedAttachments: function(attachments) {
              // Iterate by all attachment to claim attachments from Emojipedia
-             return attachments.filter(function(attachment){
-               return attachment.url.indexOf("https://emojipedia.org") === 0;
-             });
+             return 2;
            },
            buttons: [
              /*{
