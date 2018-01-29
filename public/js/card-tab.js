@@ -71,7 +71,7 @@ function getEntrada(name){
     if(entradas[i].name == name)
       return entradas[i].value;
   }
-  ,return false;
+  return false;
 }
 
 
