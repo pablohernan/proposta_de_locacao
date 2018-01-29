@@ -49,7 +49,7 @@ function popular_grid(obj){
   getEntradas(populaSelects);
 }
 
-var entradas = {};
+var entradas = [];
 function getEntradas(callBackFn){
 
   if($( ".save" ).length == entradas.length)
