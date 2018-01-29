@@ -22,6 +22,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
         p.card().then(function(card) {
           console.log('CARD_ID:'+card.id) // { id: '23abc', ... }
           cardId = card.id;
+          // populo com os dados da tabela
+          db_select(popular_grid);
         });
 /*
         p.modal({
@@ -31,6 +33,67 @@ document.addEventListener("DOMContentLoaded", function(event) {
         });
 */
       }catch(e){console.log(e)}
+
+
+      // popula todos los campos
+      //setTimeout( function(){popular();}, 1000);
+
+});
+
+/* popular */
+function popular_grid(obj){
+  for(var i = 0; i<obj.length ; i++){
+    if(obj[i].CARDID == cardId)
+      grid_addLine(obj[i].GRUPODEPAGAMENTO ,obj[i].CENTRODECUSTO,obj[i].VALOR);
+  }
+  getEntradas(populaSelects);
+}
+
+var entradas = new Array();
+function getEntradas(callBackFn){
+
+  if($( ".save" ).length == entradas.length)
+    callBackFn();
+
+  var objsArray = $( ".save" ).toArray();
+  p.get('card', 'public', objsArray[entradas.length].id ).then((campo) => {
+      entradas[objsArray[entradas.length].id] = campo;
+      getEntradas(callBackFn);
+  }).catch((error) => {
+      entradas[objsArray[entradas.length].id] = null;
+      getEntradas(callBackFn);
+  });
+
+}
+
+
+
+function populaEmpresa(value){
+  /* popula empresa*/
+  $.ajax({ 
+      url: path+ "/services/EMPRESA_COD.json?"+Math.random()
+  }).then(function(data) {
+        //var data = JSON.parse(data);  
+        $('#EMPRESA_COD').html('');
+        for( var i = 0 ; i < data.length ; i++ ){
+            $('#EMPRESA_COD').append('<option value=' + data[i].value + '>id do shopping:' + value + ' - ' +data[i].text + '</option>'); 
+        }     
+
+        // set value apos carregar
+        p.get('card', 'public', 'EMPRESA_COD' ).then((campo) => {
+          if(campo != 'null' && campo != null && campo != '')
+            $( '#' + $( '#EMPRESA_COD' ).attr('id') ).val(campo);
+        }).catch((error) => {
+          console.log(error);
+        });
+
+  });
+  /* popula empresa*/
+}
+
+
+function populaSelects(){
+
 
       /* SHOPPING
       $.ajax({ 
@@ -62,16 +125,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
             //var data = JSON.parse(data);  
             $('#CENTRO_CUSTO_COD').append('<option value="" selected>::selecione::</option>'); 
             for( var i = 0 ; i < data.length ; i++ ){
-                $('#CENTRO_CUSTO_COD').append('<option value=' + data[i].value + '>' + data[i].value + ' - ' +data[i].text + '</option>'); 
+                var selected = '';
+                if(entradas['CENTRO_CUSTO_COD'] == data[i].value)
+                  selected = 'selected';
+
+                $('#CENTRO_CUSTO_COD').append('<option '+selected+' value=' + data[i].value + '>' + data[i].value + ' - ' +data[i].text + '</option>'); 
             } 
 
-            // set value apos carregar
-            p.get('card', 'public', 'CENTRO_CUSTO_COD' ).then((campo) => {
-              if(campo != 'null' && campo != null && campo != '')
-                $( '#' + $( '#CENTRO_CUSTO_COD' ).attr('id') ).val(campo);
-            }).catch((error) => {
-              console.log(error);
-            });   
 
       });
       /* CENTRO_CUSTO_COD*/
@@ -83,16 +143,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
             //var data = JSON.parse(data);  
             $('#CLASSIFICACAO_DESPESA_COD').append('<option value="" selected>::selecione::</option>'); 
             for( var i = 0 ; i < data.length ; i++ ){
-                $('#CLASSIFICACAO_DESPESA_COD').append('<option value=' + data[i].value + '>' + data[i].value + ' - ' +data[i].text + '</option>'); 
+                var selected = '';
+                if(entradas['CLASSIFICACAO_DESPESA_COD'] == data[i].value)
+                  selected = 'selected';
+                $('#CLASSIFICACAO_DESPESA_COD').append('<option '+selected+' value=' + data[i].value + '>' + data[i].value + ' - ' +data[i].text + '</option>'); 
             } 
-
-            // set value apos carregar
-            p.get('card', 'public', 'CLASSIFICACAO_DESPESA_COD' ).then((campo) => {
-              if(campo != 'null' && campo != null && campo != '')
-                $( '#' + $( '#CLASSIFICACAO_DESPESA_COD' ).attr('id') ).val(campo);
-            }).catch((error) => {
-              console.log(error);
-            });   
 
       });
       /* CLASSIFICACAO_DESPESA_COD*/
@@ -104,16 +159,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
             //var data = JSON.parse(data);  
             $('#CONDICAO_DE_PAGAMENTO_COD').append('<option value="" selected>::selecione::</option>'); 
             for( var i = 0 ; i < data.length ; i++ ){
-                $('#CONDICAO_DE_PAGAMENTO_COD').append('<option value=' + data[i].value + '>' + data[i].value + ' - ' +data[i].text + '</option>'); 
-            } 
-
-            // set value apos carregar
-            p.get('card', 'public', 'CONDICAO_DE_PAGAMENTO_COD' ).then((campo) => {
-              if(campo != 'null' && campo != null && campo != '')
-                $( '#' + $( '#CONDICAO_DE_PAGAMENTO_COD' ).attr('id') ).val(campo);
-            }).catch((error) => {
-              console.log(error);
-            });   
+                var selected = '';
+                if(entradas['CONDICAO_DE_PAGAMENTO_COD'] == data[i].value)
+                  selected = 'selected';
+                $('#CONDICAO_DE_PAGAMENTO_COD').append('<option '+selected+' value=' + data[i].value + '>' + data[i].value + ' - ' +data[i].text + '</option>'); 
+            }   
 
       });
       /* CONDICAO_DE_PAGAMENTO_COD*/
@@ -125,16 +175,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
             //var data = JSON.parse(data);  
             $('#FORNECEDOR_COD').append('<option value="" selected>::selecione::</option>'); 
             for( var i = 0 ; i < data.length ; i++ ){
-                $('#FORNECEDOR_COD').append('<option value=' + data[i].value + '>' + data[i].value + ' - ' + data[i].text + '</option>'); 
+                var selected = '';
+                if(entradas['FORNECEDOR_COD'] == data[i].value)
+                  selected = 'selected';
+                $('#FORNECEDOR_COD').append('<option '+selected+' value=' + data[i].value + '>' + data[i].value + ' - ' + data[i].text + '</option>'); 
             } 
-
-            // set value apos carregar
-            p.get('card', 'public', 'FORNECEDOR_COD' ).then((campo) => {
-              if(campo != 'null' && campo != null && campo != '')
-                $( '#' + $( '#FORNECEDOR_COD' ).attr('id') ).val(campo);
-            }).catch((error) => {
-              console.log(error);
-            });   
 
       });
       /* FORNECEDOR_COD*/
@@ -146,21 +191,16 @@ document.addEventListener("DOMContentLoaded", function(event) {
             //var data = JSON.parse(data);  
             $('#NRO_DO_DOCUMENTO').append('<option value="" selected>::selecione::</option>'); 
             for( var i = 0 ; i < data.length ; i++ ){
-                $('#NRO_DO_DOCUMENTO').append('<option vencimento="'+data[i].vencimento+'" valor="'+data[i].valor+'" value="' + data[i].value + '">' + data[i].value + ' - ' +data[i].text + '</option>'); 
+                var selected = '';
+                if(entradas['NRO_DO_DOCUMENTO'] == data[i].value)
+                  selected = 'selected';
+                $('#NRO_DO_DOCUMENTO').append('<option '+selected+' vencimento="'+data[i].vencimento+'" valor="'+data[i].valor+'" value="' + data[i].value + '">' + data[i].value + ' - ' +data[i].text + '</option>'); 
             } 
 
             $('#NRO_DO_DOCUMENTO').change(function(){
               populaVencimento(this.options[this.selectedIndex].getAttribute('vencimento'));
               populaValor(this.options[this.selectedIndex].getAttribute('valor'));
             })
-
-            // set value apos carregar
-            p.get('card', 'public', 'NRO_DO_DOCUMENTO' ).then((campo) => {
-              if(campo != 'null' && campo != null && campo != '')
-                $( '#' + $( '#NRO_DO_DOCUMENTO' ).attr('id') ).val(campo);
-            }).catch((error) => {
-              console.log(error);
-            });   
 
       });
       /* FORNECEDOR_COD*/      
@@ -173,48 +213,17 @@ document.addEventListener("DOMContentLoaded", function(event) {
             //var data = JSON.parse(data);  
             $('#EMPRESA_COD').append('<option value="" selected>::selecione::</option>'); 
             for( var i = 0 ; i < data.length ; i++ ){
+                var selected = '';
+                if(entradas['EMPRESA_COD'] == data[i].value)
+                  selected = 'selected'; 
                 $('#EMPRESA_COD').append('<option value=' + data[i].value + '>' + data[i].text + '</option>'); 
-            }   
-
-            // set value apos carregar
-            p.get('card', 'public', 'EMPRESA_COD' ).then((campo) => {
-              if(campo != 'null' && campo != null && campo != '')
-                $( '#' + $( '#EMPRESA_COD' ).attr('id') ).val(campo);
-            }).catch((error) => {
-              console.log(error);
-            });              
+            }              
 
       });
       /* EMPRESA_COD*/
 
-      // popula todos los campos
       setTimeout( function(){popular();}, 1000);
 
-});      
-
-
-
-function populaEmpresa(value){
-  /* popula empresa*/
-  $.ajax({ 
-      url: path+ "/services/EMPRESA_COD.json?"+Math.random()
-  }).then(function(data) {
-        //var data = JSON.parse(data);  
-        $('#EMPRESA_COD').html('');
-        for( var i = 0 ; i < data.length ; i++ ){
-            $('#EMPRESA_COD').append('<option value=' + data[i].value + '>id do shopping:' + value + ' - ' +data[i].text + '</option>'); 
-        }     
-
-        // set value apos carregar
-        p.get('card', 'public', 'EMPRESA_COD' ).then((campo) => {
-          if(campo != 'null' && campo != null && campo != '')
-            $( '#' + $( '#EMPRESA_COD' ).attr('id') ).val(campo);
-        }).catch((error) => {
-          console.log(error);
-        });
-
-  });
-  /* popula empresa*/
 }
 
 
@@ -231,19 +240,9 @@ function salvar(){
 /* salvar */ 
 
 
-/* popular */
-function popular_grid(obj){
-  for(var i = 0; i<obj.length ; i++){
-    if(obj[i].CARDID == cardId)
-      grid_addLine(obj[i].GRUPODEPAGAMENTO ,obj[i].CENTRODECUSTO,obj[i].VALOR);
-  }
-}
 
 function popular(){
 try{
-
-  // populo com os dados da tabela
-  db_select(popular_grid);
 
   p.fields().then((fields) => {
     console.log(fields); 
