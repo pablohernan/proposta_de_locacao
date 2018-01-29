@@ -141,96 +141,100 @@ function populaSelects(){
             } 
 
 
+            /* CLASSIFICACAO_DESPESA_COD*/
+            $.ajax({ 
+                url: path+ "/services/CLASSIFICACAO_DESPESA_COD.json?"+Math.random()
+            }).then(function(data) {
+                  //var data = JSON.parse(data);  
+                  $('#CLASSIFICACAO_DESPESA_COD').append('<option value="" selected>::selecione::</option>'); 
+                  for( var i = 0 ; i < data.length ; i++ ){
+                      var selected = '';
+                      if(getEntrada('CLASSIFICACAO_DESPESA_COD') == data[i].value)
+                        selected = 'selected';
+                      $('#CLASSIFICACAO_DESPESA_COD').append('<option '+selected+' value=' + data[i].value + '>' + data[i].value + ' - ' +data[i].text + '</option>'); 
+                  } 
+
+                  /* CONDICAO_DE_PAGAMENTO_COD*/
+                  $.ajax({ 
+                      url: path+ "/services/CONDICAO_DE_PAGAMENTO_COD.json?"+Math.random()
+                  }).then(function(data) {
+                        //var data = JSON.parse(data);  
+                        $('#CONDICAO_DE_PAGAMENTO_COD').append('<option value="" selected>::selecione::</option>'); 
+                        for( var i = 0 ; i < data.length ; i++ ){
+                            var selected = '';
+                            if(getEntrada('CONDICAO_DE_PAGAMENTO_COD') == data[i].value)
+                              selected = 'selected';
+                            $('#CONDICAO_DE_PAGAMENTO_COD').append('<option '+selected+' value=' + data[i].value + '>' + data[i].value + ' - ' +data[i].text + '</option>'); 
+                        }   
+
+                       /* FORNECEDOR_COD*/
+                        $.ajax({ 
+                            url: path+ "/services/FORNECEDOR_COD.json?"+Math.random(),
+                        }).then(function(data) {
+                              //var data = JSON.parse(data);  
+                              $('#FORNECEDOR_COD').append('<option value="" selected>::selecione::</option>'); 
+                              for( var i = 0 ; i < data.length ; i++ ){
+                                  var selected = '';
+                                  if(getEntrada('FORNECEDOR_COD') == data[i].value)
+                                    selected = 'selected';
+                                  $('#FORNECEDOR_COD').append('<option '+selected+' value=' + data[i].value + '>' + data[i].value + ' - ' + data[i].text + '</option>'); 
+                              } 
+
+                              /* NRO_DO_DOCUMENTO*/
+                              $.ajax({ 
+                                  url: path+ "/services/NRO_DO_DOCUMENTO.json?"+Math.random()
+                              }).then(function(data) {
+                                    //var data = JSON.parse(data);  
+                                    $('#NRO_DO_DOCUMENTO').append('<option value="" selected>::selecione::</option>'); 
+                                    for( var i = 0 ; i < data.length ; i++ ){
+                                        var selected = '';
+                                        if(getEntrada('NRO_DO_DOCUMENTO') == data[i].value)  
+                                          selected = 'selected';
+                                        $('#NRO_DO_DOCUMENTO').append('<option '+selected+' vencimento="'+data[i].vencimento+'" valor="'+data[i].valor+'" value="' + data[i].value + '">' + data[i].value + ' - ' +data[i].text + '</option>'); 
+                                    } 
+
+                                    $('#NRO_DO_DOCUMENTO').change(function(){
+                                      populaVencimento(this.options[this.selectedIndex].getAttribute('vencimento'));
+                                      populaValor(this.options[this.selectedIndex].getAttribute('valor'));
+                                    })
+
+                                    /* EMPRESA_COD*/
+                                    $.ajax({ 
+                                        url: path+ "/services/EMPRESA_COD.json?"+Math.random()
+                                    }).then(function(data) {
+                                          //var data = JSON.parse(data);  
+                                          $('#EMPRESA_COD').append('<option value="" selected>::selecione::</option>'); 
+                                          for( var i = 0 ; i < data.length ; i++ ){
+                                              var selected = '';
+                                              if(getEntrada('EMPRESA_COD') == data[i].value)    
+                                                selected = 'selected'; 
+                                              $('#EMPRESA_COD').append('<option '+selected+' value=' + data[i].value + '>' + data[i].text + '</option>'); 
+                                          }  
+
+                                          popular();            
+
+                                    });
+                                    /* EMPRESA_COD*/            
+
+                              });
+                              /* NRO_DO_DOCUMENTO*/  
+
+
+                        });
+                        /* FORNECEDOR_COD*/
+
+
+
+                  });
+                  /* CONDICAO_DE_PAGAMENTO_COD*/
+
+
+            });
+            /* CLASSIFICACAO_DESPESA_COD*/
+
       });
       /* CENTRO_CUSTO_COD*/
 
-      /* CLASSIFICACAO_DESPESA_COD*/
-      $.ajax({ 
-          url: path+ "/services/CLASSIFICACAO_DESPESA_COD.json?"+Math.random()
-      }).then(function(data) {
-            //var data = JSON.parse(data);  
-            $('#CLASSIFICACAO_DESPESA_COD').append('<option value="" selected>::selecione::</option>'); 
-            for( var i = 0 ; i < data.length ; i++ ){
-                var selected = '';
-                if(getEntrada('CLASSIFICACAO_DESPESA_COD') == data[i].value)
-                  selected = 'selected';
-                $('#CLASSIFICACAO_DESPESA_COD').append('<option '+selected+' value=' + data[i].value + '>' + data[i].value + ' - ' +data[i].text + '</option>'); 
-            } 
-
-      });
-      /* CLASSIFICACAO_DESPESA_COD*/
-
-      /* CONDICAO_DE_PAGAMENTO_COD*/
-      $.ajax({ 
-          url: path+ "/services/CONDICAO_DE_PAGAMENTO_COD.json?"+Math.random()
-      }).then(function(data) {
-            //var data = JSON.parse(data);  
-            $('#CONDICAO_DE_PAGAMENTO_COD').append('<option value="" selected>::selecione::</option>'); 
-            for( var i = 0 ; i < data.length ; i++ ){
-                var selected = '';
-                if(getEntrada('CONDICAO_DE_PAGAMENTO_COD') == data[i].value)
-                  selected = 'selected';
-                $('#CONDICAO_DE_PAGAMENTO_COD').append('<option '+selected+' value=' + data[i].value + '>' + data[i].value + ' - ' +data[i].text + '</option>'); 
-            }   
-
-      });
-      /* CONDICAO_DE_PAGAMENTO_COD*/
-
-      /* FORNECEDOR_COD*/
-      $.ajax({ 
-          url: path+ "/services/FORNECEDOR_COD.json?"+Math.random(),
-      }).then(function(data) {
-            //var data = JSON.parse(data);  
-            $('#FORNECEDOR_COD').append('<option value="" selected>::selecione::</option>'); 
-            for( var i = 0 ; i < data.length ; i++ ){
-                var selected = '';
-                if(getEntrada('FORNECEDOR_COD') == data[i].value)
-                  selected = 'selected';
-                $('#FORNECEDOR_COD').append('<option '+selected+' value=' + data[i].value + '>' + data[i].value + ' - ' + data[i].text + '</option>'); 
-            } 
-
-      });
-      /* FORNECEDOR_COD*/
-
-      /* NRO_DO_DOCUMENTO*/
-      $.ajax({ 
-          url: path+ "/services/NRO_DO_DOCUMENTO.json?"+Math.random()
-      }).then(function(data) {
-            //var data = JSON.parse(data);  
-            $('#NRO_DO_DOCUMENTO').append('<option value="" selected>::selecione::</option>'); 
-            for( var i = 0 ; i < data.length ; i++ ){
-                var selected = '';
-                if(getEntrada('NRO_DO_DOCUMENTO') == data[i].value)  
-                  selected = 'selected';
-                $('#NRO_DO_DOCUMENTO').append('<option '+selected+' vencimento="'+data[i].vencimento+'" valor="'+data[i].valor+'" value="' + data[i].value + '">' + data[i].value + ' - ' +data[i].text + '</option>'); 
-            } 
-
-            $('#NRO_DO_DOCUMENTO').change(function(){
-              populaVencimento(this.options[this.selectedIndex].getAttribute('vencimento'));
-              populaValor(this.options[this.selectedIndex].getAttribute('valor'));
-            })
-
-      });
-      /* FORNECEDOR_COD*/      
-
-
-      /* EMPRESA_COD*/
-      $.ajax({ 
-          url: path+ "/services/EMPRESA_COD.json?"+Math.random()
-      }).then(function(data) {
-            //var data = JSON.parse(data);  
-            $('#EMPRESA_COD').append('<option value="" selected>::selecione::</option>'); 
-            for( var i = 0 ; i < data.length ; i++ ){
-                var selected = '';
-                if(getEntrada('EMPRESA_COD') == data[i].value)    
-                  selected = 'selected'; 
-                $('#EMPRESA_COD').append('<option '+selected+' value=' + data[i].value + '>' + data[i].text + '</option>'); 
-            }              
-
-      });
-      /* EMPRESA_COD*/
-
-      setTimeout( function(){popular();}, 1000);
 
 }
 
