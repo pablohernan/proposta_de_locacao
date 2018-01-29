@@ -46,11 +46,11 @@ function popular_grid(obj){
     if(obj[i].CARDID == cardId)
       grid_addLine(obj[i].GRUPODEPAGAMENTO ,obj[i].CENTRODECUSTO,obj[i].VALOR);
   }
-  getEntradas(populaSelects);
+  setEntradas(populaSelects);
 }
 
 var entradas = [];
-function getEntradas(callBackFn){
+function setEntradas(callBackFn){
 
   if($( ".save" ).length == entradas.length)
     callBackFn();
@@ -58,12 +58,20 @@ function getEntradas(callBackFn){
   var objsArray = $( ".save" ).toArray();
   p.get('card', 'public', objsArray[entradas.length].id ).then((campo) => {
       entradas.push({'name' : objsArray[entradas.length].id , 'value' : campo});
-      getEntradas(callBackFn);
+      setEntradas(callBackFn);
   }).catch((error) => {
       entradas.push({'name' : objsArray[entradas.length].id , 'value' : null});
-      getEntradas(callBackFn);
+      setEntradas(callBackFn);
   });
 
+}
+
+function getEntrada(name){
+  for(var i=0: i<entradas.length; i++){
+    if(entradas[i].name == name)
+      return entradas[i].value;
+  }
+  ,return false;
 }
 
 
@@ -126,7 +134,7 @@ function populaSelects(){
             $('#CENTRO_CUSTO_COD').append('<option value="" selected>::selecione::</option>'); 
             for( var i = 0 ; i < data.length ; i++ ){
                 var selected = '';
-                if(entradas['CENTRO_CUSTO_COD'] == data[i].value)
+                if(getEntrada('CENTRO_CUSTO_COD') == data[i].value)
                   selected = 'selected';
 
                 $('#CENTRO_CUSTO_COD').append('<option '+selected+' value=' + data[i].value + '>' + data[i].value + ' - ' +data[i].text + '</option>'); 
@@ -144,7 +152,7 @@ function populaSelects(){
             $('#CLASSIFICACAO_DESPESA_COD').append('<option value="" selected>::selecione::</option>'); 
             for( var i = 0 ; i < data.length ; i++ ){
                 var selected = '';
-                if(entradas['CLASSIFICACAO_DESPESA_COD'] == data[i].value)
+                if(getEntrada('CLASSIFICACAO_DESPESA_COD') == data[i].value)
                   selected = 'selected';
                 $('#CLASSIFICACAO_DESPESA_COD').append('<option '+selected+' value=' + data[i].value + '>' + data[i].value + ' - ' +data[i].text + '</option>'); 
             } 
@@ -160,7 +168,7 @@ function populaSelects(){
             $('#CONDICAO_DE_PAGAMENTO_COD').append('<option value="" selected>::selecione::</option>'); 
             for( var i = 0 ; i < data.length ; i++ ){
                 var selected = '';
-                if(entradas['CONDICAO_DE_PAGAMENTO_COD'] == data[i].value)
+                if(getEntrada('CONDICAO_DE_PAGAMENTO_COD') == data[i].value)
                   selected = 'selected';
                 $('#CONDICAO_DE_PAGAMENTO_COD').append('<option '+selected+' value=' + data[i].value + '>' + data[i].value + ' - ' +data[i].text + '</option>'); 
             }   
@@ -176,7 +184,7 @@ function populaSelects(){
             $('#FORNECEDOR_COD').append('<option value="" selected>::selecione::</option>'); 
             for( var i = 0 ; i < data.length ; i++ ){
                 var selected = '';
-                if(entradas['FORNECEDOR_COD'] == data[i].value)
+                if(getEntrada('FORNECEDOR_COD') == data[i].value)
                   selected = 'selected';
                 $('#FORNECEDOR_COD').append('<option '+selected+' value=' + data[i].value + '>' + data[i].value + ' - ' + data[i].text + '</option>'); 
             } 
@@ -192,7 +200,7 @@ function populaSelects(){
             $('#NRO_DO_DOCUMENTO').append('<option value="" selected>::selecione::</option>'); 
             for( var i = 0 ; i < data.length ; i++ ){
                 var selected = '';
-                if(entradas['NRO_DO_DOCUMENTO'] == data[i].value)
+                if(getEntrada('NRO_DO_DOCUMENTO') == data[i].value)  
                   selected = 'selected';
                 $('#NRO_DO_DOCUMENTO').append('<option '+selected+' vencimento="'+data[i].vencimento+'" valor="'+data[i].valor+'" value="' + data[i].value + '">' + data[i].value + ' - ' +data[i].text + '</option>'); 
             } 
@@ -214,7 +222,7 @@ function populaSelects(){
             $('#EMPRESA_COD').append('<option value="" selected>::selecione::</option>'); 
             for( var i = 0 ; i < data.length ; i++ ){
                 var selected = '';
-                if(entradas['EMPRESA_COD'] == data[i].value)
+                if(getEntrada('EMPRESA_COD') == data[i].value)    
                   selected = 'selected'; 
                 $('#EMPRESA_COD').append('<option value=' + data[i].value + '>' + data[i].text + '</option>'); 
             }              
@@ -250,15 +258,7 @@ try{
 
   console.log('## get ##');
   $( ".save" ).each(function( index ) {   
-    p.get('card', 'public', $( this ).attr('id') ).then((campo) => {
-      if(campo != 'null' && campo != null && campo != ''){
-        console.log( $( this ).attr('id') + ' : ' + campo );
-        $( '#' + $( this ).attr('id') ).val(campo);
-      }
-    }).catch((error) => {
-      console.log(error);
-    });
-
+    $( '#' + $( this ).attr('id') ).val(getEntrada($( this ).attr('id')));
   });
 }catch(e){}
 
