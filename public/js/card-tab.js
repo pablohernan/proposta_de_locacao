@@ -264,7 +264,9 @@ try{
   $( ".save" ).each(function( index ) {   
     $( '#' + $( this ).attr('id') ).val(getEntrada($( this ).attr('id')));
   });
-}catch(e){}
+  }catch(e){}
+  
+  showList();
 
 }
 
@@ -298,9 +300,7 @@ function close(){
       p.showNotification('Deve preencher os campos obrigatórios (*)', 'error');
       resize();
   }
-
-
-  
+ 
 }
 
 function resize(){
@@ -313,6 +313,11 @@ function populaVencimento(vencimento){
 
 function populaValor(valor){
   $('#VALOR').val(valor);
+}
+
+function showList(){
+  $('#load').hide();
+  $('#list').show();
 }
 
 

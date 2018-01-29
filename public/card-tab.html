@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" media="all" href="https://app.pipefy.com/apps/style.css" />
-    <link rel="stylesheet" media="all" href="./css/style.css?4" />
+    <link rel="stylesheet" media="all" href="./css/style.css?4a" />
 
     <style>
       #list {
@@ -20,24 +20,32 @@
   <body>
     <h4>Formulario DM</h4>
     
+
+
+
     <div id="container">
-      <div id="list">
-        
+
+        <div id="load" class="loadBox">
+            <span class="docs-boxes-link doc-box-3 pp-ico-loading"></span>
+        </div>
+
+        <div id="list" style="display:none">
+
           <div class="pp-simple-box pp-bg-white">
              <section>
                
-<!--
+        <!--
                 <label class="pp-input-wrap required">
                 <b class="pp-label-text">Shopping</b>      
                     <div class="pp-custom-select">
                         <select id="SHOPPING" name="SHOPPING" tabindex="0" class="pp-select save" >
 
                         onchange="populaEmpresa($(this).val())"
-   
+
                         </select>
                     </div>
                 </label>
--->
+        -->
 
                 <label class="pp-input-wrap required">
                 <b class="pp-label-text">Empresa</b>                
@@ -180,7 +188,7 @@
           <br>
           <br>                   
 
-      </div>
+        </div>
     </div>
     
     <!-- Pipefy Apps SDK.js -->
