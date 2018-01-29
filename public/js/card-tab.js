@@ -67,7 +67,7 @@ function setEntradas(callBackFn){
 }
 
 function getEntrada(name){
-  for(var i=0: i<entradas.length; i++){
+  for(var i=0; i<entradas.length; i++){
     if(entradas[i].name == name)
       return entradas[i].value;
   }
