@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       'card-tab': function(p, pipe) {
          return {
            icon: './images/icon_grande.svg',
-           title: 'DM Consultoria',
+           title: 'Informações Alteração de Pgto',
            url: './card-tab.html',
            claimedAttachments: function(attachments) {
              // Iterate by all attachment to claim attachments from Emojipedia
