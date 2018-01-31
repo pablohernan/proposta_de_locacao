@@ -302,7 +302,7 @@ phase 3 2462802
 function disableForm(){
   $('#container').find('input, textarea, button, select').attr('disabled','disabled');
   $('#btnSalvar').hide();
-  $('#grid1').hide();
+  $('.pp-ico-add').hide();
 }
 
 
