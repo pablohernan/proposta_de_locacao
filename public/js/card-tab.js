@@ -23,9 +23,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
           console.log('CARD_ID:'+card.id) // { id: '23abc', ... }
           cardId = card.id;
 
-          /* se é outra phase 
+          /* se é outra phase */
           if(card.current_phase.id != 2462801)
-            disableForm();*/
+            disableForm();
 
           // populo com os dados da tabela
           db_select(popular_grid);
