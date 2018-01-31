@@ -90,7 +90,7 @@ function popula_EMPRESA_COD(popular,callbackFn){
                 $('#EMPRESA_COD').append('<option '+selected+' value=' + data[i].value + '>' + data[i].text + '</option>'); 
             } 
 
-            $('#NRO_DO_DOCUMENTO').change(function(){
+            $('#EMPRESA_COD').change(function(){
               popula_NRO_DO_DOCUMENTO(false,function(){});
               popula_CENTRO_CUSTO_COD(false,function(){});
             });             
