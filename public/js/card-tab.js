@@ -130,7 +130,7 @@ function popula_NRO_DO_DOCUMENTO(popular,callbackFn){
             $('#NRO_DO_DOCUMENTO').change(function(){
               populaVencimento(this.options[this.selectedIndex].getAttribute('vencimento'));
               populaValor(this.options[this.selectedIndex].getAttribute('valor'));
-              popula_CONDICAO_DE_PAGAMENTO_COD(false,function(){});
+              popula_CLASSIFICACAO_DESPESA_COD(false,function(){});
             });
 
             callbackFn();
