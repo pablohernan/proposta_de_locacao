@@ -82,6 +82,7 @@ function popula_EMPRESA_COD(popular,callbackFn){
           url: path+ "/services/EMPRESA_COD.json?"+Math.random()
       }).then(function(data) {
             //var data = JSON.parse(data);  
+            $('#EMPRESA_COD').html('');// limpo
             $('#EMPRESA_COD').append('<option value="" selected>::selecione::</option>'); 
             for( var i = 0 ; i < data.length ; i++ ){
                 var selected = '';
@@ -108,6 +109,7 @@ function popula_NRO_DO_DOCUMENTO(popular,callbackFn){
           url: path+ "/services/NRO_DO_DOCUMENTO.json?"+Math.random()
       }).then(function(data) {
             //var data = JSON.parse(data);  
+            $('#NRO_DO_DOCUMENTO').html('');// limpo
             $('#NRO_DO_DOCUMENTO').append('<option value="" selected>::selecione::</option>'); 
             for( var i = 0 ; i < data.length ; i++ ){
                 if($('#EMPRESA_COD').val()==data[i].empresa){
@@ -136,6 +138,7 @@ function popula_FORNECEDOR_COD(popular,callbackFn){
           url: path+ "/services/FORNECEDOR_COD.json?"+Math.random(),
       }).then(function(data) {
             //var data = JSON.parse(data);  
+            $('#FORNECEDOR_COD').html('');// limpo
             $('#FORNECEDOR_COD').append('<option value="" selected>::selecione::</option>'); 
             for( var i = 0 ; i < data.length ; i++ ){
                 var selected = '';
@@ -156,7 +159,8 @@ function popula_CONDICAO_DE_PAGAMENTO_COD(popular,callbackFn){
       $.ajax({ 
           url: path+ "/services/CONDICAO_DE_PAGAMENTO_COD.json?"+Math.random()
       }).then(function(data) {
-            //var data = JSON.parse(data);  
+            //var data = JSON.parse(data); 
+            $('#CONDICAO_DE_PAGAMENTO_COD').html('');// limpo 
             $('#CONDICAO_DE_PAGAMENTO_COD').append('<option value="" selected>::selecione::</option>'); 
             for( var i = 0 ; i < data.length ; i++ ){
                 var selected = '';
@@ -179,6 +183,7 @@ function popula_CLASSIFICACAO_DESPESA_COD(popular,callbackFn){
           url: path+ "/services/CLASSIFICACAO_DESPESA_COD.json?"+Math.random()
       }).then(function(data) {
             //var data = JSON.parse(data);  
+            $('#CLASSIFICACAO_DESPESA_COD').html('');// limpo 
             $('#CLASSIFICACAO_DESPESA_COD').append('<option value="" selected>::selecione::</option>'); 
             for( var i = 0 ; i < data.length ; i++ ){
                 var selected = '';
@@ -200,6 +205,7 @@ function popula_CENTRO_CUSTO_COD(popular,callbackFn){
           url: path+ "/services/CENTRO_CUSTO_COD.json?"+Math.random()
       }).then(function(data) {
             //var data = JSON.parse(data);  
+            $('#CENTRO_CUSTO_COD').html('');// limpo 
             $('#CENTRO_CUSTO_COD').append('<option value="" selected>::selecione::</option>'); 
             for( var i = 0 ; i < data.length ; i++ ){
               if($('#EMPRESA_COD').val()==data[i].empresa){
