@@ -99,7 +99,7 @@ function popula_EMPRESA_COD(popular,callbackFn){
             } 
 
             $('#EMPRESA_COD').change(function(){
-              //popula_NRO_DO_DOCUMENTO(false,function(){});
+              popula_NRO_DO_DOCUMENTO(false,function(){});
               popula_CENTRO_CUSTO_COD(false,function(){});
             });             
 
