@@ -323,7 +323,7 @@ phase 3 2462802
     p.set('card', 'public', $( this ).attr('id') , String($( this ).val()) );
   }); 
 
-  set_cpf_cnpj();
+  //set_cpf_cnpj();
 
   var fromPhaseId = 2462801;
   var toPhaseId;
