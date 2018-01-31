@@ -103,6 +103,40 @@ function rc_hideMesages(){
 	$('.pp-help-message').remove();
 }
 
+
+
+// data hoje o futura
+function rc_showMesagesData(){
+	
+	var ret = false;
+	$('.data').each(function(index){		
+		
+		/* inputs */
+		if(vl_data($(this).find('.pp-input').val())!=true){
+			$(this).find('.pp-input').focus();
+			$(this).addClass('pp-error');
+
+			if($(this).find('.pp-help-message').length==0)
+				$(this).append('<span class="pp-help-message">'+vl_data($(this).find('.pp-input').val())+'</span>');
+			
+			$(this).find('.pp-input').keypress(function(event) {
+		    event = event || window.event;
+		    var target = event.target || evtobj.srcElement; 
+	    	$('#'+target.id).parent().removeClass('pp-error');
+	    	$('#'+target.id).parent().find('.pp-help-message').remove();
+			});
+			ret = true;
+		}
+
+	});
+
+	return ret;
+
+}
+
+
+
+
 //setTimeout(function(){ rc_hideMesages(); }, 3000);
 
 //rc_showMesages();

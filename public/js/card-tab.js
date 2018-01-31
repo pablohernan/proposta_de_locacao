@@ -1,10 +1,11 @@
   
 
-var localVersion = false;
+var localVersion = true;
 
 var path = '';
 if(localVersion){
- path = 'http://localhost/pipefy/forms/start-form-js/public'
+ path = 'http://localhost/pipefy/forms/start-form-js/public';
+ showList();
 }
 
 var cardId;
@@ -322,6 +323,7 @@ phase 3 2462802
     p.set('card', 'public', $( this ).attr('id') , String($( this ).val()) );
   }); 
 
+  set_cpf_cnpj();
 
   var fromPhaseId = 2462801;
   var toPhaseId;
@@ -332,7 +334,7 @@ phase 3 2462802
 
   p.moveCard(cardId, { phaseId: fromPhaseId}, {phaseId: toPhaseId}).then(moved => {
     console.log('## Move Card ##');
-    consloe.log('phase : ' + toPhaseId);
+    console.log('phase : ' + toPhaseId);
   })  
 
 
@@ -382,11 +384,21 @@ function addLine(){
 
 }
 
+function set_cpf_cnpj(){
+    if($( "#CPF:checked" ).length>0)
+      p.set('card', 'public', "CHECK_CNPJ_CPF" , "CPF" );
 
+    if($( "#CNPJ:checked" ).length>0)
+      p.set('card', 'public', "CHECK_CNPJ_CPF" , "CNPJ" );
+}
+
+function get_cpf_cnpj(){
+  $("#" + getEntrada("CHECK_CNPJ_CPF") ).prop('checked', true);
+}
 
 function close(){
 
-  if(!rc_showMesages()){
+  if( !rc_showMesages() && !rc_showMesagesData() ){
       salvar();
       p.showNotification('Formulario salvo!', 'success');
       p.closeCard();

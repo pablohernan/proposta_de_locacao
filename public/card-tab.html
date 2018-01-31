@@ -72,8 +72,16 @@
                 </label>
                   
                 <label class="pp-input-wrap">
-                <b class="pp-label-text">CPF/CNPJ Fornecedor</b> 
-                <input id="FORNECEDOR_CONSULTA" name="FORNECEDOR_CONSULTA" type="text" tabindex="0" class="pp-input save mask-number">
+                    <b class="pp-label-text">CPF/CNPJ Fornecedor</b> 
+                    <input id="FORNECEDOR_CONSULTA" name="FORNECEDOR_CONSULTA" type="text" tabindex="0" class="pp-input save mask-cpf">
+                    <div class="docs-code-box">
+                        <div class="pp-radio">
+                            <input type="radio" onclick="$('#FORNECEDOR_CONSULTA').mask('000.000.000-00');$('#FORNECEDOR_CONSULTA').attr('placeholder','___.___.___-__');" value="CPF" id="CPF" checked="" name="radio" tabindex="0"><label for="CPF" title="">CPF</label>
+                        </div>
+                        <div class="pp-radio">
+                            <input onclick="$('#FORNECEDOR_CONSULTA').mask('00.000.000/0000-00');$('#FORNECEDOR_CONSULTA').attr('placeholder','__.___.___/____-__');" type="radio" value="CNPJ" id="CNPJ" name="radio" tabindex="0"><label for="CNPJ" title="">CNPJ</label>
+                        </div>
+                    </div>
                 </label>
                        
                 <label class="pp-input-wrap required">
@@ -118,7 +126,7 @@
                     <input disabled="disabled" id="VENCIMENTO_ANTERIOR" name="VENCIMENTO_ANTERIOR"  type="text" tabindex="0" class="pp-input save">                    
                 </label>
                        
-                <label class="pp-input-wrap  required">
+                <label class="pp-input-wrap required data">
                     <b class="pp-label-text">Vencimento Novo</b> 
                     <input id="VENCIMENTO_NOVO" name="VENCIMENTO_NOVO" type="text" tabindex="0" class="pp-input save mask-date">
                 </label>
@@ -201,8 +209,10 @@
     <script src="./js/data-base.js?a22s1111aaa54a1aaa1"></script>
     <script src="./js/grid.js?1a1asa"></script>
     <script src="./js/mask.js?a11asa"></script>
-    <script src="./js/required.js?a1a12155441454s6a"></script>
-    <script src="./js/card-tab.js?a111asa21"></script>  
+    <script src="./js/required.js?a1a1215544aa1454saa6a"></script>
+    <script src="./js/moment.min.js?a1a12155441454aas6a"></script>
+    <script src="./js/valida.js?a1a12155441454saa6a"></script>
+    <script src="./js/card-tab.js?a111asaaa21"></script>  
 
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" crossorigin="anonymous"></script>    
