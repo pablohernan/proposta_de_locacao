@@ -99,7 +99,7 @@ function popula_EMPRESA_COD(popular,callbackFn){
             } 
 
             $('#EMPRESA_COD').change(function(){
-              popula_NRO_DO_DOCUMENTO(false,function(){});
+              //popula_NRO_DO_DOCUMENTO(false,function(){});
               popula_CENTRO_CUSTO_COD(false,function(){});
             });             
 
@@ -119,7 +119,7 @@ function popula_NRO_DO_DOCUMENTO(popular,callbackFn){
             $('#NRO_DO_DOCUMENTO').html('');// limpo
             $('#NRO_DO_DOCUMENTO').append('<option value="" selected>::selecione::</option>'); 
             for( var i = 0 ; i < data.length ; i++ ){
-                if($('#EMPRESA_COD').val()==data[i].empresa){
+                if($('#EMPRESA_COD').val()==data[i].empresa && $('#FORNECEDOR_COD').val() == data[i].fornecedor){
                   var selected = '';
                   if(popular && getEntrada('NRO_DO_DOCUMENTO') == data[i].value)  
                     selected = 'selected';
@@ -130,6 +130,7 @@ function popula_NRO_DO_DOCUMENTO(popular,callbackFn){
             $('#NRO_DO_DOCUMENTO').change(function(){
               populaVencimento(this.options[this.selectedIndex].getAttribute('vencimento'));
               populaValor(this.options[this.selectedIndex].getAttribute('valor'));
+              popula_CONDICAO_DE_PAGAMENTO_COD(false,function(){});
             });
 
             callbackFn();
@@ -153,6 +154,10 @@ function popula_FORNECEDOR_COD(popular,callbackFn){
                   selected = 'selected';
                 $('#FORNECEDOR_COD').append('<option '+selected+' value=' + data[i].value + '>' + data[i].text + '</option>'); 
             } 
+
+            $('#FORNECEDOR_COD').change(function(){
+              popula_NRO_DO_DOCUMENTO(false,function(){});
+            });               
 
             callbackFn();
 
@@ -193,10 +198,14 @@ function popula_CLASSIFICACAO_DESPESA_COD(popular,callbackFn){
             $('#CLASSIFICACAO_DESPESA_COD').html('');// limpo 
             $('#CLASSIFICACAO_DESPESA_COD').append('<option value="" selected>::selecione::</option>'); 
             for( var i = 0 ; i < data.length ; i++ ){
-                var selected = '';
-                if(popular && getEntrada('CLASSIFICACAO_DESPESA_COD') == data[i].value)
-                  selected = 'selected';
-                $('#CLASSIFICACAO_DESPESA_COD').append('<option '+selected+' value=' + data[i].value + '>' + data[i].text + '</option>'); 
+                
+                if($('#NRO_DO_DOCUMENTO').val() == data[i].titulo){
+                  var selected = '';
+                  if(popular && getEntrada('CLASSIFICACAO_DESPESA_COD') == data[i].value)
+                    selected = 'selected';
+                  $('#CLASSIFICACAO_DESPESA_COD').append('<option '+selected+' value=' + data[i].value + '>' + data[i].text + '</option>'); 
+                }
+
             } 
 
             callbackFn();
@@ -256,11 +265,29 @@ function populaSelects(){
       });
       *//* SHOPPING*/
 
+
+/*
+Empresa (*): Deve carregar com todas as opções existentes no Query_01.js
+
+Fornecedor (*): Deve carregar com todas as opções existentes no Query_02.js
+
+Condicão de Pagamento: Deve carregar com todas as opções existentes no Query_04.js
+
+Número de Documento (*):Deve carregar com todas as opções existentes no Query_03.js 
+que tenham o atributo "fornecedor" igual ao selecionado no combo Fornecedor (*)
+
+Grupo de Pagamento (*): Deve carregar com todas as opções existentes no Query_05.js 
+que tenham o atributo "titulo" igual ao selecionado no combo Número de Documento (*)
+
+Centro de Custo (*):Deve carregar com todas as opções existentes no Query_06.js 
+que tenham o atributo "empresa" igual ao selecionado no combo Empresa (*)     
+*/
+
       popula_EMPRESA_COD(true,function(){
-        popula_NRO_DO_DOCUMENTO(true,function(){
-          popula_CENTRO_CUSTO_COD(true,function(){
-            popula_FORNECEDOR_COD(true,function(){
-              popula_CONDICAO_DE_PAGAMENTO_COD(true,function(){
+        popula_FORNECEDOR_COD(true,function(){
+          popula_CONDICAO_DE_PAGAMENTO_COD(true,function(){        
+            popula_NRO_DO_DOCUMENTO(true,function(){
+              popula_CENTRO_CUSTO_COD(true,function(){
                 popula_CLASSIFICACAO_DESPESA_COD(true,function(){
                   popular();
                 });
@@ -278,9 +305,10 @@ function populaSelects(){
 /* salvar */
 function salvar(){
 
-
 /*
-
+pipefy.moveCard('BBc1hOe-', { phaseId: 243534}, {phaseId: 343565}).then(moved => {
+  debugger
+})
 phase 1 2462801
 
 phase 2 2462820
@@ -288,12 +316,15 @@ phase 2 2462820
 phase 3 2462802
 
 */
-
   console.log('## set ##');
   $( ".save" ).each(function( index ) {
     console.log( $( this ).attr('id') + ' : ' + String($( this ).val()) );
     p.set('card', 'public', $( this ).attr('id') , String($( this ).val()) );
   }); 
+
+  pipefy.moveCard(cardId, { phaseId: 2462801}, {phaseId: 2462820}).then(moved => {
+    debugger
+  })  
 
 
 }
