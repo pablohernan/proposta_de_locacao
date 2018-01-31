@@ -278,9 +278,9 @@ function salvar(){
   }); 
 
   p.card().then(function(card) {
-    card.current_phase.id= 2462820;
     console.log('## change phase ##');
-    console.log('change to phase: ' + 2462820)
+    console.log('change to phase: ' + 2462820);
+    card.current_phase.id= 2462820;
   });  
 
 }
