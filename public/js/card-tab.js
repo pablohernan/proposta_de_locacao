@@ -137,7 +137,7 @@ function populaSelects(){
                 if(getEntrada('CENTRO_CUSTO_COD') == data[i].value)
                   selected = 'selected';
 
-                $('#CENTRO_CUSTO_COD').append('<option '+selected+' value=' + data[i].value + '>' + data[i].value + ' - ' +data[i].text + '</option>'); 
+                $('#CENTRO_CUSTO_COD').append('<option '+selected+' value=' + data[i].value + '>' + data[i].text + '</option>'); 
             } 
 
 
@@ -151,7 +151,7 @@ function populaSelects(){
                       var selected = '';
                       if(getEntrada('CLASSIFICACAO_DESPESA_COD') == data[i].value)
                         selected = 'selected';
-                      $('#CLASSIFICACAO_DESPESA_COD').append('<option '+selected+' value=' + data[i].value + '>' + data[i].value + ' - ' +data[i].text + '</option>'); 
+                      $('#CLASSIFICACAO_DESPESA_COD').append('<option '+selected+' value=' + data[i].value + '>' + data[i].text + '</option>'); 
                   } 
 
                   /* CONDICAO_DE_PAGAMENTO_COD*/
@@ -164,7 +164,7 @@ function populaSelects(){
                             var selected = '';
                             if(getEntrada('CONDICAO_DE_PAGAMENTO_COD') == data[i].value)
                               selected = 'selected';
-                            $('#CONDICAO_DE_PAGAMENTO_COD').append('<option '+selected+' value=' + data[i].value + '>' + data[i].value + ' - ' +data[i].text + '</option>'); 
+                            $('#CONDICAO_DE_PAGAMENTO_COD').append('<option '+selected+' value=' + data[i].value + '>' + data[i].text + '</option>'); 
                         }   
 
                        /* FORNECEDOR_COD*/
@@ -177,7 +177,7 @@ function populaSelects(){
                                   var selected = '';
                                   if(getEntrada('FORNECEDOR_COD') == data[i].value)
                                     selected = 'selected';
-                                  $('#FORNECEDOR_COD').append('<option '+selected+' value=' + data[i].value + '>' + data[i].value + ' - ' + data[i].text + '</option>'); 
+                                  $('#FORNECEDOR_COD').append('<option '+selected+' value=' + data[i].value + '>' + data[i].text + '</option>'); 
                               } 
 
                               /* NRO_DO_DOCUMENTO*/
@@ -190,7 +190,7 @@ function populaSelects(){
                                         var selected = '';
                                         if(getEntrada('NRO_DO_DOCUMENTO') == data[i].value)  
                                           selected = 'selected';
-                                        $('#NRO_DO_DOCUMENTO').append('<option '+selected+' vencimento="'+data[i].vencimento+'" valor="'+data[i].valor+'" value="' + data[i].value + '">' + data[i].value + ' - ' +data[i].text + '</option>'); 
+                                        $('#NRO_DO_DOCUMENTO').append('<option '+selected+' vencimento="'+data[i].vencimento+'" valor="'+data[i].valor+'" value="' + data[i].value + '">' + data[i].text + '</option>'); 
                                     } 
 
                                     $('#NRO_DO_DOCUMENTO').change(function(){
