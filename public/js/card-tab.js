@@ -322,8 +322,17 @@ phase 3 2462802
     p.set('card', 'public', $( this ).attr('id') , String($( this ).val()) );
   }); 
 
-  p.moveCard(cardId, { phaseId: 2462801}, {phaseId: 2462820}).then(moved => {
-    debugger
+
+  var fromPhaseId = 2462801;
+  var toPhaseId;
+  if($('#MULTA_JUROS_COD').val() == 1)
+    toPhaseId = 2462820; // phase 2
+  else
+    toPhaseId = 2462802; // phase 3
+
+  p.moveCard(cardId, { phaseId: fromPhaseId}, {phaseId: toPhaseId}).then(moved => {
+    console.log('## Move Card ##');
+    consloe.log('phase : ' + toPhaseId);
   })  
 
 
