@@ -317,14 +317,12 @@ phase 2 2462820
 phase 3 2462802
 
 */
-
-  set_cpf_cnpj();
-
   console.log('## set ##');
   $( ".save" ).each(function( index ) {
     console.log( $( this ).attr('id') + ' : ' + String($( this ).val()) );
     p.set('card', 'public', $( this ).attr('id') , String($( this ).val()) );
   }); 
+
 
   var fromPhaseId = 2462801;
   var toPhaseId;
@@ -345,15 +343,15 @@ phase 3 2462802
 function disableForm(){
   $('#container').find('input, textarea, button, select').attr('disabled','disabled');
   $('#btnSalvar').hide();
+  $('#radios_CPF_CNPJ').hide();
   $('.pp-ico-add').hide();
+  
 }
 
 
 
 function popular(){
 try{
-
-  get_cpf_cnpj();
 
   p.fields().then((fields) => {
     console.log(fields); 
@@ -385,18 +383,6 @@ function addLine(){
       resize();
   }
 
-}
-
-function set_cpf_cnpj(){
-    if($( "#CPF:checked" ).length>0)
-      p.set('card', 'public', "CHECK_CNPJ_CPF" , "CPF" );
-
-    if($( "#CNPJ:checked" ).length>0)
-      p.set('card', 'public', "CHECK_CNPJ_CPF" , "CNPJ" );
-}
-
-function get_cpf_cnpj(){
-  $("#" + getEntrada("CHECK_CNPJ_CPF") ).prop('checked', true);
 }
 
 function close(){
