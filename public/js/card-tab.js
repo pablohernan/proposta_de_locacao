@@ -317,13 +317,14 @@ phase 2 2462820
 phase 3 2462802
 
 */
+
+  set_cpf_cnpj();
+
   console.log('## set ##');
   $( ".save" ).each(function( index ) {
     console.log( $( this ).attr('id') + ' : ' + String($( this ).val()) );
     p.set('card', 'public', $( this ).attr('id') , String($( this ).val()) );
   }); 
-
-  //set_cpf_cnpj();
 
   var fromPhaseId = 2462801;
   var toPhaseId;
@@ -351,6 +352,8 @@ function disableForm(){
 
 function popular(){
 try{
+
+  get_cpf_cnpj();
 
   p.fields().then((fields) => {
     console.log(fields); 
