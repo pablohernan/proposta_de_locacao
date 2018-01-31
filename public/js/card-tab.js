@@ -23,7 +23,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
           console.log('CARD_ID:'+card.id) // { id: '23abc', ... }
           cardId = card.id;
 
-          /* se é outra phase */
+          /* se é outra phase 
+            console.log(card.current_phase.id);
+           */
           if(card.current_phase.id != 2462801)
             disableForm();
 
@@ -300,7 +302,7 @@ phase 3 2462802
 function disableForm(){
   $('#container').find('input, textarea, button, select').attr('disabled','disabled');
   $('#btnSalvar').hide();
-  $('.pp-ico-add').hide();
+  $('#grid1').hide();
 }
 
 
