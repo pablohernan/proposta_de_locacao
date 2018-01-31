@@ -322,7 +322,7 @@ phase 3 2462802
     p.set('card', 'public', $( this ).attr('id') , String($( this ).val()) );
   }); 
 
-  pipefy.moveCard(cardId, { phaseId: 2462801}, {phaseId: 2462820}).then(moved => {
+  p.moveCard(cardId, { phaseId: 2462801}, {phaseId: 2462820}).then(moved => {
     debugger
   })  
 
