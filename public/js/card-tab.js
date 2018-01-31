@@ -22,6 +22,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
         p.card().then(function(card) {
           console.log('CARD_ID:'+card.id) // { id: '23abc', ... }
           cardId = card.id;
+
+          // se é outra phase 
+          if(card.current_phase.id != 2462801)
+            disableForm();
+
           // populo com os dados da tabela
           db_select(popular_grid);
         });
@@ -271,20 +276,32 @@ function populaSelects(){
 /* salvar */
 function salvar(){
 
+
+/*
+
+phase 1 2462801
+
+phase 2 2462820
+
+phase 3 2462802
+
+*/
+
   console.log('## set ##');
   $( ".save" ).each(function( index ) {
     console.log( $( this ).attr('id') + ' : ' + String($( this ).val()) );
     p.set('card', 'public', $( this ).attr('id') , String($( this ).val()) );
   }); 
 
-  p.card().then(function(card) {
-    console.log('## change phase ##');
-    console.log('change to phase: ' + 2462820);
-    card.current_phase.id= 2462820;
-  });  
 
 }
 /* salvar */ 
+
+function disableForm(){
+  $('#container').find('input, textarea, button, select').attr('disabled','disabled');
+  $('.pp-btn').hide();
+  $('.pp-ico-add').hide();
+}
 
 
 
