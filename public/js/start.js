@@ -1,4 +1,5 @@
 /* global PipefyApp, emojis */
+console.log('not load');
 document.addEventListener("DOMContentLoaded", function(event) {
 
     console.log('##START##');
