@@ -353,6 +353,25 @@ function setEntradas(callBackFn){
 */
 
 
+var entradasSalvas = [];
+function salvaDados(callBackFn){
+
+  if($( ".save" ).length == entradasSalvas.length)
+    return callBackFn();
+
+  var objsArray = $( ".save" ).toArray();
+  setTimeout(function(){
+    
+    p.set('card', 'public', objsArray[entradasSalvas.length].id , String($( '#'+objsArray[entradasSalvas.length].id ).val()) );
+    entradasSalvas.push({'name' : objsArray[entradasSalvas.length].id , 'value' : String($( '#'+objsArray[entradasSalvas.length].id ).val())});
+    console.log( objsArray[entradasSalvas.length].id + ' : ' + String($( '#'+objsArray[entradasSalvas.length].id ).val()) );
+    salvaDados(callBackFn);
+
+  }, 200)
+
+}
+
+
 /* salvar */
 function salvar(){
 
@@ -366,13 +385,13 @@ phase 2 2462820
 
 phase 3 2462802
 
-*/
+
   console.log('## set ##');
   $( ".save" ).each(function( index ) {
     console.log( $( this ).attr('id') + ' : ' + String($( this ).val()) );
     p.set('card', 'public', $( this ).attr('id') , String($( this ).val()) );
   }); 
-
+*/
 
   var fromPhaseId = 2462801;
   var toPhaseId;
@@ -385,6 +404,9 @@ phase 3 2462802
     console.log('## Move Card ##');
     console.log('phase : ' + toPhaseId);
   })  
+
+  p.showNotification('Formulario salvo!', 'success');
+  p.closeCard();  
 
 
 }
@@ -439,9 +461,7 @@ function addLine(){
 function close(){
 
   if( !rc_showMesages() && !rc_showMesagesData() ){
-      salvar();
-      p.showNotification('Formulario salvo!', 'success');
-      p.closeCard();
+      salvaDados(salvar);
   }else{
       p.showNotification('Deve preencher os campos obrigatórios (*)', 'error');
       resize();
