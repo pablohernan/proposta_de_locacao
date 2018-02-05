@@ -396,7 +396,7 @@ phase 3 2462802
   var fromPhaseId = 2462801;
   var toPhaseId;
   if($('#MULTA_JUROS_COD').val() == 1){
-    toPhaseId = $('#SHOPPING').attr('phases'); // phase 2
+    toPhaseId = $('#SHOPPING option:selected').attr('phases'); // phase 2
   }
   else
     toPhaseId = 2462802; // phase 3 
