@@ -96,7 +96,7 @@ function popula_SHOPPING(popular,callbackFn){
                 var selected = '';
                 if(popular && getEntrada('SHOPPING') == data[i].value)    
                   selected = 'selected'; 
-                $('#SHOPPING').append('<option '+selected+' value=' + data[i].value + '>' + data[i].text + '</option>'); 
+                $('#SHOPPING').append('<option '+selected+' phases=' + data[i].phases + ' value=' + data[i].value + '>' + data[i].text + '</option>'); 
             } 
 
             $('#SHOPPING').change(function(){
@@ -395,10 +395,11 @@ phase 3 2462802
 
   var fromPhaseId = 2462801;
   var toPhaseId;
-  if($('#MULTA_JUROS_COD').val() == 1)
-    toPhaseId = 2462820; // phase 2
+  if($('#MULTA_JUROS_COD').val() == 1){
+    toPhaseId = $('#SHOPPING').attr('phases'); // phase 2
+  }
   else
-    toPhaseId = 2462802; // phase 3
+    toPhaseId = 2462802; // phase 3 
 
   p.moveCard(cardId, { phaseId: fromPhaseId}, {phaseId: toPhaseId}).then(moved => {
     console.log('## Move Card ##');
