@@ -370,7 +370,7 @@ phase 3 2462802
   console.log('## set ##');
   $( ".save" ).each(function( index ) {
     console.log( $( this ).attr('id') + ' : ' + String($( this ).val()) );
-    p.set('card', 'public', $( this ).attr('id') , String($( this ).val()) ).then((campo) => {
+    p.set('card', 'public', $( this ).attr('id') , $( this ).val() ).then((campo) => {
       console.log('save:'+ campo);
     });
   }); 
