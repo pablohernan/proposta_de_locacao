@@ -120,12 +120,14 @@ function popula_EMPRESA_COD(popular,callbackFn){
             //var data = JSON.parse(data);  
             $('#EMPRESA_COD').html('');// limpo
             $('#EMPRESA_COD').append('<option value="" selected>::selecione::</option>'); 
-            for( var i = 0 ; i < data.length ; i++ ){
-                var selected = '';
-                if(popular && getEntrada('EMPRESA_COD') == data[i].value)    
-                  selected = 'selected'; 
-                $('#EMPRESA_COD').append('<option '+selected+' value=' + data[i].value + '>' + data[i].text + '</option>'); 
-            } 
+            if($('#SHOPPING').val()==data[i].shopping){
+              for( var i = 0 ; i < data.length ; i++ ){
+                  var selected = '';
+                  if(popular && getEntrada('EMPRESA_COD') == data[i].value)    
+                    selected = 'selected'; 
+                  $('#EMPRESA_COD').append('<option '+selected+' value=' + data[i].value + '>' + data[i].text + '</option>'); 
+              } 
+            }
 
             $('#EMPRESA_COD').change(function(){
               popula_NRO_DO_DOCUMENTO(false,function(){});
