@@ -363,8 +363,8 @@ function salvaDados(callBackFn){
   setTimeout(function(){
     
     p.set('card', 'public', objsArray[entradasSalvas.length].id , String($( '#'+objsArray[entradasSalvas.length].id ).val()) );
-    entradasSalvas.push({'name' : objsArray[entradasSalvas.length].id , 'value' : String($( '#'+objsArray[entradasSalvas.length].id ).val())});
     console.log( objsArray[entradasSalvas.length].id + ' : ' + String($( '#'+objsArray[entradasSalvas.length].id ).val()) );
+    entradasSalvas.push({'name' : objsArray[entradasSalvas.length].id , 'value' : String($( '#'+objsArray[entradasSalvas.length].id ).val())});
     salvaDados(callBackFn);
 
   }, 200)
