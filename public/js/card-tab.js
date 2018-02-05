@@ -120,8 +120,8 @@ function popula_EMPRESA_COD(popular,callbackFn){
             //var data = JSON.parse(data);  
             $('#EMPRESA_COD').html('');// limpo
             $('#EMPRESA_COD').append('<option value="" selected>::selecione::</option>'); 
-            if($('#SHOPPING').val()==data[i].shopping){
-              for( var i = 0 ; i < data.length ; i++ ){
+            for( var i = 0 ; i < data.length ; i++ ){
+              if($('#SHOPPING').val()==data[i].shopping){
                   var selected = '';
                   if(popular && getEntrada('EMPRESA_COD') == data[i].value)    
                     selected = 'selected'; 
