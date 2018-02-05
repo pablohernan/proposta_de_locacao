@@ -391,6 +391,7 @@ try{
   console.log('## get ##');
   $( ".save" ).each(function( index ) {   
     $( '#' + $( this ).attr('id') ).val(getEntrada($( this ).attr('id')));
+    console.log( $( this ).attr('id') + ' : ' + getEntrada($( this ).attr('id') );
   });
   }catch(e){}
   

@@ -26,10 +26,11 @@ function db_insert(cardid,grupodepagamento,grupodepagamentoid,centrodecusto,cent
 
   request.onreadystatechange = function () {
     if (this.readyState === 4) {
+      /*
       console.log('Status:', this.status);
       console.log('Headers:', this.getAllResponseHeaders());
       console.log('Body:', this.responseText);
-
+      */
       var index = JSON.parse(this.responseText).data.table.table_records_count + 1;
       db_insert_index(index,cardid,grupodepagamento,grupodepagamentoid,centrodecusto,centrodecustoid,valor,db_insertCallBackFn);
 
@@ -74,9 +75,11 @@ function db_insert_index(index,cardid,grupodepagamento,grupodepagamentoid,centro
 
 function db_insertCallBackFn(response){
     if (response.readyState === 4) {
+      /*
       console.log('Status:', response.status);
       console.log('Headers:', response.getAllResponseHeaders());
       console.log('Body:', response.responseText);
+      */
     }
 }
 
@@ -98,9 +101,11 @@ function db_count(){
 
   request.onreadystatechange = function () {
     if (this.readyState === 4) {
+      /*
       console.log('Status:', this.status);
       console.log('Headers:', this.getAllResponseHeaders());
       console.log('Body:', this.responseText);
+      */
     }
   };
 
@@ -127,9 +132,11 @@ function db_select(callBackFn){
 
   request.onreadystatechange = function () {
     if (this.readyState === 4) {
+      /*
       console.log('Status:', this.status);
       console.log('Headers:', this.getAllResponseHeaders());
       console.log('Body:', this.responseText);
+      */
 
       var ret = new Array();
       var edges = JSON.parse(this.responseText).data.table_records.edges;
