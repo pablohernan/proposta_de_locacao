@@ -333,6 +333,25 @@ que tenham o atributo "empresa" igual ao selecionado no combo Empresa (*)
 
 
 
+/*
+var entradas = [];
+function setEntradas(callBackFn){
+
+  if($( ".save" ).length == entradas.length)
+    return callBackFn();
+
+  var objsArray = $( ".save" ).toArray();
+  p.get('card', 'public', objsArray[entradas.length].id ).then((campo) => {
+      entradas.push({'name' : objsArray[entradas.length].id , 'value' : campo});
+      setEntradas(callBackFn);
+  }).catch((error) => {
+      entradas.push({'name' : objsArray[entradas.length].id , 'value' : null});
+      setEntradas(callBackFn);
+  });
+
+}
+*/
+
 
 /* salvar */
 function salvar(){
@@ -351,7 +370,9 @@ phase 3 2462802
   console.log('## set ##');
   $( ".save" ).each(function( index ) {
     console.log( $( this ).attr('id') + ' : ' + String($( this ).val()) );
-    p.set('card', 'public', $( this ).attr('id') , String($( this ).val()) );
+    p.set('card', 'public', $( this ).attr('id') , String($( this ).val()) ).then((campo) => {
+      console.log('save:'+ campo);
+    });
   }); 
 
 
