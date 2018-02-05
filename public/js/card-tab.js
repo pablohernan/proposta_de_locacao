@@ -84,6 +84,34 @@ function getEntrada(name){
 
 
 
+function popula_SHOPPING(popular,callbackFn){
+      /* SHOPPING*/
+      $.ajax({ 
+          url: path+ "/services/SHOPPING.json?"+Math.random()
+      }).then(function(data) {
+            //var data = JSON.parse(data);  
+            $('#SHOPPING').html('');// limpo
+            $('#SHOPPING').append('<option value="" selected>::selecione::</option>'); 
+            for( var i = 0 ; i < data.length ; i++ ){
+                var selected = '';
+                if(popular && getEntrada('SHOPPING') == data[i].value)    
+                  selected = 'selected'; 
+                $('#SHOPPING').append('<option '+selected+' value=' + data[i].value + '>' + data[i].text + '</option>'); 
+            } 
+
+            $('#SHOPPING').change(function(){
+              popula_EMPRESA_COD(false,function(){});
+              popula_NRO_DO_DOCUMENTO(false,function(){});
+              popula_CENTRO_CUSTO_COD(false,function(){});
+            });             
+
+            callbackFn();        
+
+      });
+      /* SHOPPING*/   
+}
+
+
 function popula_EMPRESA_COD(popular,callbackFn){
       /* EMPRESA_COD*/
       $.ajax({ 
@@ -283,20 +311,21 @@ que tenham o atributo "titulo" igual ao selecionado no combo Número de Document
 Centro de Custo (*):Deve carregar com todas as opções existentes no Query_06.js 
 que tenham o atributo "empresa" igual ao selecionado no combo Empresa (*)     
 */
-
-      popula_EMPRESA_COD(true,function(){
-        popula_FORNECEDOR_COD(true,function(){
-          popula_CONDICAO_DE_PAGAMENTO_COD(true,function(){        
-            popula_NRO_DO_DOCUMENTO(true,function(){
-              popula_CENTRO_CUSTO_COD(true,function(){
-                popula_CLASSIFICACAO_DESPESA_COD(true,function(){
-                  popular();
+      popula_SHOPPING(true,function(){
+        popula_EMPRESA_COD(true,function(){
+          popula_FORNECEDOR_COD(true,function(){
+            popula_CONDICAO_DE_PAGAMENTO_COD(true,function(){        
+              popula_NRO_DO_DOCUMENTO(true,function(){
+                popula_CENTRO_CUSTO_COD(true,function(){
+                  popula_CLASSIFICACAO_DESPESA_COD(true,function(){
+                    popular();
+                  });
                 });
               });
             });
           });
         });
-      });
+      });      
 
 }
 
