@@ -1,6 +1,9 @@
-  
-
 var localVersion = false;
+
+var phase_1 = 2617647; 
+var phase_2 = 2617648;
+var phase_3 = 2617649;
+var phase_4 = 2617650;
 
 var path = '';
 if(localVersion){
@@ -27,24 +30,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
           /* se é outra phase 
             console.log(card.current_phase.id);
            */
-          if(card.current_phase.id != 2462801)
+          if(card.current_phase.id != phase_1)//2462801)
             disableForm();
 
           // populo com os dados da tabela
           db_select(popular_grid);
         });
-/*
-        p.modal({
-          url: './images/icon_grande.svg',
-          height: '70%',
-          width: '70%',
-        });
-*/
+
       }catch(e){console.log(e)}
-
-
-      // popula todos los campos
-      //setTimeout( function(){popular();}, 1000);
 
 });
 
@@ -272,47 +265,6 @@ function popula_CENTRO_CUSTO_COD(popular,callbackFn){
 
 function populaSelects(){
 
-
-      /* SHOPPING
-      $.ajax({ 
-          url: path+ "/services/SHOPPING.json?"+Math.random()
-      }).then(function(data) {
-            //var data = JSON.parse(data);  
-            $('#SHOPPING').append('<option value="" selected>::selecione::</option>'); 
-            for( var i = 0 ; i < data.length ; i++ ){
-                $('#SHOPPING').append('<option value=' + data[i].value + '>' + data[i].value + ' - ' +data[i].text + '</option>'); 
-            } 
-
-            // set value apos carregar
-            p.get('card', 'public', 'SHOPPING' ).then((campo) => {
-              if(campo != 'null' && campo != null && campo != '')
-                $( '#' + $( '#SHOPPING' ).attr('id') ).val(campo);
-            }).catch((error) => {
-              console.log(error);
-            }); 
-
-            //if(data.length>0)
-              //populaEmpresa(data[0].value);
-      });
-      *//* SHOPPING*/
-
-
-/*
-Empresa (*): Deve carregar com todas as opções existentes no Query_01.js
-
-Fornecedor (*): Deve carregar com todas as opções existentes no Query_02.js
-
-Condicão de Pagamento: Deve carregar com todas as opções existentes no Query_04.js
-
-Número de Documento (*):Deve carregar com todas as opções existentes no Query_03.js 
-que tenham o atributo "fornecedor" igual ao selecionado no combo Fornecedor (*)
-
-Grupo de Pagamento (*): Deve carregar com todas as opções existentes no Query_05.js 
-que tenham o atributo "titulo" igual ao selecionado no combo Número de Documento (*)
-
-Centro de Custo (*):Deve carregar com todas as opções existentes no Query_06.js 
-que tenham o atributo "empresa" igual ao selecionado no combo Empresa (*)     
-*/
       popula_SHOPPING(true,function(){
         popula_EMPRESA_COD(true,function(){
           popula_FORNECEDOR_COD(true,function(){
@@ -330,28 +282,6 @@ que tenham o atributo "empresa" igual ao selecionado no combo Empresa (*)
       });      
 
 }
-
-
-
-/*
-var entradas = [];
-function setEntradas(callBackFn){
-
-  if($( ".save" ).length == entradas.length)
-    return callBackFn();
-
-  var objsArray = $( ".save" ).toArray();
-  p.get('card', 'public', objsArray[entradas.length].id ).then((campo) => {
-      entradas.push({'name' : objsArray[entradas.length].id , 'value' : campo});
-      setEntradas(callBackFn);
-  }).catch((error) => {
-      entradas.push({'name' : objsArray[entradas.length].id , 'value' : null});
-      setEntradas(callBackFn);
-  });
-
-}
-*/
-
 
 var entradasSalvas = [];
 function salvaDados(callBackFn){
@@ -375,31 +305,13 @@ function salvaDados(callBackFn){
 /* salvar */
 function salvar(){
 
-/*
-pipefy.moveCard('BBc1hOe-', { phaseId: 243534}, {phaseId: 343565}).then(moved => {
-  debugger
-})
-phase 1 2462801
-
-phase 2 2462820
-
-phase 3 2462802
-
-
-  console.log('## set ##');
-  $( ".save" ).each(function( index ) {
-    console.log( $( this ).attr('id') + ' : ' + String($( this ).val()) );
-    p.set('card', 'public', $( this ).attr('id') , String($( this ).val()) );
-  }); 
-*/
-
-  var fromPhaseId = 2462801;
+  var fromPhaseId = phase_1;
   var toPhaseId;
   if($('#MULTA_JUROS_COD').val() == 1){
     toPhaseId = $('#SHOPPING option:selected').attr('phases'); // phase 2
   }
   else
-    toPhaseId = 2462802; // phase 3 
+    toPhaseId = phase_4;
 
   p.moveCard(cardId, { phaseId: fromPhaseId}, {phaseId: toPhaseId}).then(moved => {
     console.log('## Move Card ##');
