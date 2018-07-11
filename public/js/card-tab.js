@@ -26,9 +26,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 
 p.modal({
-  url: './popup.html',
-  height: '70%',
-  width: '70%',
+  url: 'popup.html',
+  height: '90%',
+  width: '90%',
 });
 
 /*
