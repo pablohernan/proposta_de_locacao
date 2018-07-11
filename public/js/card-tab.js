@@ -7,7 +7,7 @@ var phase_4 = 2617650;
 
 var path = '';
 if(localVersion){
- path = 'http://localhost/pipefy/forms/start-form-js/public';
+ path = 'http://localhost/pipefy/forms/proposta_de_locacao/public';
  showList();
 }
 
@@ -23,20 +23,29 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
         });
 
+
+
+p.modal({
+  url: './popup.html',
+  height: '70%',
+  width: '70%',
+});
+
+/*
         p.card().then(function(card) {
           console.log('CARD_ID:'+card.id) // { id: '23abc', ... }
           cardId = card.id;
 
-          /* se é outra phase 
-            console.log(card.current_phase.id);
-           */
+
+          //console.log(card.current_phase.id);
+
           if(card.current_phase.id != phase_1)//2462801)
             disableForm();
 
           // populo com os dados da tabela
           db_select(popular_grid);
         });
-
+*/
       }catch(e){console.log(e)}
 
 });
