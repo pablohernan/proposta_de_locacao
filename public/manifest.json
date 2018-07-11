@@ -1,7 +1,7 @@
 {
-  "name": "Dm Consultoria - Integração ",
-  "short_description": "Integração com PiPefy",
-  "description": "Integração com PiPefy",
+  "name": "Dm Consultoria - Proposta de Locação ",
+  "short_description": "Proposta de Locação com PiPefy",
+  "description": "Proposta de Locação com PiPefy",
   "icon": "./images/icon.png",
   "author": "DMConsultoria",
   "init_url": "./",
