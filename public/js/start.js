@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       'card-tab': function(p, pipe) {
          return {
            icon: './images/icon_grande.svg',
-           title: 'Informações Alteração de Pgto',
+           title: 'Proposta de Locação',
            url: './card-tab.html',
            claimedAttachments: function(attachments) {
              // Iterate by all attachment to claim attachments from Emojipedia
