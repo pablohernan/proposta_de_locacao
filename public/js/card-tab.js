@@ -17,11 +17,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
       
       try{
         p = PipefyApp.init();
-        PipefyApp.resizeTo("#list");
+        //PipefyApp.resizeTo("#list");
         
-        PipefyApp.render(function() {
+        //PipefyApp.render(function() {
 
-        });
+       // });
 
 
 
