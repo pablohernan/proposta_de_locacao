@@ -39,21 +39,16 @@ document.addEventListener("DOMContentLoaded", function(event) {
 'card-buttons': function(p, pipe) {
   return [
     {
-           icon: './images/icon_grande.svg',
-           text: 'Proposta de Locação',
+      icon: './images/icon_grande.svg',
+      text: 'Proposta de Locação',
       callback: function(p) {
-        // Open dropdown when user clicks on button
-        p = PipefyApp.init();
-        //PipefyApp.resizeTo("#list");
-        
-        //PipefyApp.render(function() {
 
-       // });
-p.modal({
-  url: './popup.html',
-  height: '90%',
-  width: '90%',
-});
+          p.modal({
+            url: './popup.html',
+            height: '90%',
+            width: '90%',
+          });
+
       },
     }
   ]
