@@ -35,23 +35,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
         ]
       },*/
       
-
-'card-buttons': function(p, pipe) {
-  return [
-    {
-      icon: './images/icon_grande.svg',
-      text: 'Sprint',
-      callback: function(p) {
-        // Open dropdown when user clicks on button
-        p.dropdown({
-          title: 'Sprint App',
-          items: []
-        });
-      },
-    }
-  ]
-}
-/*
       'card-tab': function(p, pipe) {
          return {
            icon: './images/icon_grande.svg',
@@ -62,12 +45,35 @@ document.addEventListener("DOMContentLoaded", function(event) {
              return 2;
            },
            buttons: [
-
+             /*{
+               text: '🔥 Add Emoji',
+               callback: function(p) {
+                   alert("salvar");
+               }
+             },*/
            ]
          }
       }
 
-    });
-*/ 
+'card-buttons': function(p, pipe) {
+  return [
+    {
+           icon: './images/icon_grande.svg',
+           text: 'Proposta de Locação',
+      callback: function(p) {
+        // Open dropdown when user clicks on button
+        p.dropdown({
+          title: 'Sprint App',
+          items: [
+            ...
+          ]
+        });
+      },
+    }
+  ]
+}
 
-);
+
+    });
+
+});
