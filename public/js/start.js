@@ -8,18 +8,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 
 p = PipefyApp.init();
-//PipefyApp.resizeTo("#list");
-
-//PipefyApp.render(function() {
-
-// });
 p.modal({
   url: 'popup.html',
   height: '90%',
   width: '90%',
 });
 
-   // PipefyApp.initCall({
+    PipefyApp.initCall({
       /*
       'card-badges': function(p, context) {
         return [
@@ -49,26 +44,26 @@ p.modal({
         ]
       },*/
       
-     // 'card-tab': function(p, pipe) {
-      //   return {
-       //    icon: './images/icon_grande.svg',
-       //    title: 'Proposta de Locação',
-        //   url: './card-tab.html',
-       //    claimedAttachments: function(attachments) {
+      'card-tab': function(p, pipe) {
+         return {
+           icon: './images/icon_grande.svg',
+           title: 'Proposta de Locação',
+           url: './card-tab.html',
+           claimedAttachments: function(attachments) {
              // Iterate by all attachment to claim attachments from Emojipedia
-       //      return 2;
-      //     },
-      //     buttons: [
+             return 2;
+           },
+           buttons: [
              /*{
                text: '🔥 Add Emoji',
                callback: function(p) {
                    alert("salvar");
                }
              },*/
-      //     ]
-      //   }
-      //}
+           ]
+         }
+      }
 
-    //});
+    });
 
 });
