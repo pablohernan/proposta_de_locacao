@@ -35,25 +35,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
         ]
       },*/
       
-      'card-tab': function(p, pipe) {
-         return {
-           icon: './images/icon_grande.svg',
-           title: 'Proposta de Locação',
-           url: './card-tab.html',
-           claimedAttachments: function(attachments) {
-             // Iterate by all attachment to claim attachments from Emojipedia
-             return 2;
-           },
-           buttons: [
-             /*{
-               text: '🔥 Add Emoji',
-               callback: function(p) {
-                   alert("salvar");
-               }
-             },*/
-           ]
-         }
-      }
 
 'card-buttons': function(p, pipe) {
   return [
