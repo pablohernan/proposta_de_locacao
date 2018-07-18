@@ -5,19 +5,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     console.log('##START##');
     var Promise = PipefyApp.Promise;
     console.log('##create card##');
-
-PipefyApp.initCall({
-  'pipe-buttons': function(p, pipe) {
-        p.modal({
-          url: './popup.html',
-          height: '90%',
-          width: '90%',
-        });
-  }
-});
-
-
-    //PipefyApp.initCall({
+    PipefyApp.initCall({
       /*
       'card-badges': function(p, context) {
         return [
@@ -47,5 +35,39 @@ PipefyApp.initCall({
         ]
       },*/
       
+
+'card-buttons': function(p, pipe) {
+  return [
+    {
+      icon: './images/icon-blue.svg',
+      text: 'Sprint',
+      callback: function(p) {
+        // Open dropdown when user clicks on button
+        p.dropdown({
+          title: 'Sprint App',
+          items: []
+        });
+      },
+    }
+  ]
+}
+/*
+      'card-tab': function(p, pipe) {
+         return {
+           icon: './images/icon_grande.svg',
+           title: 'Proposta de Locação',
+           url: './card-tab.html',
+           claimedAttachments: function(attachments) {
+             // Iterate by all attachment to claim attachments from Emojipedia
+             return 2;
+           },
+           buttons: [
+
+           ]
+         }
+      }
+
+    });
+*/ 
 
 });
