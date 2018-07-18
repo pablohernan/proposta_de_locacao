@@ -5,7 +5,16 @@ document.addEventListener("DOMContentLoaded", function(event) {
     console.log('##START##');
     var Promise = PipefyApp.Promise;
     console.log('##create card##');
-    PipefyApp.initCall({
+
+
+    p = PipefyApp.init();
+    p.modal({
+      url: 'popup.html',
+      height: '90%',
+      width: '90%',
+    });
+
+    //PipefyApp.initCall({
       /*
       'card-badges': function(p, context) {
         return [
@@ -35,26 +44,26 @@ document.addEventListener("DOMContentLoaded", function(event) {
         ]
       },*/
       
-      'card-tab': function(p, pipe) {
-         return {
-           icon: './images/icon_grande.svg',
-           title: 'Proposta de Locação',
-           url: './card-tab.html',
-           claimedAttachments: function(attachments) {
+      //'card-tab': function(p, pipe) {
+        // return {
+       //    icon: './images/icon_grande.svg',
+       //    title: 'Proposta de Locação',
+       //    url: './card-tab.html',
+        //   claimedAttachments: function(attachments) {
              // Iterate by all attachment to claim attachments from Emojipedia
-             return 2;
-           },
-           buttons: [
+          //   return 2;
+         //  },
+         //  buttons: [
              /*{
                text: '🔥 Add Emoji',
                callback: function(p) {
                    alert("salvar");
                }
              },*/
-           ]
-         }
-      }
+       //    ]
+       //  }
+     // }
 
-    });
+   // });
 
 });
