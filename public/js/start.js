@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 'card-buttons': function(p, pipe) {
   return [
     {
-      icon: './images/icon-blue.svg',
+      icon: './images/icon_grande.svg',
       text: 'Sprint',
       callback: function(p) {
         // Open dropdown when user clicks on button
@@ -70,4 +70,4 @@ document.addEventListener("DOMContentLoaded", function(event) {
     });
 */ 
 
-});
+);
