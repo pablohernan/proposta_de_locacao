@@ -16,20 +16,12 @@ var cardId;
 document.addEventListener("DOMContentLoaded", function(event) {
       
       try{
-        p = PipefyApp.init();
-        //PipefyApp.resizeTo("#list");
+        //p = PipefyApp.init();
+        PipefyApp.resizeTo("#list");
         
-        //PipefyApp.render(function() {
+        PipefyApp.render(function() {
 
-       // });
-
-
-
-p.modal({
-  url: 'popup.html',
-  height: '90%',
-  width: '90%',
-});
+        });
 
 /*
         p.card().then(function(card) {
