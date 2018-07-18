@@ -43,12 +43,17 @@ document.addEventListener("DOMContentLoaded", function(event) {
            text: 'Proposta de Locação',
       callback: function(p) {
         // Open dropdown when user clicks on button
-        p.dropdown({
-          title: 'Sprint App',
-          items: [
-            ...
-          ]
-        });
+        p = PipefyApp.init();
+        //PipefyApp.resizeTo("#list");
+        
+        //PipefyApp.render(function() {
+
+       // });
+p.modal({
+  url: './popup.html',
+  height: '90%',
+  width: '90%',
+});
       },
     }
   ]
