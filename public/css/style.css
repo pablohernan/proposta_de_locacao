@@ -252,3 +252,6 @@
 .loadBox {
    width:100%; text-align: center;height:300px;line-height: 80px;
 }
+
+
+.padding_20px{ padding-left:20px; }
