@@ -258,8 +258,7 @@
 
 #btnSalvar{ text-align: left; }
 
-
-.scroll-wrapper {
+.scroll-wrapper:focus {
     -webkit-overflow-scrolling: touch;
     overflow-y: scroll;
 }
