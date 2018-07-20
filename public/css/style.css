@@ -257,3 +257,9 @@
 .padding_20px{ padding-left:20px; }
 
 #btnSalvar{ text-align: left; }
+
+
+.scroll-wrapper {
+    -webkit-overflow-scrolling: touch;
+    overflow-y: scroll;
+}
