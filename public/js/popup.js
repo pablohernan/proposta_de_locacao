@@ -17,13 +17,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
       
       try{
         p = PipefyApp.init();
-        PipefyApp.resizeTo("#list");
+        //PipefyApp.resizeTo("#list");
         
-        PipefyApp.render(function() {
-
+        p.render(function() {
+        	init();
         });
 
-        init();
+        
 
         p.card().then(function(card) {
           console.log('CARD_ID:'+card.id) // { id: '23abc', ... }
