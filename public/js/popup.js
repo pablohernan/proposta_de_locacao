@@ -16,7 +16,7 @@ var cardId;
 document.addEventListener("DOMContentLoaded", function(event) {
       
       try{
-        //p = PipefyApp.init();
+        p = PipefyApp.init();
        // PipefyApp.resizeTo("#list");
         
         //PipefyApp.render(function() {
