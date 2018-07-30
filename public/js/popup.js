@@ -19,15 +19,16 @@ document.addEventListener("DOMContentLoaded", function(event) {
         p = PipefyApp.init();
         //PipefyApp.resizeTo("#list");
         
-        p.render(function() {
-        	init();
-        });
+        // PipefyApp.render(function() 
+        // });
 
         
 
         p.card().then(function(card) {
           console.log('CARD_ID:'+card.id) // { id: '23abc', ... }
           cardId = card.id;
+
+          init();
 
           /* se é outra phase 
             console.log(card.current_phase.id);
