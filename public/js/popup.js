@@ -16,31 +16,28 @@ var cardId;
 document.addEventListener("DOMContentLoaded", function(event) {
       
       try{
-       // p = PipefyApp.init();
-       // PipefyApp.resizeTo("#list");
+        p = PipefyApp.init();
+        PipefyApp.resizeTo("#list");
         
         PipefyApp.render(function() {
 
         });
-        console.log('Init');
 
-        Init();
+        init();
 
-/*
         p.card().then(function(card) {
           console.log('CARD_ID:'+card.id) // { id: '23abc', ... }
           cardId = card.id;
 
-
-          //console.log(card.current_phase.id);
-
+          /* se é outra phase 
+            console.log(card.current_phase.id);
+           */
           if(card.current_phase.id != phase_1)//2462801)
             disableForm();
 
           // populo com os dados da tabela
           db_select(popular_grid);
         });
-*/
       }catch(e){console.log(e)}
 
 });
@@ -48,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 
 
-function Init(){
+function init(){
 	
 	$('*').each(function(){
 	if ( $(this).attr('title') !== undefined && $(this).attr('title') != '' && $(this).attr('class')=='toolTip' ){
