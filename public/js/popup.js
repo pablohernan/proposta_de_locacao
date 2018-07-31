@@ -1,3 +1,8 @@
+var serverPath = 'https://wiseitcsc.partage.com.br:8445';
+var codEmpreendimento = '1';
+
+
+
 var localVersion = false;
 
 var phase_1 = 2617647; 
@@ -15,8 +20,8 @@ var cardId;
 
 document.addEventListener("DOMContentLoaded", function(event) {
       
-      try{
-        p = PipefyApp.init();
+     // try{
+        //p = PipefyApp.init();
         //PipefyApp.resizeTo("#list");
         
         // PipefyApp.render(function() 
@@ -24,22 +29,22 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
         
 
-        p.card().then(function(card) {
-          console.log('CARD_ID:'+card.id) // { id: '23abc', ... }
-          cardId = card.id;
+       // p.card().then(function(card) {
+        //  console.log('CARD_ID:'+card.id) // { id: '23abc', ... }
+          //cardId = card.id;
 
           init();
 
           /* se é outra phase 
             console.log(card.current_phase.id);
            */
-          if(card.current_phase.id != phase_1)//2462801)
-            disableForm();
+      //    if(card.current_phase.id != phase_1)//2462801)
+      //      disableForm();
 
           // populo com os dados da tabela
-          db_select(popular_grid);
-        });
-      }catch(e){console.log(e)}
+     //     db_select(popular_grid);
+    //    });
+     // }catch(e){console.log(e)}
 
 });
 
@@ -48,13 +53,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 function init(){
 	
-	$('*').each(function(){
+	/*	$('*').each(function(){
 	if ( $(this).attr('title') !== undefined && $(this).attr('title') != '' && $(this).attr('class')=='toolTip' ){
 			$(this).tipTip();
 		}
 	});	
+	*/
 
-
+/*
 	$('.money').val('0,00');
 	$('.money').maskMoney({
 		thousands:'.', decimal:',', 
@@ -79,20 +85,250 @@ function init(){
 		allowNegative:true
 	});
 
-	
+		
 	$('.percentDois').mask('#.###.##0,00%', {reverse: true});
 	
 	$('.percentUm').mask('#.###.#0,0%', {reverse: true});
-	
-	
+*/
+	addOriginalClass();
 	populaCombos();
 	getCoeficientes();
 	getEntradasFormulario();		
-	InitEntradas();		
+	//InitEntradas();		
 	initFormulario();
+
 	
-	if(FORM.modo.value == 'visualizacao')
-		wiseit.dom.setFormDisable("formulario");
+	//if(FORM.modo.value == 'visualizacao')
+		//wiseit.dom.setFormDisable("formulario");
+}
+
+function addOriginalClass(){
+	// money 
+	$( '[id=\'DADOS_GERAIS.SHOPPING\']' ).addClass('money');
+	$( '[id=\'DADOS_GERAIS.SITUACAOANTERIOR_ABL_M2\']' ).addClass('money');
+	$( '[id=\'DADOS_GERAIS.SITUACAOANTERIOR_FPP\']' ).addClass('money');
+	$( '[id=\'DADOS_GERAIS.SITUACAOANTERIOR_AMM_MEDIO_R\']' ).addClass('money');
+	$( '[id=\'DADOS_GERAIS.SITUACAOANTERIOR_UTIMO_AMM_R_M2\']' ).addClass('money');
+	$( '[id=\'DADOS_GERAIS.SITUACAOANTERIOR_AMM_R\']' ).addClass('money');
+	$( '[id=\'DADOS_GERAIS.SITUACAOANTERIOR_DIVIDA_AMM_R\']' ).addClass('money');
+	$( '[id=\'DADOS_GERAIS.SITUACAOANTERIOR_DIVIDA_CONDOMINIO_R\']' ).addClass('money');
+	$( '[id=\'DADOS_GERAIS.SITUACAOANTERIOR_DIVIDA_FPP_R\']' ).addClass('money');
+	$( '[id=\'DADOS_GERAIS.SITUACAOANTERIOR_DIVIDA_TOTAL_R\']' ).addClass('money');
+	$( '[id=\'DADOS_GERAIS.PROPOSTACOMERCIAL_ABL\']' ).addClass('money');
+	$( '[id=\'DADOS_GERAIS.PROPOSTACOMERCIAL_ASSUNCAO_DIVIDA\']' ).addClass('money');
+	$( '[id=\'DADOS_GERAIS.PROPOSTACOMERCIAL_FACHADA_M\']' ).addClass('money');
+	$( '[id=\'DADOS_GERAIS.PROPOSTACOMERCIAL_CRD\']' ).addClass('money');
+	$( '[id=\'DADOS_GERAIS.MEDIAPORSEGMENTO_ABL\']' ).addClass('money');
+	$( '[id=\'DADOS_GERAIS.MEDIAPORSEGMENTO_AMM_MEDIO\']' ).addClass('money');
+	$( '[id=\'DADOS_GERAIS.MEDIAPORSEGMENTO_A_PERC\']' ).addClass('money');
+	$( '[id=\'DADOS_GERAIS.MEDIAPORMARCA_ABL\']' ).addClass('money');
+	$( '[id=\'DADOS_GERAIS.MEDIAPORMARCA_AMM_MEDIO\']' ).addClass('money');
+	$( '[id=\'DADOS_GERAIS.MEDIAPORMARCA_A_PERC\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.1ANO_ALUGUEL_MINIMO_MENSAL_R\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.1ANO_ALUGUEL_MINIMO_MENSAL_R_M2\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.1ANO_PONTO_DE_EQUILIBRIO_R\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.1ANO_PONTO_DE_EQUILIBRIO_R_M2\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.1ANO_AMM_ANO_R\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.2ANO_ALUGUEL_MINIMO_MENSAL_R\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.2ANO_ALUGUEL_MINIMO_MENSAL_R_M2\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.2ANO_PONTO_DE_EQUILIBRIO_R\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.2ANO_PONTO_DE_EQUILIBRIO_R_M2\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.2ANO_AMM_ANO_R\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.3ANO_ALUGUEL_MINIMO_MENSAL_R\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.3ANO_ALUGUEL_MINIMO_MENSAL_R_M2\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.3ANO_PONTO_DE_EQUILIBRIO_R\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.3ANO_PONTO_DE_EQUILIBRIO_R_M2\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.3ANO_AMM_ANO_R\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.4ANO_ALUGUEL_MINIMO_MENSAL_R\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.4ANO_ALUGUEL_MINIMO_MENSAL_R_M2\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.4ANO_PONTO_DE_EQUILIBRIO_R\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.4ANO_PONTO_DE_EQUILIBRIO_R_M2\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.4ANO_AMM_ANO_R\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.5ANO_ALUGUEL_MINIMO_MENSAL_R\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.5ANO_ALUGUEL_MINIMO_MENSAL_R_M2\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.5ANO_PONTO_DE_EQUILIBRIO_R\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.5ANO_PONTO_DE_EQUILIBRIO_R_M2\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.5ANO_AMM_ANO_R\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.6ANO_ALUGUEL_MINIMO_MENSAL_R\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.6ANO_ALUGUEL_MINIMO_MENSAL_R_M2\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.6ANO_PONTO_DE_EQUILIBRIO_R\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.6ANO_PONTO_DE_EQUILIBRIO_R_M2\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.6ANO_AMM_ANO_R\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.7ANO_ALUGUEL_MINIMO_MENSAL_R\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.7ANO_ALUGUEL_MINIMO_MENSAL_R_M2\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.7ANO_PONTO_DE_EQUILIBRIO_R\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.7ANO_PONTO_DE_EQUILIBRIO_R_M2\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.7ANO_AMM_ANO_R\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.8ANO_ALUGUEL_MINIMO_MENSAL_R\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.8ANO_ALUGUEL_MINIMO_MENSAL_R_M2\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.8ANO_PONTO_DE_EQUILIBRIO_R\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.8ANO_PONTO_DE_EQUILIBRIO_R_M2\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.8ANO_AMM_ANO_R\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.9ANO_ALUGUEL_MINIMO_MENSAL_R\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.9ANO_ALUGUEL_MINIMO_MENSAL_R_M2\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.9ANO_PONTO_DE_EQUILIBRIO_R\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.9ANO_PONTO_DE_EQUILIBRIO_R_M2\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.9ANO_AMM_ANO_R\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.10ANO_ALUGUEL_MINIMO_MENSAL_R\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.10ANO_ALUGUEL_MINIMO_MENSAL_R_M2\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.10ANO_PONTO_DE_EQUILIBRIO_R\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.10ANO_PONTO_DE_EQUILIBRIO_R_M2\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.10ANO_AMM_ANO_R\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.TOTAL_AMM_DOBRADO_DEZEMBRO\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.TOTAL_CARENCIA\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.TOTAL_AMM_ANO_R\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_CDU_ADESAO_TT.TABELA_CDU\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_CDU_ADESAO_TT.TABELA_TAXA_TRANSFERENCIA\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_CDU_ADESAO_TT.TABELA_TAXA_ADESAO\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_CDU_ADESAO_TT.TABELA_MUTUO\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_CDU_ADESAO_TT.PROPOSTA_CDU\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_CDU_ADESAO_TT.PROPOSTA_TAXA_TRANSFERENCIA\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_CDU_ADESAO_TT.PROPOSTA_TAXA_ADESAO\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_CDU_ADESAO_TT.PROPOSTA_MUTUO\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_CDU_ADESAO_TT.PROPOSTAM2_CDU\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_CDU_ADESAO_TT.PROPOSTAM2_TAXA_TRANSFERENCIA\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_CDU_ADESAO_TT.PROPOSTAM2_TAXA_ADESAO\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_CDU_ADESAO_TT.PROPOSTAM2_MUTUO\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_CDU_ADESAO_TT.SINAL_CDU\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_CDU_ADESAO_TT.SINAL_TAXA_TRANSFERENCIA\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_CDU_ADESAO_TT.SINAL_TAXA_ADESAO\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_CDU_ADESAO_TT.SINAL_MUTUO\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_CDU_ADESAO_TT.SALDO_CDU\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_CDU_ADESAO_TT.SALDO_TAXA_TRANSFERENCIA\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_CDU_ADESAO_TT.SALDO_TAXA_ADESAO\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_CDU_ADESAO_TT.SALDO_MUTUO\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_VGL.VGL_R\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_VGL.COMERCIALIZACAO_R\']' ).addClass('money');
+	$( '[id=\'POPUP_ALUGUEL.1ANO_ALUGUELMINIMOMENSAL_R\']' ).addClass('money');
+	$( '[id=\'POPUP_ALUGUEL.1ANO_ALUGUELMINIMOMENSAL_R_M2\']' ).addClass('money');
+	$( '[id=\'POPUP_ALUGUEL.1ANO_PONTODEEQUILIBRIO_R\']' ).addClass('money');
+	$( '[id=\'POPUP_ALUGUEL.1ANO_PONTODEEQUILIBRIO_R_M2\']' ).addClass('money');
+	$( '[id=\'POPUP_ALUGUEL.1ANO_AMM_ANO_R\']' ).addClass('money');
+	$( '[id=\'POPUP_ALUGUEL.TOTAL_AMM_ANO_R\']' ).addClass('money');
+	$( '[id=\'POPUP_VGL.VGL_R\']' ).addClass('money');
+	$( '[id=\'POPUP_VGL.COMERCIALIZACAO_R\']' ).addClass('money');
+	$( '[id=\'OUTROS_ALUGUEL.1ANO_ALUGUEL_MINIMO_MENSAL_R\']' ).addClass('money');
+	$( '[id=\'OUTROS_ALUGUEL.1ANO_ALUGUEL_MINIMO_MENSAL_R_M2\']' ).addClass('money');
+	$( '[id=\'OUTROS_ALUGUEL.1ANO_PONTO_DE_EQUILIBRIO_R\']' ).addClass('money');
+	$( '[id=\'OUTROS_ALUGUEL.1ANO_PONTO_DE_EQUILIBRIO_R_M2\']' ).addClass('money');
+	$( '[id=\'OUTROS_ALUGUEL.1ANO_AMM_ANO_R\']' ).addClass('money');
+	$( '[id=\'OUTROS_ALUGUEL.2ANO_ALUGUEL_MINIMO_MENSAL_R\']' ).addClass('money');
+	$( '[id=\'OUTROS_ALUGUEL.2ANO_ALUGUEL_MINIMO_MENSAL_R_M2\']' ).addClass('money');
+	$( '[id=\'OUTROS_ALUGUEL.2ANO_PONTO_DE_EQUILIBRIO_R\']' ).addClass('money');
+	$( '[id=\'OUTROS_ALUGUEL.2ANO_PONTO_DE_EQUILIBRIO_R_M2\']' ).addClass('money');
+	$( '[id=\'OUTROS_ALUGUEL.2ANO_AMM_ANO_R\']' ).addClass('money');
+	$( '[id=\'OUTROS_ALUGUEL.3ANO_ALUGUEL_MINIMO_MENSAL_R\']' ).addClass('money');
+	$( '[id=\'OUTROS_ALUGUEL.3ANO_ALUGUEL_MINIMO_MENSAL_R_M2\']' ).addClass('money');
+	$( '[id=\'OUTROS_ALUGUEL.3ANO_PONTO_DE_EQUILIBRIO_R\']' ).addClass('money');
+	$( '[id=\'OUTROS_ALUGUEL.3ANO_PONTO_DE_EQUILIBRIO_R_M2\']' ).addClass('money');
+	$( '[id=\'OUTROS_ALUGUEL.3ANO_AMM_ANO_R\']' ).addClass('money');
+	$( '[id=\'OUTROS_ALUGUEL.4ANO_ALUGUEL_MINIMO_MENSAL_R\']' ).addClass('money');
+	$( '[id=\'OUTROS_ALUGUEL.4ANO_ALUGUEL_MINIMO_MENSAL_R_M2\']' ).addClass('money');
+	$( '[id=\'OUTROS_ALUGUEL.4ANO_PONTO_DE_EQUILIBRIO_R\']' ).addClass('money');
+	$( '[id=\'OUTROS_ALUGUEL.4ANO_PONTO_DE_EQUILIBRIO_R_M2\']' ).addClass('money');
+	$( '[id=\'OUTROS_ALUGUEL.4ANO_AMM_ANO_R\']' ).addClass('money');
+	$( '[id=\'OUTROS_ALUGUEL.5ANO_ALUGUEL_MINIMO_MENSAL_R\']' ).addClass('money');
+	$( '[id=\'OUTROS_ALUGUEL.5ANO_ALUGUEL_MINIMO_MENSAL_R_M2\']' ).addClass('money');
+	$( '[id=\'OUTROS_ALUGUEL.5ANO_PONTO_DE_EQUILIBRIO_R\']' ).addClass('money');
+	$( '[id=\'OUTROS_ALUGUEL.5ANO_PONTO_DE_EQUILIBRIO_R_M2\']' ).addClass('money');
+	$( '[id=\'OUTROS_ALUGUEL.5ANO_AMM_ANO_R\']' ).addClass('money');
+	$( '[id=\'OUTROS_ALUGUEL.6ANO_ALUGUEL_MINIMO_MENSAL_R\']' ).addClass('money');
+	$( '[id=\'OUTROS_ALUGUEL.6ANO_ALUGUEL_MINIMO_MENSAL_R_M2\']' ).addClass('money');
+	$( '[id=\'OUTROS_ALUGUEL.6ANO_PONTO_DE_EQUILIBRIO_R\']' ).addClass('money');
+	$( '[id=\'OUTROS_ALUGUEL.6ANO_PONTO_DE_EQUILIBRIO_R_M2\']' ).addClass('money');
+	$( '[id=\'OUTROS_ALUGUEL.6ANO_AMM_ANO_R\']' ).addClass('money');
+	$( '[id=\'OUTROS_ALUGUEL.7ANO_ALUGUEL_MINIMO_MENSAL_R\']' ).addClass('money');
+	$( '[id=\'OUTROS_ALUGUEL.7ANO_ALUGUEL_MINIMO_MENSAL_R_M2\']' ).addClass('money');
+	$( '[id=\'OUTROS_ALUGUEL.7ANO_PONTO_DE_EQUILIBRIO_R\']' ).addClass('money');
+	$( '[id=\'OUTROS_ALUGUEL.7ANO_PONTO_DE_EQUILIBRIO_R_M2\']' ).addClass('money');
+	$( '[id=\'OUTROS_ALUGUEL.7ANO_AMM_ANO_R\']' ).addClass('money');
+	$( '[id=\'OUTROS_ALUGUEL.8ANO_ALUGUEL_MINIMO_MENSAL_R\']' ).addClass('money');
+	$( '[id=\'OUTROS_ALUGUEL.8ANO_ALUGUEL_MINIMO_MENSAL_R_M2\']' ).addClass('money');
+	$( '[id=\'OUTROS_ALUGUEL.8ANO_PONTO_DE_EQUILIBRIO_R\']' ).addClass('money');
+	$( '[id=\'OUTROS_ALUGUEL.8ANO_PONTO_DE_EQUILIBRIO_R_M2\']' ).addClass('money');
+	$( '[id=\'OUTROS_ALUGUEL.8ANO_AMM_ANO_R\']' ).addClass('money');
+	$( '[id=\'OUTROS_ALUGUEL.9ANO_ALUGUEL_MINIMO_MENSAL_R\']' ).addClass('money');
+	$( '[id=\'OUTROS_ALUGUEL.9ANO_ALUGUEL_MINIMO_MENSAL_R_M2\']' ).addClass('money');
+	$( '[id=\'OUTROS_ALUGUEL.9ANO_PONTO_DE_EQUILIBRIO_R\']' ).addClass('money');
+	$( '[id=\'OUTROS_ALUGUEL.9ANO_PONTO_DE_EQUILIBRIO_R_M2\']' ).addClass('money');
+	$( '[id=\'OUTROS_ALUGUEL.9ANO_AMM_ANO_R\']' ).addClass('money');
+	$( '[id=\'OUTROS_ALUGUEL.10ANO_ALUGUEL_MINIMO_MENSAL_R\']' ).addClass('money');
+	$( '[id=\'OUTROS_ALUGUEL.10ANO_ALUGUEL_MINIMO_MENSAL_R_M2\']' ).addClass('money');
+	$( '[id=\'OUTROS_ALUGUEL.10ANO_PONTO_DE_EQUILIBRIO_R\']' ).addClass('money');
+	$( '[id=\'OUTROS_ALUGUEL.10ANO_PONTO_DE_EQUILIBRIO_R_M2\']' ).addClass('money');
+	$( '[id=\'OUTROS_ALUGUEL.10ANO_AMM_ANO_R\']' ).addClass('money');
+	$( '[id=\'OUTROS_ALUGUEL.TOTAL_AMM_ANO_R\']' ).addClass('money');
+	$( '[id=\'OUTROS_CDU_TT.TABELA_CDU\']' ).addClass('money');
+	$( '[id=\'OUTROS_CDU_TT.TABELA_TAXA_TRANSFERENCIA\']' ).addClass('money');
+	$( '[id=\'OUTROS_CDU_TT.TABELA_TAXA_ADESAO\']' ).addClass('money');
+	$( '[id=\'OUTROS_CDU_TT.TABELA_MUTUO\']' ).addClass('money');
+	$( '[id=\'OUTROS_CDU_TT.PROPOSTA_CDU\']' ).addClass('money');
+	$( '[id=\'OUTROS_CDU_TT.PROPOSTA_TAXA_TRANSFERENCIA\']' ).addClass('money');
+	$( '[id=\'OUTROS_CDU_TT.PROPOSTA_TAXA_ADESAO\']' ).addClass('money');
+	$( '[id=\'OUTROS_CDU_TT.PROPOSTA_MUTUO\']' ).addClass('money');
+	$( '[id=\'OUTROS_CDU_TT.PROPOSTAM2_CDU\']' ).addClass('money');
+	$( '[id=\'OUTROS_CDU_TT.PROPOSTAM2_TAXA_TRANSFERENCIA\']' ).addClass('money');
+	$( '[id=\'OUTROS_CDU_TT.PROPOSTAM2_TAXA_ADESAO\']' ).addClass('money');
+	$( '[id=\'OUTROS_CDU_TT.PROPOSTAM2_MUTUO\']' ).addClass('money');
+	$( '[id=\'OUTROS_CDU_TT.SINAL_CDU\']' ).addClass('money');
+	$( '[id=\'OUTROS_CDU_TT.SINAL_TAXA_TRANSFERENCIA\']' ).addClass('money');
+	$( '[id=\'OUTROS_CDU_TT.SINAL_TAXA_ADESAO\']' ).addClass('money');
+	$( '[id=\'OUTROS_CDU_TT.SINAL_MUTUO\']' ).addClass('money');
+	$( '[id=\'OUTROS_CDU_TT.SALDO_CDU\']' ).addClass('money');
+	$( '[id=\'OUTROS_CDU_TT.SALDO_TAXA_TRANSFERENCIA\']' ).addClass('money');
+	$( '[id=\'OUTROS_CDU_TT.SALDO_TAXA_ADESAO\']' ).addClass('money');
+	$( '[id=\'OUTROS_CDU_TT.SALDO_MUTUO\']' ).addClass('money');
+	$( '[id=\'OUTROS_VGL.VGL_R\']' ).addClass('money');
+	$( '[id=\'OUTROS_VGL.COMERCIALIZACAO_R\']' ).addClass('money');
+
+
+	// valorCalculoDecimal1
+	$( '[id=\'CONVENCIONAL_ALUGUEL.1ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU\']' ).addClass('valorCalculoDecimal1');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.2ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU\']' ).addClass('valorCalculoDecimal1');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.3ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU\']' ).addClass('valorCalculoDecimal1');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.4ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU\']' ).addClass('valorCalculoDecimal1');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.5ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU\']' ).addClass('valorCalculoDecimal1');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.6ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU\']' ).addClass('valorCalculoDecimal1');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.7ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU\']' ).addClass('valorCalculoDecimal1');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.8ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU\']' ).addClass('valorCalculoDecimal1');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.9ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU\']' ).addClass('valorCalculoDecimal1');
+	$( '[id=\'CONVENCIONAL_ALUGUEL.10ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU\']' ).addClass('valorCalculoDecimal1');
+	$( '[id=\'POPUP_ALUGUEL.1CTO\']' ).addClass('valorCalculoDecimal1');
+	$( '[id=\'POPUP_ALUGUEL.1ANO_ALUGUELMINIMOMENSAL_DEGRAU\']' ).addClass('valorCalculoDecimal1');
+	$( '[id=\'POPUP_ALUGUEL.TOTAL_R_M2\']' ).addClass('valorCalculoDecimal1');
+	$( '[id=\'POPUP_ALUGUEL.TOTAL_AMM_DOBRADO_DEZEMBRO\']' ).addClass('valorCalculoDecimal1');
+	$( '[id=\'POPUP_ALUGUEL.TOTAL_CARENCIA\']' ).addClass('valorCalculoDecimal1');
+	$( '[id=\'OUTROS_ALUGUEL.1CTO\']' ).addClass('valorCalculoDecimal1');
+	$( '[id=\'OUTROS_ALUGUEL.1ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU\']' ).addClass('valorCalculoDecimal1');
+	$( '[id=\'OUTROS_ALUGUEL.2CTO\']' ).addClass('valorCalculoDecimal1');
+	$( '[id=\'OUTROS_ALUGUEL.2ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU\']' ).addClass('valorCalculoDecimal1');
+	$( '[id=\'OUTROS_ALUGUEL.3CTO\']' ).addClass('valorCalculoDecimal1');
+	$( '[id=\'OUTROS_ALUGUEL.3ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU\']' ).addClass('valorCalculoDecimal1');
+	$( '[id=\'OUTROS_ALUGUEL.4CTO\']' ).addClass('valorCalculoDecimal1');
+	$( '[id=\'OUTROS_ALUGUEL.4ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU\']' ).addClass('valorCalculoDecimal1');
+	$( '[id=\'OUTROS_ALUGUEL.5CTO\']' ).addClass('valorCalculoDecimal1');
+	$( '[id=\'OUTROS_ALUGUEL.5ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU\']' ).addClass('valorCalculoDecimal1');
+	$( '[id=\'OUTROS_ALUGUEL.6CTO\']' ).addClass('valorCalculoDecimal1');
+	$( '[id=\'OUTROS_ALUGUEL.6ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU\']' ).addClass('valorCalculoDecimal1');
+	$( '[id=\'OUTROS_ALUGUEL.7CTO\']' ).addClass('valorCalculoDecimal1');
+	$( '[id=\'OUTROS_ALUGUEL.7ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU\']' ).addClass('valorCalculoDecimal1');
+	$( '[id=\'OUTROS_ALUGUEL.8CTO\']' ).addClass('valorCalculoDecimal1');
+	$( '[id=\'OUTROS_ALUGUEL.8ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU\']' ).addClass('valorCalculoDecimal1');
+	$( '[id=\'OUTROS_ALUGUEL.9CTO\']' ).addClass('valorCalculoDecimal1');
+	$( '[id=\'OUTROS_ALUGUEL.9ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU\']' ).addClass('valorCalculoDecimal1');
+	$( '[id=\'OUTROS_ALUGUEL.10CTO\']' ).addClass('valorCalculoDecimal1');
+	$( '[id=\'OUTROS_ALUGUEL.10ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU\']' ).addClass('valorCalculoDecimal1');
+	$( '[id=\'OUTROS_ALUGUEL.TOTAL_AMM_DOBRADO_DEZEMBRO\']' ).addClass('valorCalculoDecimal1');
+	$( '[id=\'OUTROS_ALUGUEL.TOTAL_CARENCIA\']' ).addClass('valorCalculoDecimal1');
+
+	// valorSingularidade
+	$( '[id=\'DADOS_GERAIS.PROPOSTACOMERCIAL_SINGULARIDADE\']' ).addClass('valorSingularidade');
+
+	// percentDois
+	$( '[id=\'DADOS_GERAIS.PROPOSTACOMERCIAL_FPP\']' ).addClass('percentDois');
+	$( '[id=\'CONVENCIONAL_VGL.COMERCIALIZACAO_PERC\']' ).addClass('percentDois');
+	$( '[id=\'POPUP_VGL.COMERCIALIZACAO_PERC\']' ).addClass('percentDois');
+	$( '[id=\'OUTROS_VGL.COMERCIALIZACAO_PERC\']' ).addClass('percentDois');
 }
 
 
@@ -335,17 +571,17 @@ function populaCombos(){
 
 
 function populaComboMarca(){
-	var data = restCall('/PartageWEB/rest/marca/all');
+	var data = restCall(serverPath + '/PartageWEB/rest/marca/all');
 			
 	var comoboId = 'DADOS_GERAIS.SITUACAOANTERIOR_MARCA';
-	$( '[id=\'' + comoboId + '\']' ).append('<option value="">' + '::selecionar::' + '</option>');
+	$( '[id=\'' + comoboId + '\']' ).append('<option value="">' + ':: SELECIONAR ::' + '</option>');
 	$.each(data, function(i, item) {
 	    $( '[id=\'' + comoboId + '\']' ).append('<option value=' + item.codigo + '>' + item.nome + '</option>');
 	})
 	
 	
 	comoboId = 'DADOS_GERAIS.PROPOSTACOMERCIAL_MARCA';
-	$( '[id=\'' + comoboId + '\']' ).append('<option value="">' + '::selecionar::' + '</option>');
+	$( '[id=\'' + comoboId + '\']' ).append('<option value="">' + ':: SELECIONAR ::' + '</option>');
 	$.each(data, function(i, item) {
 	    $( '[id=\'' + comoboId + '\']' ).append('<option value=' + item.codigo + '>' + item.nome + '</option>');
 	})
@@ -354,17 +590,17 @@ function populaComboMarca(){
 
 
 function populaComboSegmento(){
-	var data = restCall('/ShoppingWEB/rest/segmento/all/folha');
+	var data = restCall(serverPath + '/ShoppingWEB/rest/segmento/all/folha');
 			
 	var comoboId = 'DADOS_GERAIS.SITUACAOANTERIOR_SEGMENTO';
-	$( '[id=\'' + comoboId + '\']' ).append('<option value="">' + '::selecionar::' + '</option>');
+	$( '[id=\'' + comoboId + '\']' ).append('<option value="">' + ':: SELECIONAR ::' + '</option>');
 	$.each(data, function(i, item) {
 	    $( '[id=\'' + comoboId + '\']' ).append('<option value=' + item.codigo + '>' + item.nome + '</option>');
 	})
 	
 	
 	comoboId = 'DADOS_GERAIS.PROPOSTACOMERCIAL_SEGMENTO';
-	$( '[id=\'' + comoboId + '\']' ).append('<option value="">' + '::selecionar::' + '</option>');
+	$( '[id=\'' + comoboId + '\']' ).append('<option value="">' + ':: SELECIONAR ::' + '</option>');
 	$.each(data, function(i, item) {
 	    $( '[id=\'' + comoboId + '\']' ).append('<option value=' + item.codigo + '>' + item.nome + '</option>');
 	})
@@ -372,11 +608,11 @@ function populaComboSegmento(){
 
 
 function populaComboLocalizacao(){
-	var _url = '/ShoppingWEB/rest/areamall/all/'+FORM.codEmpreendimentoOcorrencia.value;
+	var _url = serverPath + '/ShoppingWEB/rest/areamall/all/'+codEmpreendimento;
 	var data = restCall(_url);
 			
 	var comoboId = 'DADOS_GERAIS.PROPOSTACOMERCIAL_LOCALIZACAO';
-	$( '[id=\'' + comoboId + '\']' ).append('<option value="">' + '::selecionar::' + '</option>');
+	$( '[id=\'' + comoboId + '\']' ).append('<option value="">' + ':: SELECIONAR ::' + '</option>');
 	$.each(data, function(i, item) {
 	    $( '[id=\'' + comoboId + '\']' ).append('<option value=' + item.codigo + '>' + item.nome + '</option>');
 	})
@@ -444,7 +680,7 @@ function initFormulario(){
 	}
 	
 	
-	selecionaTipoNegociacao(entrada('DADOS_GERAIS').get('TIPO_NEGOCIACAO'));
+	// selecionaTipoNegociacao(entrada('DADOS_GERAIS').get('TIPO_NEGOCIACAO'));
 			
 	{
 		var valor = $( '[id=\'CONVENCIONAL_VGL.COMERCIALIZACAO_PERC\']' ).val();
@@ -693,10 +929,10 @@ function pesquisarSituacaoAnteriorBySucNumero(){
 
 		var obj = {
 				'suc': vlrPreenchido,
-				'codEmpreendimento': FORM.codEmpreendimentoOcorrencia.value,
+				'codEmpreendimento': codEmpreendimento,
 		}
 		
-		var data = restCallPost('/PartageWEB/rest/situacaoatual/suc', obj);
+		var data = restCallPost(serverPath + '/PartageWEB/rest/situacaoatual/suc', obj);
 
 
 		if(!data.existeSuc){
@@ -811,7 +1047,7 @@ function getMediaSegmento(combo){
 			
 	var codSegmento = combo.value;
 	if(codSegmento!=''){			
-		var _url = '/PartageWEB/rest/situacaoatual/media/segmento/'+codSegmento+'/'+FORM.codEmpreendimentoOcorrencia.value;
+		var _url = serverPath + '/PartageWEB/rest/situacaoatual/media/segmento/'+codSegmento+'/'+codEmpreendimento;
 		
 		var data = restCall(_url);
 		
@@ -841,7 +1077,7 @@ function getMediaMarca(combo){
 			
 	var codMarca = combo.value;
 	if(codMarca!=''){			
-		var _url = '/PartageWEB/rest/situacaoatual/media/marca/'+codMarca;
+		var _url = serverPath + '/PartageWEB/rest/situacaoatual/media/marca/'+codMarca;
 		
 		var data = restCall(_url);
 		
@@ -867,7 +1103,7 @@ function getMediaMarca(combo){
 var entradasFormulario;
 
 function getEntradasFormulario(){		
-	var _url = '/PartageWEB/rest/propostalocacao/entradas';
+	var _url = serverPath + '/PartageWEB/rest/propostalocacao/entradas';
 	entradasFormulario = restCall(_url);
 }
 
@@ -879,16 +1115,16 @@ var coeficientesSegmento;
 var coeficientesPosicao;
 
 function getCoeficientes(){		
-	var _url = '/PartageWEB/rest/fator/area/'+FORM.codEmpreendimento.value;
+	var _url = serverPath + '/PartageWEB/rest/fator/area/'+codEmpreendimento;
 	fatoresArea = restCall(_url);
 			
-	_url = '/PartageWEB/rest/fator/forma';
+	_url = serverPath + '/PartageWEB/rest/fator/forma';
 	fatoresForma = restCall(_url);
 	
-	_url = '/PartageWEB/rest/segmento/coeficiente';
+	_url = serverPath + '/PartageWEB/rest/segmento/coeficiente';
 	coeficientesSegmento = restCall(_url);
 	
-	_url = '/PartageWEB/rest/posicao/coeficiente/'+FORM.codEmpreendimento.value;
+	_url = serverPath + '/PartageWEB/rest/posicao/coeficiente/'+codEmpreendimento;
 	coeficientesPosicao = restCall(_url);		
 }
 
