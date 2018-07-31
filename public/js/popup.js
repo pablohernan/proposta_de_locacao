@@ -547,7 +547,7 @@ function restCallPost( url_ , data){
 		async:false,
 		type: 'POST',
 		url: url_,
-
+		dataType: 'jsonp',
 		data: JSON.stringify(data),
 	    contentType: "application/json; charset=utf-8",
 	    dataType: "json",
