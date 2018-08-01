@@ -546,7 +546,6 @@ function restCallPost( url_ , data){
 	$.ajax({
 		async:false,
 		type: 'POST',
-		crossDomain: true,
 		url: url_,
 
 		data: JSON.stringify(data),

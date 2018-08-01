@@ -42,28 +42,32 @@ $.getScript('./js/jquery.mask.js', function()
 
 
   // original form 
-  $('.money').mask("#.##0,00", {reverse: true, placeholder: "_,__ R$"});
-  /*
-  $('.money').maskMoney({
-    thousands:'.', decimal:',', 
-    allowZero:true , 
-    precision:2, 
-    allowNegative:true
-  });
-  */
-  $('.valorCalculoDecimal1').mask('0,0',{
-    thousands:'.', decimal:',', 
-    allowZero:true , 
-    precision:1, 
-    allowNegative:true
-  });
-  $('.valorSingularidade').mask('0,00000',{
-    thousands:'.', decimal:',', 
-    allowZero:true , 
-    precision:5, 
-    allowNegative:true
-  }); 
-  $('.percentDois').mask('#.###.##0,00%', {reverse: true}); 
-  $('.percentUm').mask('#.###.#0,0%', {reverse: true});
+    $('.money').val('0,00');
+    $('.money').maskMoney({
+      thousands:'.', decimal:',', 
+      allowZero:true , 
+      precision:2, 
+      allowNegative:true
+    });
+    
+    $('.valorCalculoDecimal1').val('0,0');
+    $('.valorCalculoDecimal1').maskMoney({
+      thousands:'.', decimal:',', 
+      allowZero:true , 
+      precision:1, 
+      allowNegative:true
+    });
+    
+    //$('.valorSingularidade').val('0,00000');
+    $('.valorSingularidade').maskMoney({
+      thousands:'.', decimal:',', 
+      allowZero:true , 
+      precision:5, 
+      allowNegative:true
+    });
+
+    
+    $('.percentDois').mask('#.###.##0,00%', {reverse: true});
+    $('.percentUm').mask('#.###.#0,0%', {reverse: true});
 
 });

@@ -49,7 +49,7 @@
 <label class="pp-input-wrap">   
 <b class="pp-label-text">EMPREENDIMENTO DA OCORRÊNCIA</b>   
 <input id="nmeEmpreendimentoOcorrencia" name="nmeEmpreendimentoOcorrencia"     
-type="text" tabindex="0" class="pp-input save">  
+type="text" tabindex="0" class="pp-input save" value="PARTAGE">  
 </label>  
 
 										</td>
@@ -60,7 +60,10 @@ type="text" tabindex="0" class="pp-input save">
 <b class="pp-label-text">TIPO DE NEGOCIAÇÃO</b>  
 <div class="pp-custom-select">  
 <select id="DADOS_GERAIS.TIPO_NEGOCIACAO" name="DADOS_GERAIS.TIPO_NEGOCIACAO"   
-tabindex="0" class="pp-select save">  
+tabindex="0" class="pp-select save" onchange="selecionaTipoNegociacao(this.value)">  
+			<option value="CONVENCIONAL">Convencional</option>
+			<option value="POP_UP">Pop-Up</option>
+			<option value="OUTROS">Outros</option>
 </select>  
 </div>  
 </label>  
@@ -84,7 +87,10 @@ type="text" tabindex="0" class="pp-input save">
 <b class="pp-label-text">EXISTE MÍDIA?</b>  
 <div class="pp-custom-select">  
 <select id="DADOS_GERAIS.EXISTE_MIDIA" name="DADOS_GERAIS.EXISTE_MIDIA"   
-tabindex="0" class="pp-select save">  
+tabindex="0" class="pp-select save"> 
+			<option value="">:: SELECIONAR ::</option>
+			<option value="SIM">Sim</option>
+			<option value="NAO">Não</option> 
 </select>  
 </div>  
 </label>
@@ -155,7 +161,7 @@ type="text" tabindex="0" class="pp-input save">
 <b class="pp-label-text">ABL (m2)</b>   
 <input id="DADOS_GERAIS.SITUACAOANTERIOR_ABL_M2" 
 
-name="DADOS_GERAIS.SITUACAOANTERIOR_ABL_M2"  onKeyPress="calcularDadosGerais()"     
+name="DADOS_GERAIS.SITUACAOANTERIOR_ABL_M2"  onKeyUp="calcularDadosGerais()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 																
@@ -210,7 +216,7 @@ tabindex="0" class="pp-select save">
 <b class="pp-label-text">AMM MÉDIO (R$)</b>   
 <input id="DADOS_GERAIS.SITUACAOANTERIOR_AMM_MEDIO_R" 
 
-name="DADOS_GERAIS.SITUACAOANTERIOR_AMM_MEDIO_R"  onKeyPress="
+name="DADOS_GERAIS.SITUACAOANTERIOR_AMM_MEDIO_R"  onKeyUp="
 calcularDadosGerais();calcularDadosTipoNegociacao();
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -226,7 +232,7 @@ type="text" tabindex="0" class="pp-input save">
 <b class="pp-label-text">ÚLTIMO AMM (R$)</b>   
 <input id="DADOS_GERAIS.SITUACAOANTERIOR_UTIMO_AMM_R_M2" 
 
-name="DADOS_GERAIS.SITUACAOANTERIOR_UTIMO_AMM_R_M2"  onKeyPress="
+name="DADOS_GERAIS.SITUACAOANTERIOR_UTIMO_AMM_R_M2"  onKeyUp="
 calcularDadosGerais();calcularDadosTipoNegociacao();
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -253,7 +259,7 @@ type="text" tabindex="0" class="pp-input save">
 <b class="pp-label-text">DÍVIDA AMM (R$)</b>   
 <input id="DADOS_GERAIS.SITUACAOANTERIOR_DIVIDA_AMM_R" 
 
-name="DADOS_GERAIS.SITUACAOANTERIOR_DIVIDA_AMM_R"  onKeyPress="calcularDadosGerais()"     
+name="DADOS_GERAIS.SITUACAOANTERIOR_DIVIDA_AMM_R"  onKeyUp="calcularDadosGerais()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 																
@@ -265,7 +271,7 @@ type="text" tabindex="0" class="pp-input save">
 <b class="pp-label-text">DÍVIDA CONDOMÍNIO (R$)</b>   
 <input id="DADOS_GERAIS.SITUACAOANTERIOR_DIVIDA_CONDOMINIO_R" 
 
-name="DADOS_GERAIS.SITUACAOANTERIOR_DIVIDA_CONDOMINIO_R"  onKeyPress="
+name="DADOS_GERAIS.SITUACAOANTERIOR_DIVIDA_CONDOMINIO_R"  onKeyUp="
 calcularDadosGerais()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -280,7 +286,7 @@ type="text" tabindex="0" class="pp-input save">
 <b class="pp-label-text">DÍVIDA FPP (R$)</b>   
 <input id="DADOS_GERAIS.SITUACAOANTERIOR_DIVIDA_FPP_R" 
 
-name="DADOS_GERAIS.SITUACAOANTERIOR_DIVIDA_FPP_R"  onKeyPress="calcularDadosGerais()"     
+name="DADOS_GERAIS.SITUACAOANTERIOR_DIVIDA_FPP_R"  onKeyUp="calcularDadosGerais()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 															
@@ -550,7 +556,7 @@ type="text" tabindex="0" class="pp-input save">
 <b class="pp-label-text">ALUGUEL %</b>   
 <input id="DADOS_GERAIS.PROPOSTACOMERCIAL_ALUGUEL_PERC" 
 
-name="DADOS_GERAIS.PROPOSTACOMERCIAL_ALUGUEL_PERC"  onKeyPress="calcularDadosTipoNegociacao();"     
+name="DADOS_GERAIS.PROPOSTACOMERCIAL_ALUGUEL_PERC"  onKeyUp="calcularDadosTipoNegociacao();"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 																				
@@ -562,7 +568,7 @@ type="text" tabindex="0" class="pp-input save">
 <b class="pp-label-text">ABL (m2)</b>   
 <input id="DADOS_GERAIS.PROPOSTACOMERCIAL_ABL" name="DADOS_GERAIS.PROPOSTACOMERCIAL_ABL"  
 
-onKeyPress="
+onKeyUp="
 calculaCRD();calcularDadosTipoNegociacao();
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -577,7 +583,7 @@ type="text" tabindex="0" class="pp-input save">
 <b class="pp-label-text">PRAZO (meses)</b>   
 <input id="DADOS_GERAIS.PROPOSTACOMERCIAL_PRAZO_MESES" 
 
-name="DADOS_GERAIS.PROPOSTACOMERCIAL_PRAZO_MESES"  onKeyPress="controlaDadosCalculadosPrazo();"     
+name="DADOS_GERAIS.PROPOSTACOMERCIAL_PRAZO_MESES"  onKeyUp="controlaDadosCalculadosPrazo();"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 																												
@@ -695,7 +701,7 @@ type="text" tabindex="0" class="pp-input save">
 <b class="pp-label-text">FACHADA (m)</b>   
 <input id="DADOS_GERAIS.PROPOSTACOMERCIAL_FACHADA_M" 
 
-name="DADOS_GERAIS.PROPOSTACOMERCIAL_FACHADA_M"  onKeyPress="calculaCRD();"     
+name="DADOS_GERAIS.PROPOSTACOMERCIAL_FACHADA_M"  onKeyUp="calculaCRD();"     
 type="text" tabindex="0" class="pp-input save">  
 </label> 
 																
@@ -723,7 +729,7 @@ tabindex="0" class="pp-select save">
 <b class="pp-label-text">SINGULARIDADE</b>   
 <input id="DADOS_GERAIS.PROPOSTACOMERCIAL_SINGULARIDADE" 
 
-name="DADOS_GERAIS.PROPOSTACOMERCIAL_SINGULARIDADE"  onKeyPress="
+name="DADOS_GERAIS.PROPOSTACOMERCIAL_SINGULARIDADE"  onKeyUp="
 calculaCRD()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -796,7 +802,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.1ANO_ALUGUEL_MINIMO_MENSAL_R</b -->   
 <input id="CONVENCIONAL_ALUGUEL.1ANO_ALUGUEL_MINIMO_MENSAL_R" 
 
-name="CONVENCIONAL_ALUGUEL.1ANO_ALUGUEL_MINIMO_MENSAL_R"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.1ANO_ALUGUEL_MINIMO_MENSAL_R"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label> 
 
@@ -807,7 +813,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.1ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU</b -->   
 <input id="CONVENCIONAL_ALUGUEL.1ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU" 
 
-name="CONVENCIONAL_ALUGUEL.1ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.1ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -818,7 +824,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.1ANO_ALUGUEL_MINIMO_MENSAL_R_M2</b -->   
 <input id="CONVENCIONAL_ALUGUEL.1ANO_ALUGUEL_MINIMO_MENSAL_R_M2" 
 
-name="CONVENCIONAL_ALUGUEL.1ANO_ALUGUEL_MINIMO_MENSAL_R_M2"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.1ANO_ALUGUEL_MINIMO_MENSAL_R_M2"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 																			</td>
@@ -828,7 +834,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.1ANO_PONTO_DE_EQUILIBRIO_R</b -->   
 <input id="CONVENCIONAL_ALUGUEL.1ANO_PONTO_DE_EQUILIBRIO_R" 
 
-name="CONVENCIONAL_ALUGUEL.1ANO_PONTO_DE_EQUILIBRIO_R"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.1ANO_PONTO_DE_EQUILIBRIO_R"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -839,7 +845,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.1ANO_PONTO_DE_EQUILIBRIO_R_M2</b -->   
 <input id="CONVENCIONAL_ALUGUEL.1ANO_PONTO_DE_EQUILIBRIO_R_M2" 
 
-name="CONVENCIONAL_ALUGUEL.1ANO_PONTO_DE_EQUILIBRIO_R_M2"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.1ANO_PONTO_DE_EQUILIBRIO_R_M2"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -879,7 +885,7 @@ tabindex="0" class="pp-select save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.1ANO_TOTAL_DE_MESES</b -->   
 <input id="CONVENCIONAL_ALUGUEL.1ANO_TOTAL_DE_MESES" 
 
-name="CONVENCIONAL_ALUGUEL.1ANO_TOTAL_DE_MESES"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.1ANO_TOTAL_DE_MESES"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 															
@@ -890,7 +896,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.1ANO_AMM_ANO_R</b -->   
 <input id="CONVENCIONAL_ALUGUEL.1ANO_AMM_ANO_R" 
 
-name="CONVENCIONAL_ALUGUEL.1ANO_AMM_ANO_R"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.1ANO_AMM_ANO_R"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 																	
@@ -904,7 +910,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.2ANO_ALUGUEL_MINIMO_MENSAL_R</b -->   
 <input id="CONVENCIONAL_ALUGUEL.2ANO_ALUGUEL_MINIMO_MENSAL_R" 
 
-name="CONVENCIONAL_ALUGUEL.2ANO_ALUGUEL_MINIMO_MENSAL_R"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.2ANO_ALUGUEL_MINIMO_MENSAL_R"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label> 
 
@@ -915,7 +921,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.2ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU</b -->   
 <input id="CONVENCIONAL_ALUGUEL.2ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU" 
 
-name="CONVENCIONAL_ALUGUEL.2ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.2ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -926,7 +932,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.2ANO_ALUGUEL_MINIMO_MENSAL_R_M2</b -->   
 <input id="CONVENCIONAL_ALUGUEL.2ANO_ALUGUEL_MINIMO_MENSAL_R_M2" 
 
-name="CONVENCIONAL_ALUGUEL.2ANO_ALUGUEL_MINIMO_MENSAL_R_M2"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.2ANO_ALUGUEL_MINIMO_MENSAL_R_M2"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 																			</td>
@@ -936,7 +942,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.2ANO_PONTO_DE_EQUILIBRIO_R</b -->   
 <input id="CONVENCIONAL_ALUGUEL.2ANO_PONTO_DE_EQUILIBRIO_R" 
 
-name="CONVENCIONAL_ALUGUEL.2ANO_PONTO_DE_EQUILIBRIO_R"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.2ANO_PONTO_DE_EQUILIBRIO_R"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -947,7 +953,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.2ANO_PONTO_DE_EQUILIBRIO_R_M2</b -->   
 <input id="CONVENCIONAL_ALUGUEL.2ANO_PONTO_DE_EQUILIBRIO_R_M2" 
 
-name="CONVENCIONAL_ALUGUEL.2ANO_PONTO_DE_EQUILIBRIO_R_M2"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.2ANO_PONTO_DE_EQUILIBRIO_R_M2"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -987,7 +993,7 @@ tabindex="0" class="pp-select save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.2ANO_TOTAL_DE_MESES</b -->   
 <input id="CONVENCIONAL_ALUGUEL.2ANO_TOTAL_DE_MESES" 
 
-name="CONVENCIONAL_ALUGUEL.2ANO_TOTAL_DE_MESES"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.2ANO_TOTAL_DE_MESES"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 															
@@ -998,7 +1004,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.2ANO_AMM_ANO_R</b -->   
 <input id="CONVENCIONAL_ALUGUEL.2ANO_AMM_ANO_R" 
 
-name="CONVENCIONAL_ALUGUEL.2ANO_AMM_ANO_R"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.2ANO_AMM_ANO_R"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 																	
@@ -1012,7 +1018,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.3ANO_ALUGUEL_MINIMO_MENSAL_R</b -->   
 <input id="CONVENCIONAL_ALUGUEL.3ANO_ALUGUEL_MINIMO_MENSAL_R" 
 
-name="CONVENCIONAL_ALUGUEL.3ANO_ALUGUEL_MINIMO_MENSAL_R"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.3ANO_ALUGUEL_MINIMO_MENSAL_R"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label> 
 
@@ -1023,7 +1029,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.3ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU</b -->   
 <input id="CONVENCIONAL_ALUGUEL.3ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU" 
 
-name="CONVENCIONAL_ALUGUEL.3ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.3ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -1034,7 +1040,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.3ANO_ALUGUEL_MINIMO_MENSAL_R_M2</b -->   
 <input id="CONVENCIONAL_ALUGUEL.3ANO_ALUGUEL_MINIMO_MENSAL_R_M2" 
 
-name="CONVENCIONAL_ALUGUEL.3ANO_ALUGUEL_MINIMO_MENSAL_R_M2"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.3ANO_ALUGUEL_MINIMO_MENSAL_R_M2"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 																			</td>
@@ -1044,7 +1050,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.3ANO_PONTO_DE_EQUILIBRIO_R</b -->   
 <input id="CONVENCIONAL_ALUGUEL.3ANO_PONTO_DE_EQUILIBRIO_R" 
 
-name="CONVENCIONAL_ALUGUEL.3ANO_PONTO_DE_EQUILIBRIO_R"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.3ANO_PONTO_DE_EQUILIBRIO_R"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -1055,7 +1061,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.3ANO_PONTO_DE_EQUILIBRIO_R_M2</b -->   
 <input id="CONVENCIONAL_ALUGUEL.3ANO_PONTO_DE_EQUILIBRIO_R_M2" 
 
-name="CONVENCIONAL_ALUGUEL.3ANO_PONTO_DE_EQUILIBRIO_R_M2"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.3ANO_PONTO_DE_EQUILIBRIO_R_M2"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -1095,7 +1101,7 @@ tabindex="0" class="pp-select save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.3ANO_TOTAL_DE_MESES</b -->   
 <input id="CONVENCIONAL_ALUGUEL.3ANO_TOTAL_DE_MESES" 
 
-name="CONVENCIONAL_ALUGUEL.3ANO_TOTAL_DE_MESES"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.3ANO_TOTAL_DE_MESES"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 															
@@ -1106,7 +1112,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.3ANO_AMM_ANO_R</b -->   
 <input id="CONVENCIONAL_ALUGUEL.3ANO_AMM_ANO_R" 
 
-name="CONVENCIONAL_ALUGUEL.3ANO_AMM_ANO_R"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.3ANO_AMM_ANO_R"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 																	
@@ -1120,7 +1126,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.4ANO_ALUGUEL_MINIMO_MENSAL_R</b -->   
 <input id="CONVENCIONAL_ALUGUEL.4ANO_ALUGUEL_MINIMO_MENSAL_R" 
 
-name="CONVENCIONAL_ALUGUEL.4ANO_ALUGUEL_MINIMO_MENSAL_R"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.4ANO_ALUGUEL_MINIMO_MENSAL_R"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label> 
 
@@ -1131,7 +1137,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.4ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU</b -->   
 <input id="CONVENCIONAL_ALUGUEL.4ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU" 
 
-name="CONVENCIONAL_ALUGUEL.4ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.4ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -1142,7 +1148,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.4ANO_ALUGUEL_MINIMO_MENSAL_R_M2</b -->   
 <input id="CONVENCIONAL_ALUGUEL.4ANO_ALUGUEL_MINIMO_MENSAL_R_M2" 
 
-name="CONVENCIONAL_ALUGUEL.4ANO_ALUGUEL_MINIMO_MENSAL_R_M2"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.4ANO_ALUGUEL_MINIMO_MENSAL_R_M2"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 																			</td>
@@ -1152,7 +1158,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.4ANO_PONTO_DE_EQUILIBRIO_R</b -->   
 <input id="CONVENCIONAL_ALUGUEL.4ANO_PONTO_DE_EQUILIBRIO_R" 
 
-name="CONVENCIONAL_ALUGUEL.4ANO_PONTO_DE_EQUILIBRIO_R"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.4ANO_PONTO_DE_EQUILIBRIO_R"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -1163,7 +1169,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.4ANO_PONTO_DE_EQUILIBRIO_R_M2</b -->   
 <input id="CONVENCIONAL_ALUGUEL.4ANO_PONTO_DE_EQUILIBRIO_R_M2" 
 
-name="CONVENCIONAL_ALUGUEL.4ANO_PONTO_DE_EQUILIBRIO_R_M2"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.4ANO_PONTO_DE_EQUILIBRIO_R_M2"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -1203,7 +1209,7 @@ tabindex="0" class="pp-select save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.4ANO_TOTAL_DE_MESES</b -->   
 <input id="CONVENCIONAL_ALUGUEL.4ANO_TOTAL_DE_MESES" 
 
-name="CONVENCIONAL_ALUGUEL.4ANO_TOTAL_DE_MESES"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.4ANO_TOTAL_DE_MESES"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 															
@@ -1214,7 +1220,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.4ANO_AMM_ANO_R</b -->   
 <input id="CONVENCIONAL_ALUGUEL.4ANO_AMM_ANO_R" 
 
-name="CONVENCIONAL_ALUGUEL.4ANO_AMM_ANO_R"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.4ANO_AMM_ANO_R"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 																	
@@ -1228,7 +1234,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.5ANO_ALUGUEL_MINIMO_MENSAL_R</b -->   
 <input id="CONVENCIONAL_ALUGUEL.5ANO_ALUGUEL_MINIMO_MENSAL_R" 
 
-name="CONVENCIONAL_ALUGUEL.5ANO_ALUGUEL_MINIMO_MENSAL_R"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.5ANO_ALUGUEL_MINIMO_MENSAL_R"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label> 
 
@@ -1239,7 +1245,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.5ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU</b -->   
 <input id="CONVENCIONAL_ALUGUEL.5ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU" 
 
-name="CONVENCIONAL_ALUGUEL.5ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.5ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -1250,7 +1256,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.5ANO_ALUGUEL_MINIMO_MENSAL_R_M2</b -->   
 <input id="CONVENCIONAL_ALUGUEL.5ANO_ALUGUEL_MINIMO_MENSAL_R_M2" 
 
-name="CONVENCIONAL_ALUGUEL.5ANO_ALUGUEL_MINIMO_MENSAL_R_M2"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.5ANO_ALUGUEL_MINIMO_MENSAL_R_M2"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 																			</td>
@@ -1260,7 +1266,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.5ANO_PONTO_DE_EQUILIBRIO_R</b -->   
 <input id="CONVENCIONAL_ALUGUEL.5ANO_PONTO_DE_EQUILIBRIO_R" 
 
-name="CONVENCIONAL_ALUGUEL.5ANO_PONTO_DE_EQUILIBRIO_R"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.5ANO_PONTO_DE_EQUILIBRIO_R"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -1271,7 +1277,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.5ANO_PONTO_DE_EQUILIBRIO_R_M2</b -->   
 <input id="CONVENCIONAL_ALUGUEL.5ANO_PONTO_DE_EQUILIBRIO_R_M2" 
 
-name="CONVENCIONAL_ALUGUEL.5ANO_PONTO_DE_EQUILIBRIO_R_M2"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.5ANO_PONTO_DE_EQUILIBRIO_R_M2"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -1311,7 +1317,7 @@ tabindex="0" class="pp-select save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.5ANO_TOTAL_DE_MESES</b -->   
 <input id="CONVENCIONAL_ALUGUEL.5ANO_TOTAL_DE_MESES" 
 
-name="CONVENCIONAL_ALUGUEL.5ANO_TOTAL_DE_MESES"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.5ANO_TOTAL_DE_MESES"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 															
@@ -1322,7 +1328,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.5ANO_AMM_ANO_R</b -->   
 <input id="CONVENCIONAL_ALUGUEL.5ANO_AMM_ANO_R" 
 
-name="CONVENCIONAL_ALUGUEL.5ANO_AMM_ANO_R"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.5ANO_AMM_ANO_R"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 																	
@@ -1336,7 +1342,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.6ANO_ALUGUEL_MINIMO_MENSAL_R</b -->   
 <input id="CONVENCIONAL_ALUGUEL.6ANO_ALUGUEL_MINIMO_MENSAL_R" 
 
-name="CONVENCIONAL_ALUGUEL.6ANO_ALUGUEL_MINIMO_MENSAL_R"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.6ANO_ALUGUEL_MINIMO_MENSAL_R"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label> 
 
@@ -1347,7 +1353,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.6ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU</b -->   
 <input id="CONVENCIONAL_ALUGUEL.6ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU" 
 
-name="CONVENCIONAL_ALUGUEL.6ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.6ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -1358,7 +1364,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.6ANO_ALUGUEL_MINIMO_MENSAL_R_M2</b -->   
 <input id="CONVENCIONAL_ALUGUEL.6ANO_ALUGUEL_MINIMO_MENSAL_R_M2" 
 
-name="CONVENCIONAL_ALUGUEL.6ANO_ALUGUEL_MINIMO_MENSAL_R_M2"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.6ANO_ALUGUEL_MINIMO_MENSAL_R_M2"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 																			</td>
@@ -1368,7 +1374,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.6ANO_PONTO_DE_EQUILIBRIO_R</b -->   
 <input id="CONVENCIONAL_ALUGUEL.6ANO_PONTO_DE_EQUILIBRIO_R" 
 
-name="CONVENCIONAL_ALUGUEL.6ANO_PONTO_DE_EQUILIBRIO_R"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.6ANO_PONTO_DE_EQUILIBRIO_R"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -1379,7 +1385,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.6ANO_PONTO_DE_EQUILIBRIO_R_M2</b -->   
 <input id="CONVENCIONAL_ALUGUEL.6ANO_PONTO_DE_EQUILIBRIO_R_M2" 
 
-name="CONVENCIONAL_ALUGUEL.6ANO_PONTO_DE_EQUILIBRIO_R_M2"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.6ANO_PONTO_DE_EQUILIBRIO_R_M2"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -1419,7 +1425,7 @@ tabindex="0" class="pp-select save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.6ANO_TOTAL_DE_MESES</b -->   
 <input id="CONVENCIONAL_ALUGUEL.6ANO_TOTAL_DE_MESES" 
 
-name="CONVENCIONAL_ALUGUEL.6ANO_TOTAL_DE_MESES"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.6ANO_TOTAL_DE_MESES"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 															
@@ -1430,7 +1436,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.6ANO_AMM_ANO_R</b -->   
 <input id="CONVENCIONAL_ALUGUEL.6ANO_AMM_ANO_R" 
 
-name="CONVENCIONAL_ALUGUEL.6ANO_AMM_ANO_R"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.6ANO_AMM_ANO_R"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 																	
@@ -1444,7 +1450,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.7ANO_ALUGUEL_MINIMO_MENSAL_R</b -->   
 <input id="CONVENCIONAL_ALUGUEL.7ANO_ALUGUEL_MINIMO_MENSAL_R" 
 
-name="CONVENCIONAL_ALUGUEL.7ANO_ALUGUEL_MINIMO_MENSAL_R"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.7ANO_ALUGUEL_MINIMO_MENSAL_R"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label> 
 
@@ -1455,7 +1461,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.7ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU</b -->   
 <input id="CONVENCIONAL_ALUGUEL.7ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU" 
 
-name="CONVENCIONAL_ALUGUEL.7ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.7ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -1466,7 +1472,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.7ANO_ALUGUEL_MINIMO_MENSAL_R_M2</b -->   
 <input id="CONVENCIONAL_ALUGUEL.7ANO_ALUGUEL_MINIMO_MENSAL_R_M2" 
 
-name="CONVENCIONAL_ALUGUEL.7ANO_ALUGUEL_MINIMO_MENSAL_R_M2"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.7ANO_ALUGUEL_MINIMO_MENSAL_R_M2"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 																			</td>
@@ -1476,7 +1482,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.7ANO_PONTO_DE_EQUILIBRIO_R</b -->   
 <input id="CONVENCIONAL_ALUGUEL.7ANO_PONTO_DE_EQUILIBRIO_R" 
 
-name="CONVENCIONAL_ALUGUEL.7ANO_PONTO_DE_EQUILIBRIO_R"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.7ANO_PONTO_DE_EQUILIBRIO_R"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -1487,7 +1493,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.7ANO_PONTO_DE_EQUILIBRIO_R_M2</b -->   
 <input id="CONVENCIONAL_ALUGUEL.7ANO_PONTO_DE_EQUILIBRIO_R_M2" 
 
-name="CONVENCIONAL_ALUGUEL.7ANO_PONTO_DE_EQUILIBRIO_R_M2"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.7ANO_PONTO_DE_EQUILIBRIO_R_M2"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -1527,7 +1533,7 @@ tabindex="0" class="pp-select save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.7ANO_TOTAL_DE_MESES</b -->   
 <input id="CONVENCIONAL_ALUGUEL.7ANO_TOTAL_DE_MESES" 
 
-name="CONVENCIONAL_ALUGUEL.7ANO_TOTAL_DE_MESES"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.7ANO_TOTAL_DE_MESES"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 															
@@ -1538,7 +1544,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.7ANO_AMM_ANO_R</b -->   
 <input id="CONVENCIONAL_ALUGUEL.7ANO_AMM_ANO_R" 
 
-name="CONVENCIONAL_ALUGUEL.7ANO_AMM_ANO_R"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.7ANO_AMM_ANO_R"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 																	
@@ -1552,7 +1558,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.8ANO_ALUGUEL_MINIMO_MENSAL_R</b -->   
 <input id="CONVENCIONAL_ALUGUEL.8ANO_ALUGUEL_MINIMO_MENSAL_R" 
 
-name="CONVENCIONAL_ALUGUEL.8ANO_ALUGUEL_MINIMO_MENSAL_R"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.8ANO_ALUGUEL_MINIMO_MENSAL_R"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label> 
 
@@ -1563,7 +1569,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.8ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU</b -->   
 <input id="CONVENCIONAL_ALUGUEL.8ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU" 
 
-name="CONVENCIONAL_ALUGUEL.8ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.8ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -1574,7 +1580,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.8ANO_ALUGUEL_MINIMO_MENSAL_R_M2</b -->   
 <input id="CONVENCIONAL_ALUGUEL.8ANO_ALUGUEL_MINIMO_MENSAL_R_M2" 
 
-name="CONVENCIONAL_ALUGUEL.8ANO_ALUGUEL_MINIMO_MENSAL_R_M2"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.8ANO_ALUGUEL_MINIMO_MENSAL_R_M2"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 																			</td>
@@ -1584,7 +1590,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.8ANO_PONTO_DE_EQUILIBRIO_R</b -->   
 <input id="CONVENCIONAL_ALUGUEL.8ANO_PONTO_DE_EQUILIBRIO_R" 
 
-name="CONVENCIONAL_ALUGUEL.8ANO_PONTO_DE_EQUILIBRIO_R"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.8ANO_PONTO_DE_EQUILIBRIO_R"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -1595,7 +1601,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.8ANO_PONTO_DE_EQUILIBRIO_R_M2</b -->   
 <input id="CONVENCIONAL_ALUGUEL.8ANO_PONTO_DE_EQUILIBRIO_R_M2" 
 
-name="CONVENCIONAL_ALUGUEL.8ANO_PONTO_DE_EQUILIBRIO_R_M2"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.8ANO_PONTO_DE_EQUILIBRIO_R_M2"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -1635,7 +1641,7 @@ tabindex="0" class="pp-select save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.8ANO_TOTAL_DE_MESES</b -->   
 <input id="CONVENCIONAL_ALUGUEL.8ANO_TOTAL_DE_MESES" 
 
-name="CONVENCIONAL_ALUGUEL.8ANO_TOTAL_DE_MESES"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.8ANO_TOTAL_DE_MESES"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 															
@@ -1646,7 +1652,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.8ANO_AMM_ANO_R</b -->   
 <input id="CONVENCIONAL_ALUGUEL.8ANO_AMM_ANO_R" 
 
-name="CONVENCIONAL_ALUGUEL.8ANO_AMM_ANO_R"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.8ANO_AMM_ANO_R"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 																	
@@ -1660,7 +1666,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.9ANO_ALUGUEL_MINIMO_MENSAL_R</b -->   
 <input id="CONVENCIONAL_ALUGUEL.9ANO_ALUGUEL_MINIMO_MENSAL_R" 
 
-name="CONVENCIONAL_ALUGUEL.9ANO_ALUGUEL_MINIMO_MENSAL_R"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.9ANO_ALUGUEL_MINIMO_MENSAL_R"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label> 
 
@@ -1671,7 +1677,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.9ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU</b -->   
 <input id="CONVENCIONAL_ALUGUEL.9ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU" 
 
-name="CONVENCIONAL_ALUGUEL.9ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.9ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -1682,7 +1688,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.9ANO_ALUGUEL_MINIMO_MENSAL_R_M2</b -->   
 <input id="CONVENCIONAL_ALUGUEL.9ANO_ALUGUEL_MINIMO_MENSAL_R_M2" 
 
-name="CONVENCIONAL_ALUGUEL.9ANO_ALUGUEL_MINIMO_MENSAL_R_M2"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.9ANO_ALUGUEL_MINIMO_MENSAL_R_M2"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 																			</td>
@@ -1692,7 +1698,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.9ANO_PONTO_DE_EQUILIBRIO_R</b -->   
 <input id="CONVENCIONAL_ALUGUEL.9ANO_PONTO_DE_EQUILIBRIO_R" 
 
-name="CONVENCIONAL_ALUGUEL.9ANO_PONTO_DE_EQUILIBRIO_R"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.9ANO_PONTO_DE_EQUILIBRIO_R"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -1703,7 +1709,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.9ANO_PONTO_DE_EQUILIBRIO_R_M2</b -->   
 <input id="CONVENCIONAL_ALUGUEL.9ANO_PONTO_DE_EQUILIBRIO_R_M2" 
 
-name="CONVENCIONAL_ALUGUEL.9ANO_PONTO_DE_EQUILIBRIO_R_M2"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.9ANO_PONTO_DE_EQUILIBRIO_R_M2"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -1743,7 +1749,7 @@ tabindex="0" class="pp-select save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.9ANO_TOTAL_DE_MESES</b -->   
 <input id="CONVENCIONAL_ALUGUEL.9ANO_TOTAL_DE_MESES" 
 
-name="CONVENCIONAL_ALUGUEL.9ANO_TOTAL_DE_MESES"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.9ANO_TOTAL_DE_MESES"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 															
@@ -1754,7 +1760,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.9ANO_AMM_ANO_R</b -->   
 <input id="CONVENCIONAL_ALUGUEL.9ANO_AMM_ANO_R" 
 
-name="CONVENCIONAL_ALUGUEL.9ANO_AMM_ANO_R"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.9ANO_AMM_ANO_R"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 																	
@@ -1768,7 +1774,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.10ANO_ALUGUEL_MINIMO_MENSAL_R</b -->   
 <input id="CONVENCIONAL_ALUGUEL.10ANO_ALUGUEL_MINIMO_MENSAL_R" 
 
-name="CONVENCIONAL_ALUGUEL.10ANO_ALUGUEL_MINIMO_MENSAL_R"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.10ANO_ALUGUEL_MINIMO_MENSAL_R"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label> 
 
@@ -1779,7 +1785,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.10ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU</b -->   
 <input id="CONVENCIONAL_ALUGUEL.10ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU" 
 
-name="CONVENCIONAL_ALUGUEL.10ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.10ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -1790,7 +1796,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.10ANO_ALUGUEL_MINIMO_MENSAL_R_M2</b -->   
 <input id="CONVENCIONAL_ALUGUEL.10ANO_ALUGUEL_MINIMO_MENSAL_R_M2" 
 
-name="CONVENCIONAL_ALUGUEL.10ANO_ALUGUEL_MINIMO_MENSAL_R_M2"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.10ANO_ALUGUEL_MINIMO_MENSAL_R_M2"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 																			</td>
@@ -1800,7 +1806,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.10ANO_PONTO_DE_EQUILIBRIO_R</b -->   
 <input id="CONVENCIONAL_ALUGUEL.10ANO_PONTO_DE_EQUILIBRIO_R" 
 
-name="CONVENCIONAL_ALUGUEL.10ANO_PONTO_DE_EQUILIBRIO_R"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.10ANO_PONTO_DE_EQUILIBRIO_R"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -1811,7 +1817,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.10ANO_PONTO_DE_EQUILIBRIO_R_M2</b -->   
 <input id="CONVENCIONAL_ALUGUEL.10ANO_PONTO_DE_EQUILIBRIO_R_M2" 
 
-name="CONVENCIONAL_ALUGUEL.10ANO_PONTO_DE_EQUILIBRIO_R_M2"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.10ANO_PONTO_DE_EQUILIBRIO_R_M2"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -1851,7 +1857,7 @@ tabindex="0" class="pp-select save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.10ANO_TOTAL_DE_MESES</b -->   
 <input id="CONVENCIONAL_ALUGUEL.10ANO_TOTAL_DE_MESES" 
 
-name="CONVENCIONAL_ALUGUEL.10ANO_TOTAL_DE_MESES"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.10ANO_TOTAL_DE_MESES"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 															
@@ -1862,7 +1868,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.10ANO_AMM_ANO_R</b -->   
 <input id="CONVENCIONAL_ALUGUEL.10ANO_AMM_ANO_R" 
 
-name="CONVENCIONAL_ALUGUEL.10ANO_AMM_ANO_R"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.10ANO_AMM_ANO_R"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 																	
@@ -1876,7 +1882,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.TOTAL_AMM_DOBRADO_DEZEMBRO</b -->   
 <input id="CONVENCIONAL_ALUGUEL.TOTAL_AMM_DOBRADO_DEZEMBRO" 
 
-name="CONVENCIONAL_ALUGUEL.TOTAL_AMM_DOBRADO_DEZEMBRO"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.TOTAL_AMM_DOBRADO_DEZEMBRO"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 																
@@ -1887,7 +1893,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.TOTAL_CARENCIA</b -->   
 <input id="CONVENCIONAL_ALUGUEL.TOTAL_CARENCIA" 
 
-name="CONVENCIONAL_ALUGUEL.TOTAL_CARENCIA"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.TOTAL_CARENCIA"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 																	
@@ -1898,7 +1904,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.TOTAL_TOTAL_DE_MESES</b -->   
 <input id="CONVENCIONAL_ALUGUEL.TOTAL_TOTAL_DE_MESES" 
 
-name="CONVENCIONAL_ALUGUEL.TOTAL_TOTAL_DE_MESES"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.TOTAL_TOTAL_DE_MESES"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 																	
@@ -1909,7 +1915,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_ALUGUEL.TOTAL_AMM_ANO_R</b -->   
 <input id="CONVENCIONAL_ALUGUEL.TOTAL_AMM_ANO_R" 
 
-name="CONVENCIONAL_ALUGUEL.TOTAL_AMM_ANO_R"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_ALUGUEL.TOTAL_AMM_ANO_R"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 																		
@@ -1937,7 +1943,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_CDU_ADESAO_TT.TABELA_CDU</b -->   
 <input id="CONVENCIONAL_CDU_ADESAO_TT.TABELA_CDU" 
 
-name="CONVENCIONAL_CDU_ADESAO_TT.TABELA_CDU"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_CDU_ADESAO_TT.TABELA_CDU"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 																
@@ -1959,7 +1965,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_CDU_ADESAO_TT.TABELA_TAXA_ADESAO</b -->   
 <input id="CONVENCIONAL_CDU_ADESAO_TT.TABELA_TAXA_ADESAO" 
 
-name="CONVENCIONAL_CDU_ADESAO_TT.TABELA_TAXA_ADESAO"  onKeyPress="
+name="CONVENCIONAL_CDU_ADESAO_TT.TABELA_TAXA_ADESAO"  onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -1972,7 +1978,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_CDU_ADESAO_TT.TABELA_MUTUO</b -->   
 <input id="CONVENCIONAL_CDU_ADESAO_TT.TABELA_MUTUO" 
 
-name="CONVENCIONAL_CDU_ADESAO_TT.TABELA_MUTUO"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_CDU_ADESAO_TT.TABELA_MUTUO"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -1986,7 +1992,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_CDU_ADESAO_TT.PROPOSTA_CDU</b -->   
 <input id="CONVENCIONAL_CDU_ADESAO_TT.PROPOSTA_CDU" 
 
-name="CONVENCIONAL_CDU_ADESAO_TT.PROPOSTA_CDU"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_CDU_ADESAO_TT.PROPOSTA_CDU"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -1998,7 +2004,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_CDU_ADESAO_TT.PROPOSTA_TAXA_TRANSFERENCIA</b -->   
 <input id="CONVENCIONAL_CDU_ADESAO_TT.PROPOSTA_TAXA_TRANSFERENCIA" 
 
-name="CONVENCIONAL_CDU_ADESAO_TT.PROPOSTA_TAXA_TRANSFERENCIA"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_CDU_ADESAO_TT.PROPOSTA_TAXA_TRANSFERENCIA"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -2009,7 +2015,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_CDU_ADESAO_TT.PROPOSTA_TAXA_ADESAO</b -->   
 <input id="CONVENCIONAL_CDU_ADESAO_TT.PROPOSTA_TAXA_ADESAO" 
 
-name="CONVENCIONAL_CDU_ADESAO_TT.PROPOSTA_TAXA_ADESAO"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_CDU_ADESAO_TT.PROPOSTA_TAXA_ADESAO"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -2020,7 +2026,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_CDU_ADESAO_TT.PROPOSTA_MUTUO</b -->   
 <input id="CONVENCIONAL_CDU_ADESAO_TT.PROPOSTA_MUTUO" 
 
-name="CONVENCIONAL_CDU_ADESAO_TT.PROPOSTA_MUTUO"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_CDU_ADESAO_TT.PROPOSTA_MUTUO"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 																	
@@ -2034,7 +2040,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_CDU_ADESAO_TT.PROPOSTAM2_CDU</b -->   
 <input id="CONVENCIONAL_CDU_ADESAO_TT.PROPOSTAM2_CDU" 
 
-name="CONVENCIONAL_CDU_ADESAO_TT.PROPOSTAM2_CDU"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_CDU_ADESAO_TT.PROPOSTAM2_CDU"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 																			
@@ -2045,7 +2051,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_CDU_ADESAO_TT.PROPOSTAM2_TAXA_TRANSFERENCIA</b -->   
 <input id="CONVENCIONAL_CDU_ADESAO_TT.PROPOSTAM2_TAXA_TRANSFERENCIA" 
 
-name="CONVENCIONAL_CDU_ADESAO_TT.PROPOSTAM2_TAXA_TRANSFERENCIA"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_CDU_ADESAO_TT.PROPOSTAM2_TAXA_TRANSFERENCIA"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -2056,7 +2062,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_CDU_ADESAO_TT.PROPOSTAM2_TAXA_ADESAO</b -->   
 <input id="CONVENCIONAL_CDU_ADESAO_TT.PROPOSTAM2_TAXA_ADESAO" 
 
-name="CONVENCIONAL_CDU_ADESAO_TT.PROPOSTAM2_TAXA_ADESAO"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_CDU_ADESAO_TT.PROPOSTAM2_TAXA_ADESAO"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -2067,7 +2073,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_CDU_ADESAO_TT.PROPOSTAM2_MUTUO</b -->   
 <input id="CONVENCIONAL_CDU_ADESAO_TT.PROPOSTAM2_MUTUO" 
 
-name="CONVENCIONAL_CDU_ADESAO_TT.PROPOSTAM2_MUTUO"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_CDU_ADESAO_TT.PROPOSTAM2_MUTUO"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 																		
@@ -2082,7 +2088,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_CDU_ADESAO_TT.SINAL_CDU</b -->   
 <input id="CONVENCIONAL_CDU_ADESAO_TT.SINAL_CDU" 
 
-name="CONVENCIONAL_CDU_ADESAO_TT.SINAL_CDU"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_CDU_ADESAO_TT.SINAL_CDU"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label> 
 																	
@@ -2093,7 +2099,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_CDU_ADESAO_TT.SINAL_TAXA_TRANSFERENCIA</b -->   
 <input id="CONVENCIONAL_CDU_ADESAO_TT.SINAL_TAXA_TRANSFERENCIA" 
 
-name="CONVENCIONAL_CDU_ADESAO_TT.SINAL_TAXA_TRANSFERENCIA"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_CDU_ADESAO_TT.SINAL_TAXA_TRANSFERENCIA"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label> 
 
@@ -2104,7 +2110,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_CDU_ADESAO_TT.SINAL_TAXA_ADESAO</b -->   
 <input id="CONVENCIONAL_CDU_ADESAO_TT.SINAL_TAXA_ADESAO" 
 
-name="CONVENCIONAL_CDU_ADESAO_TT.SINAL_TAXA_ADESAO"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_CDU_ADESAO_TT.SINAL_TAXA_ADESAO"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -2115,7 +2121,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_CDU_ADESAO_TT.SINAL_MUTUO</b -->   
 <input id="CONVENCIONAL_CDU_ADESAO_TT.SINAL_MUTUO" 
 
-name="CONVENCIONAL_CDU_ADESAO_TT.SINAL_MUTUO"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_CDU_ADESAO_TT.SINAL_MUTUO"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -2129,7 +2135,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_CDU_ADESAO_TT.SALDO_CDU</b -->   
 <input id="CONVENCIONAL_CDU_ADESAO_TT.SALDO_CDU" 
 
-name="CONVENCIONAL_CDU_ADESAO_TT.SALDO_CDU"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_CDU_ADESAO_TT.SALDO_CDU"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>
 
@@ -2140,7 +2146,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_CDU_ADESAO_TT.SALDO_TAXA_TRANSFERENCIA</b -->   
 <input id="CONVENCIONAL_CDU_ADESAO_TT.SALDO_TAXA_TRANSFERENCIA" 
 
-name="CONVENCIONAL_CDU_ADESAO_TT.SALDO_TAXA_TRANSFERENCIA"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_CDU_ADESAO_TT.SALDO_TAXA_TRANSFERENCIA"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -2151,7 +2157,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_CDU_ADESAO_TT.SALDO_TAXA_ADESAO</b -->   
 <input id="CONVENCIONAL_CDU_ADESAO_TT.SALDO_TAXA_ADESAO" 
 
-name="CONVENCIONAL_CDU_ADESAO_TT.SALDO_TAXA_ADESAO"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_CDU_ADESAO_TT.SALDO_TAXA_ADESAO"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -2163,7 +2169,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_CDU_ADESAO_TT.SALDO_MUTUO</b -->   
 <input id="CONVENCIONAL_CDU_ADESAO_TT.SALDO_MUTUO" 
 
-name="CONVENCIONAL_CDU_ADESAO_TT.SALDO_MUTUO"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_CDU_ADESAO_TT.SALDO_MUTUO"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -2177,7 +2183,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_CDU_ADESAO_TT.FORMA_DE_PAGAMENTO_DO_SALDO_CDU</b -->   
 <input id="CONVENCIONAL_CDU_ADESAO_TT.FORMA_DE_PAGAMENTO_DO_SALDO_CDU" 
 
-name="CONVENCIONAL_CDU_ADESAO_TT.FORMA_DE_PAGAMENTO_DO_SALDO_CDU"  onKeyPress="
+name="CONVENCIONAL_CDU_ADESAO_TT.FORMA_DE_PAGAMENTO_DO_SALDO_CDU"  onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -2193,7 +2199,7 @@ type="text" tabindex="0" class="pp-input save">
 
 name="CONVENCIONAL_CDU_ADESAO_TT.FORMA_DE_PAGAMENTO_DO_SALDO_TAXA_TRANSFERENCIA"  
 
-onKeyPress="calcularDadosTipoNegociacao()"     
+onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label> 
 
@@ -2207,7 +2213,7 @@ type="text" tabindex="0" class="pp-input save">
 
 name="CONVENCIONAL_CDU_ADESAO_TT.FORMA_DE_PAGAMENTO_DO_SALDO_TAXA_ADESAO"  
 
-onKeyPress="calcularDadosTipoNegociacao()"     
+onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>   
  
@@ -2221,7 +2227,7 @@ type="text" tabindex="0" class="pp-input save">
   
 <input id="CONVENCIONAL_CDU_ADESAO_TT.FORMA_DE_PAGAMENTO_DO_SALDO_MUTUO" 
 
-name="CONVENCIONAL_CDU_ADESAO_TT.FORMA_DE_PAGAMENTO_DO_SALDO_MUTUO"  onKeyPress="
+name="CONVENCIONAL_CDU_ADESAO_TT.FORMA_DE_PAGAMENTO_DO_SALDO_MUTUO"  onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -2246,7 +2252,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- CONVENCIONAL_VGL.VGL_R --> 
 <label class="pp-input-wrap">   
 <!-- b class="pp-label-text">CONVENCIONAL_VGL.VGL_R</b -->   
-<input id="CONVENCIONAL_VGL.VGL_R" name="CONVENCIONAL_VGL.VGL_R"  onKeyPress="
+<input id="CONVENCIONAL_VGL.VGL_R" name="CONVENCIONAL_VGL.VGL_R"  onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -2260,7 +2266,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_VGL.LEASING_SPREAD</b -->   
 <input id="CONVENCIONAL_VGL.LEASING_SPREAD" name="CONVENCIONAL_VGL.LEASING_SPREAD"  
 
-onKeyPress="calcularDadosTipoNegociacao()"     
+onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -2272,7 +2278,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_VGL.COMERCIALIZACAO_PERC</b -->   
 <input id="CONVENCIONAL_VGL.COMERCIALIZACAO_PERC" 
 
-name="CONVENCIONAL_VGL.COMERCIALIZACAO_PERC"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="CONVENCIONAL_VGL.COMERCIALIZACAO_PERC"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>
 													
@@ -2283,7 +2289,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">CONVENCIONAL_VGL.COMERCIALIZACAO_R</b -->   
 <input id="CONVENCIONAL_VGL.COMERCIALIZACAO_R" name="CONVENCIONAL_VGL.COMERCIALIZACAO_R"  
 
-onKeyPress="calcularDadosTipoNegociacao()"     
+onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label> 
 											
@@ -2352,7 +2358,7 @@ tabindex="0" class="pp-select save">
 <!-- POPUP_ALUGUEL.1CTO --> 
 <label class="pp-input-wrap">   
 <!-- b class="pp-label-text">POPUP_ALUGUEL.1CTO</b -->   
-<input id="POPUP_ALUGUEL.1CTO" name="POPUP_ALUGUEL.1CTO"  onKeyPress="calcularDadosTipoNegociacao()"     
+<input id="POPUP_ALUGUEL.1CTO" name="POPUP_ALUGUEL.1CTO"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -2363,7 +2369,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">POPUP_ALUGUEL.1ANO_ALUGUELMINIMOMENSAL_R</b -->   
 <input id="POPUP_ALUGUEL.1ANO_ALUGUELMINIMOMENSAL_R" 
 
-name="POPUP_ALUGUEL.1ANO_ALUGUELMINIMOMENSAL_R"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="POPUP_ALUGUEL.1ANO_ALUGUELMINIMOMENSAL_R"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -2374,7 +2380,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">POPUP_ALUGUEL.1ANO_ALUGUELMINIMOMENSAL_DEGRAU</b -->   
 <input id="POPUP_ALUGUEL.1ANO_ALUGUELMINIMOMENSAL_DEGRAU" 
 
-name="POPUP_ALUGUEL.1ANO_ALUGUELMINIMOMENSAL_DEGRAU"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="POPUP_ALUGUEL.1ANO_ALUGUELMINIMOMENSAL_DEGRAU"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -2385,7 +2391,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">POPUP_ALUGUEL.1ANO_ALUGUELMINIMOMENSAL_R_M2</b -->   
 <input id="POPUP_ALUGUEL.1ANO_ALUGUELMINIMOMENSAL_R_M2" 
 
-name="POPUP_ALUGUEL.1ANO_ALUGUELMINIMOMENSAL_R_M2"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="POPUP_ALUGUEL.1ANO_ALUGUELMINIMOMENSAL_R_M2"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -2396,7 +2402,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">POPUP_ALUGUEL.1ANO_PONTODEEQUILIBRIO_R</b -->   
 <input id="POPUP_ALUGUEL.1ANO_PONTODEEQUILIBRIO_R" 
 
-name="POPUP_ALUGUEL.1ANO_PONTODEEQUILIBRIO_R"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="POPUP_ALUGUEL.1ANO_PONTODEEQUILIBRIO_R"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>
 
@@ -2407,7 +2413,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">POPUP_ALUGUEL.1ANO_PONTODEEQUILIBRIO_R_M2</b -->   
 <input id="POPUP_ALUGUEL.1ANO_PONTODEEQUILIBRIO_R_M2" 
 
-name="POPUP_ALUGUEL.1ANO_PONTODEEQUILIBRIO_R_M2"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="POPUP_ALUGUEL.1ANO_PONTODEEQUILIBRIO_R_M2"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label> 
 
@@ -2444,7 +2450,7 @@ tabindex="0" class="pp-select save">
 <!-- b class="pp-label-text">POPUP_ALUGUEL.1ANO_TOTAL_DE_MESES</b -->   
 <input id="POPUP_ALUGUEL.1ANO_TOTAL_DE_MESES" name="POPUP_ALUGUEL.1ANO_TOTAL_DE_MESES"  
 
-onKeyPress="calcularDadosTipoNegociacao()"     
+onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -2456,7 +2462,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">POPUP_ALUGUEL.1ANO_AMM_ANO_R</b -->   
 <input id="POPUP_ALUGUEL.1ANO_AMM_ANO_R" name="POPUP_ALUGUEL.1ANO_AMM_ANO_R"  
 
-onKeyPress="calcularDadosTipoNegociacao()"     
+onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -2470,7 +2476,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">POPUP_ALUGUEL.TOTAL_R_M2</b -->   
 <input id="POPUP_ALUGUEL.TOTAL_R_M2" name="POPUP_ALUGUEL.TOTAL_R_M2"  
 
-onKeyPress="calcularDadosTipoNegociacao()"     
+onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -2481,7 +2487,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">POPUP_ALUGUEL.TOTAL_AMM_DOBRADO_DEZEMBRO</b -->   
 <input id="POPUP_ALUGUEL.TOTAL_AMM_DOBRADO_DEZEMBRO" 
 
-name="POPUP_ALUGUEL.TOTAL_AMM_DOBRADO_DEZEMBRO"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="POPUP_ALUGUEL.TOTAL_AMM_DOBRADO_DEZEMBRO"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -2492,7 +2498,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">POPUP_ALUGUEL.TOTAL_CARENCIA</b -->   
 <input id="POPUP_ALUGUEL.TOTAL_CARENCIA" name="POPUP_ALUGUEL.TOTAL_CARENCIA"  
 
-onKeyPress="calcularDadosTipoNegociacao()"     
+onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -2504,7 +2510,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">POPUP_ALUGUEL.TOTAL_AMM_ANO_R</b -->   
 <input id="POPUP_ALUGUEL.TOTAL_AMM_ANO_R" name="POPUP_ALUGUEL.TOTAL_AMM_ANO_R"  
 
-onKeyPress="calcularDadosTipoNegociacao()"     
+onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label> 
 
@@ -2521,7 +2527,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- POPUP_VGL.VGL_R --> 
 <label class="pp-input-wrap">   
 <!-- b class="pp-label-text">POPUP_VGL.VGL_R</b -->   
-<input id="POPUP_VGL.VGL_R" name="POPUP_VGL.VGL_R"  onKeyPress="calcularDadosTipoNegociacao()"     
+<input id="POPUP_VGL.VGL_R" name="POPUP_VGL.VGL_R"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -2533,7 +2539,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">POPUP_VGL.LEASING_SPREAD</b -->   
 <input id="POPUP_VGL.LEASING_SPREAD" name="POPUP_VGL.LEASING_SPREAD"  
 
-onKeyPress="calcularDadosTipoNegociacao()"     
+onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -2545,7 +2551,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">POPUP_VGL.COMERCIALIZACAO_PERC</b -->   
 <input id="POPUP_VGL.COMERCIALIZACAO_PERC" name="POPUP_VGL.COMERCIALIZACAO_PERC"  
 
-onKeyPress="calcularDadosTipoNegociacao()"     
+onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label> 
 
@@ -2556,7 +2562,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">POPUP_VGL.COMERCIALIZACAO_R</b -->   
 <input id="POPUP_VGL.COMERCIALIZACAO_R" name="POPUP_VGL.COMERCIALIZACAO_R"  
 
-onKeyPress="calcularDadosTipoNegociacao()"     
+onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -2630,7 +2636,7 @@ tabindex="0" class="pp-select save">
 <!-- OUTROS_ALUGUEL.1CTO --> 
 <label class="pp-input-wrap">   
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.1CTO</b -->   
-<input id="OUTROS_ALUGUEL.1CTO" name="OUTROS_ALUGUEL.1CTO"  onKeyPress="calcularDadosTipoNegociacao()"     
+<input id="OUTROS_ALUGUEL.1CTO" name="OUTROS_ALUGUEL.1CTO"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -2641,7 +2647,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.1ANO_ALUGUEL_MINIMO_MENSAL_R</b -->   
 <input id="OUTROS_ALUGUEL.1ANO_ALUGUEL_MINIMO_MENSAL_R" 
 
-name="OUTROS_ALUGUEL.1ANO_ALUGUEL_MINIMO_MENSAL_R"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="OUTROS_ALUGUEL.1ANO_ALUGUEL_MINIMO_MENSAL_R"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -2652,7 +2658,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.1ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU</b -->   
 <input id="OUTROS_ALUGUEL.1ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU" 
 
-name="OUTROS_ALUGUEL.1ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="OUTROS_ALUGUEL.1ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label> 
 
@@ -2663,7 +2669,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.1ANO_ALUGUEL_MINIMO_MENSAL_R_M2</b -->   
 <input id="OUTROS_ALUGUEL.1ANO_ALUGUEL_MINIMO_MENSAL_R_M2" 
 
-name="OUTROS_ALUGUEL.1ANO_ALUGUEL_MINIMO_MENSAL_R_M2"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="OUTROS_ALUGUEL.1ANO_ALUGUEL_MINIMO_MENSAL_R_M2"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label> 
 
@@ -2674,7 +2680,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.1ANO_PONTO_DE_EQUILIBRIO_R</b -->   
 <input id="OUTROS_ALUGUEL.1ANO_PONTO_DE_EQUILIBRIO_R" 
 
-name="OUTROS_ALUGUEL.1ANO_PONTO_DE_EQUILIBRIO_R"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="OUTROS_ALUGUEL.1ANO_PONTO_DE_EQUILIBRIO_R"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>
 
@@ -2685,7 +2691,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.1ANO_PONTO_DE_EQUILIBRIO_R_M2</b -->   
 <input id="OUTROS_ALUGUEL.1ANO_PONTO_DE_EQUILIBRIO_R_M2" 
 
-name="OUTROS_ALUGUEL.1ANO_PONTO_DE_EQUILIBRIO_R_M2"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="OUTROS_ALUGUEL.1ANO_PONTO_DE_EQUILIBRIO_R_M2"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label> 
 
@@ -2722,7 +2728,7 @@ tabindex="0" class="pp-select save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.1ANO_TOTAL_DE_MESES</b -->   
 <input id="OUTROS_ALUGUEL.1ANO_TOTAL_DE_MESES" name="OUTROS_ALUGUEL.1ANO_TOTAL_DE_MESES"  
 
-onKeyPress="calcularDadosTipoNegociacao()"     
+onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -2733,7 +2739,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.1ANO_AMM_ANO_R</b -->   
 <input id="OUTROS_ALUGUEL.1ANO_AMM_ANO_R" name="OUTROS_ALUGUEL.1ANO_AMM_ANO_R"  
 
-onKeyPress="calcularDadosTipoNegociacao()"     
+onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -2757,7 +2763,7 @@ tabindex="0" class="pp-select save">
 <!-- OUTROS_ALUGUEL.2CTO --> 
 <label class="pp-input-wrap">   
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.2CTO</b -->   
-<input id="OUTROS_ALUGUEL.2CTO" name="OUTROS_ALUGUEL.2CTO"  onKeyPress="calcularDadosTipoNegociacao()"     
+<input id="OUTROS_ALUGUEL.2CTO" name="OUTROS_ALUGUEL.2CTO"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -2768,7 +2774,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.2ANO_ALUGUEL_MINIMO_MENSAL_R</b -->   
 <input id="OUTROS_ALUGUEL.2ANO_ALUGUEL_MINIMO_MENSAL_R" 
 
-name="OUTROS_ALUGUEL.2ANO_ALUGUEL_MINIMO_MENSAL_R"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="OUTROS_ALUGUEL.2ANO_ALUGUEL_MINIMO_MENSAL_R"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -2779,7 +2785,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.2ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU</b -->   
 <input id="OUTROS_ALUGUEL.2ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU" 
 
-name="OUTROS_ALUGUEL.2ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="OUTROS_ALUGUEL.2ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label> 
 
@@ -2790,7 +2796,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.2ANO_ALUGUEL_MINIMO_MENSAL_R_M2</b -->   
 <input id="OUTROS_ALUGUEL.2ANO_ALUGUEL_MINIMO_MENSAL_R_M2" 
 
-name="OUTROS_ALUGUEL.2ANO_ALUGUEL_MINIMO_MENSAL_R_M2"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="OUTROS_ALUGUEL.2ANO_ALUGUEL_MINIMO_MENSAL_R_M2"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label> 
 
@@ -2801,7 +2807,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.2ANO_PONTO_DE_EQUILIBRIO_R</b -->   
 <input id="OUTROS_ALUGUEL.2ANO_PONTO_DE_EQUILIBRIO_R" 
 
-name="OUTROS_ALUGUEL.2ANO_PONTO_DE_EQUILIBRIO_R"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="OUTROS_ALUGUEL.2ANO_PONTO_DE_EQUILIBRIO_R"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>
 
@@ -2812,7 +2818,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.2ANO_PONTO_DE_EQUILIBRIO_R_M2</b -->   
 <input id="OUTROS_ALUGUEL.2ANO_PONTO_DE_EQUILIBRIO_R_M2" 
 
-name="OUTROS_ALUGUEL.2ANO_PONTO_DE_EQUILIBRIO_R_M2"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="OUTROS_ALUGUEL.2ANO_PONTO_DE_EQUILIBRIO_R_M2"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label> 
 
@@ -2849,7 +2855,7 @@ tabindex="0" class="pp-select save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.2ANO_TOTAL_DE_MESES</b -->   
 <input id="OUTROS_ALUGUEL.2ANO_TOTAL_DE_MESES" name="OUTROS_ALUGUEL.2ANO_TOTAL_DE_MESES"  
 
-onKeyPress="calcularDadosTipoNegociacao()"     
+onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -2860,7 +2866,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.2ANO_AMM_ANO_R</b -->   
 <input id="OUTROS_ALUGUEL.2ANO_AMM_ANO_R" name="OUTROS_ALUGUEL.2ANO_AMM_ANO_R"  
 
-onKeyPress="calcularDadosTipoNegociacao()"     
+onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -2884,7 +2890,7 @@ tabindex="0" class="pp-select save">
 <!-- OUTROS_ALUGUEL.3CTO --> 
 <label class="pp-input-wrap">   
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.3CTO</b -->   
-<input id="OUTROS_ALUGUEL.3CTO" name="OUTROS_ALUGUEL.3CTO"  onKeyPress="calcularDadosTipoNegociacao()"     
+<input id="OUTROS_ALUGUEL.3CTO" name="OUTROS_ALUGUEL.3CTO"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -2895,7 +2901,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.3ANO_ALUGUEL_MINIMO_MENSAL_R</b -->   
 <input id="OUTROS_ALUGUEL.3ANO_ALUGUEL_MINIMO_MENSAL_R" 
 
-name="OUTROS_ALUGUEL.3ANO_ALUGUEL_MINIMO_MENSAL_R"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="OUTROS_ALUGUEL.3ANO_ALUGUEL_MINIMO_MENSAL_R"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -2906,7 +2912,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.3ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU</b -->   
 <input id="OUTROS_ALUGUEL.3ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU" 
 
-name="OUTROS_ALUGUEL.3ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="OUTROS_ALUGUEL.3ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label> 
 
@@ -2917,7 +2923,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.3ANO_ALUGUEL_MINIMO_MENSAL_R_M2</b -->   
 <input id="OUTROS_ALUGUEL.3ANO_ALUGUEL_MINIMO_MENSAL_R_M2" 
 
-name="OUTROS_ALUGUEL.3ANO_ALUGUEL_MINIMO_MENSAL_R_M2"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="OUTROS_ALUGUEL.3ANO_ALUGUEL_MINIMO_MENSAL_R_M2"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label> 
 
@@ -2928,7 +2934,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.3ANO_PONTO_DE_EQUILIBRIO_R</b -->   
 <input id="OUTROS_ALUGUEL.3ANO_PONTO_DE_EQUILIBRIO_R" 
 
-name="OUTROS_ALUGUEL.3ANO_PONTO_DE_EQUILIBRIO_R"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="OUTROS_ALUGUEL.3ANO_PONTO_DE_EQUILIBRIO_R"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>
 
@@ -2939,7 +2945,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.3ANO_PONTO_DE_EQUILIBRIO_R_M2</b -->   
 <input id="OUTROS_ALUGUEL.3ANO_PONTO_DE_EQUILIBRIO_R_M2" 
 
-name="OUTROS_ALUGUEL.3ANO_PONTO_DE_EQUILIBRIO_R_M2"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="OUTROS_ALUGUEL.3ANO_PONTO_DE_EQUILIBRIO_R_M2"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label> 
 
@@ -2976,7 +2982,7 @@ tabindex="0" class="pp-select save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.3ANO_TOTAL_DE_MESES</b -->   
 <input id="OUTROS_ALUGUEL.3ANO_TOTAL_DE_MESES" name="OUTROS_ALUGUEL.3ANO_TOTAL_DE_MESES"  
 
-onKeyPress="calcularDadosTipoNegociacao()"     
+onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -2987,7 +2993,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.3ANO_AMM_ANO_R</b -->   
 <input id="OUTROS_ALUGUEL.3ANO_AMM_ANO_R" name="OUTROS_ALUGUEL.3ANO_AMM_ANO_R"  
 
-onKeyPress="calcularDadosTipoNegociacao()"     
+onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -3011,7 +3017,7 @@ tabindex="0" class="pp-select save">
 <!-- OUTROS_ALUGUEL.4CTO --> 
 <label class="pp-input-wrap">   
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.4CTO</b -->   
-<input id="OUTROS_ALUGUEL.4CTO" name="OUTROS_ALUGUEL.4CTO"  onKeyPress="calcularDadosTipoNegociacao()"     
+<input id="OUTROS_ALUGUEL.4CTO" name="OUTROS_ALUGUEL.4CTO"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -3022,7 +3028,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.4ANO_ALUGUEL_MINIMO_MENSAL_R</b -->   
 <input id="OUTROS_ALUGUEL.4ANO_ALUGUEL_MINIMO_MENSAL_R" 
 
-name="OUTROS_ALUGUEL.4ANO_ALUGUEL_MINIMO_MENSAL_R"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="OUTROS_ALUGUEL.4ANO_ALUGUEL_MINIMO_MENSAL_R"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -3033,7 +3039,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.4ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU</b -->   
 <input id="OUTROS_ALUGUEL.4ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU" 
 
-name="OUTROS_ALUGUEL.4ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="OUTROS_ALUGUEL.4ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label> 
 
@@ -3044,7 +3050,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.4ANO_ALUGUEL_MINIMO_MENSAL_R_M2</b -->   
 <input id="OUTROS_ALUGUEL.4ANO_ALUGUEL_MINIMO_MENSAL_R_M2" 
 
-name="OUTROS_ALUGUEL.4ANO_ALUGUEL_MINIMO_MENSAL_R_M2"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="OUTROS_ALUGUEL.4ANO_ALUGUEL_MINIMO_MENSAL_R_M2"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label> 
 
@@ -3055,7 +3061,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.4ANO_PONTO_DE_EQUILIBRIO_R</b -->   
 <input id="OUTROS_ALUGUEL.4ANO_PONTO_DE_EQUILIBRIO_R" 
 
-name="OUTROS_ALUGUEL.4ANO_PONTO_DE_EQUILIBRIO_R"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="OUTROS_ALUGUEL.4ANO_PONTO_DE_EQUILIBRIO_R"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>
 
@@ -3066,7 +3072,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.4ANO_PONTO_DE_EQUILIBRIO_R_M2</b -->   
 <input id="OUTROS_ALUGUEL.4ANO_PONTO_DE_EQUILIBRIO_R_M2" 
 
-name="OUTROS_ALUGUEL.4ANO_PONTO_DE_EQUILIBRIO_R_M2"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="OUTROS_ALUGUEL.4ANO_PONTO_DE_EQUILIBRIO_R_M2"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label> 
 
@@ -3103,7 +3109,7 @@ tabindex="0" class="pp-select save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.4ANO_TOTAL_DE_MESES</b -->   
 <input id="OUTROS_ALUGUEL.4ANO_TOTAL_DE_MESES" name="OUTROS_ALUGUEL.4ANO_TOTAL_DE_MESES"  
 
-onKeyPress="calcularDadosTipoNegociacao()"     
+onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -3114,7 +3120,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.4ANO_AMM_ANO_R</b -->   
 <input id="OUTROS_ALUGUEL.4ANO_AMM_ANO_R" name="OUTROS_ALUGUEL.4ANO_AMM_ANO_R"  
 
-onKeyPress="calcularDadosTipoNegociacao()"     
+onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -3138,7 +3144,7 @@ tabindex="0" class="pp-select save">
 <!-- OUTROS_ALUGUEL.5CTO --> 
 <label class="pp-input-wrap">   
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.5CTO</b -->   
-<input id="OUTROS_ALUGUEL.5CTO" name="OUTROS_ALUGUEL.5CTO"  onKeyPress="calcularDadosTipoNegociacao()"     
+<input id="OUTROS_ALUGUEL.5CTO" name="OUTROS_ALUGUEL.5CTO"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -3149,7 +3155,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.5ANO_ALUGUEL_MINIMO_MENSAL_R</b -->   
 <input id="OUTROS_ALUGUEL.5ANO_ALUGUEL_MINIMO_MENSAL_R" 
 
-name="OUTROS_ALUGUEL.5ANO_ALUGUEL_MINIMO_MENSAL_R"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="OUTROS_ALUGUEL.5ANO_ALUGUEL_MINIMO_MENSAL_R"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -3160,7 +3166,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.5ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU</b -->   
 <input id="OUTROS_ALUGUEL.5ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU" 
 
-name="OUTROS_ALUGUEL.5ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="OUTROS_ALUGUEL.5ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label> 
 
@@ -3171,7 +3177,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.5ANO_ALUGUEL_MINIMO_MENSAL_R_M2</b -->   
 <input id="OUTROS_ALUGUEL.5ANO_ALUGUEL_MINIMO_MENSAL_R_M2" 
 
-name="OUTROS_ALUGUEL.5ANO_ALUGUEL_MINIMO_MENSAL_R_M2"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="OUTROS_ALUGUEL.5ANO_ALUGUEL_MINIMO_MENSAL_R_M2"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label> 
 
@@ -3182,7 +3188,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.5ANO_PONTO_DE_EQUILIBRIO_R</b -->   
 <input id="OUTROS_ALUGUEL.5ANO_PONTO_DE_EQUILIBRIO_R" 
 
-name="OUTROS_ALUGUEL.5ANO_PONTO_DE_EQUILIBRIO_R"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="OUTROS_ALUGUEL.5ANO_PONTO_DE_EQUILIBRIO_R"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>
 
@@ -3193,7 +3199,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.5ANO_PONTO_DE_EQUILIBRIO_R_M2</b -->   
 <input id="OUTROS_ALUGUEL.5ANO_PONTO_DE_EQUILIBRIO_R_M2" 
 
-name="OUTROS_ALUGUEL.5ANO_PONTO_DE_EQUILIBRIO_R_M2"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="OUTROS_ALUGUEL.5ANO_PONTO_DE_EQUILIBRIO_R_M2"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label> 
 
@@ -3230,7 +3236,7 @@ tabindex="0" class="pp-select save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.5ANO_TOTAL_DE_MESES</b -->   
 <input id="OUTROS_ALUGUEL.5ANO_TOTAL_DE_MESES" name="OUTROS_ALUGUEL.5ANO_TOTAL_DE_MESES"  
 
-onKeyPress="calcularDadosTipoNegociacao()"     
+onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -3241,7 +3247,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.5ANO_AMM_ANO_R</b -->   
 <input id="OUTROS_ALUGUEL.5ANO_AMM_ANO_R" name="OUTROS_ALUGUEL.5ANO_AMM_ANO_R"  
 
-onKeyPress="calcularDadosTipoNegociacao()"     
+onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -3265,7 +3271,7 @@ tabindex="0" class="pp-select save">
 <!-- OUTROS_ALUGUEL.6CTO --> 
 <label class="pp-input-wrap">   
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.6CTO</b -->   
-<input id="OUTROS_ALUGUEL.6CTO" name="OUTROS_ALUGUEL.6CTO"  onKeyPress="calcularDadosTipoNegociacao()"     
+<input id="OUTROS_ALUGUEL.6CTO" name="OUTROS_ALUGUEL.6CTO"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -3276,7 +3282,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.6ANO_ALUGUEL_MINIMO_MENSAL_R</b -->   
 <input id="OUTROS_ALUGUEL.6ANO_ALUGUEL_MINIMO_MENSAL_R" 
 
-name="OUTROS_ALUGUEL.6ANO_ALUGUEL_MINIMO_MENSAL_R"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="OUTROS_ALUGUEL.6ANO_ALUGUEL_MINIMO_MENSAL_R"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -3287,7 +3293,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.6ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU</b -->   
 <input id="OUTROS_ALUGUEL.6ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU" 
 
-name="OUTROS_ALUGUEL.6ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="OUTROS_ALUGUEL.6ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label> 
 
@@ -3298,7 +3304,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.6ANO_ALUGUEL_MINIMO_MENSAL_R_M2</b -->   
 <input id="OUTROS_ALUGUEL.6ANO_ALUGUEL_MINIMO_MENSAL_R_M2" 
 
-name="OUTROS_ALUGUEL.6ANO_ALUGUEL_MINIMO_MENSAL_R_M2"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="OUTROS_ALUGUEL.6ANO_ALUGUEL_MINIMO_MENSAL_R_M2"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label> 
 
@@ -3309,7 +3315,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.6ANO_PONTO_DE_EQUILIBRIO_R</b -->   
 <input id="OUTROS_ALUGUEL.6ANO_PONTO_DE_EQUILIBRIO_R" 
 
-name="OUTROS_ALUGUEL.6ANO_PONTO_DE_EQUILIBRIO_R"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="OUTROS_ALUGUEL.6ANO_PONTO_DE_EQUILIBRIO_R"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>
 
@@ -3320,7 +3326,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.6ANO_PONTO_DE_EQUILIBRIO_R_M2</b -->   
 <input id="OUTROS_ALUGUEL.6ANO_PONTO_DE_EQUILIBRIO_R_M2" 
 
-name="OUTROS_ALUGUEL.6ANO_PONTO_DE_EQUILIBRIO_R_M2"  onKeyPress="calcularDadosTipoNegociacao()"     
+name="OUTROS_ALUGUEL.6ANO_PONTO_DE_EQUILIBRIO_R_M2"  onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label> 
 
@@ -3357,7 +3363,7 @@ tabindex="0" class="pp-select save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.6ANO_TOTAL_DE_MESES</b -->   
 <input id="OUTROS_ALUGUEL.6ANO_TOTAL_DE_MESES" name="OUTROS_ALUGUEL.6ANO_TOTAL_DE_MESES"  
 
-onKeyPress="calcularDadosTipoNegociacao()"     
+onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -3368,7 +3374,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.6ANO_AMM_ANO_R</b -->   
 <input id="OUTROS_ALUGUEL.6ANO_AMM_ANO_R" name="OUTROS_ALUGUEL.6ANO_AMM_ANO_R"  
 
-onKeyPress="
+onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -3394,7 +3400,7 @@ tabindex="0" class="pp-select save">
 <!-- OUTROS_ALUGUEL.7CTO --> 
 <label class="pp-input-wrap">   
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.7CTO</b -->   
-<input id="OUTROS_ALUGUEL.7CTO" name="OUTROS_ALUGUEL.7CTO"  onKeyPress="
+<input id="OUTROS_ALUGUEL.7CTO" name="OUTROS_ALUGUEL.7CTO"  onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -3407,7 +3413,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.7ANO_ALUGUEL_MINIMO_MENSAL_R</b -->   
 <input id="OUTROS_ALUGUEL.7ANO_ALUGUEL_MINIMO_MENSAL_R" 
 
-name="OUTROS_ALUGUEL.7ANO_ALUGUEL_MINIMO_MENSAL_R"  onKeyPress="
+name="OUTROS_ALUGUEL.7ANO_ALUGUEL_MINIMO_MENSAL_R"  onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -3420,7 +3426,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.7ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU</b -->   
 <input id="OUTROS_ALUGUEL.7ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU" 
 
-name="OUTROS_ALUGUEL.7ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU"  onKeyPress="
+name="OUTROS_ALUGUEL.7ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU"  onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -3433,7 +3439,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.7ANO_ALUGUEL_MINIMO_MENSAL_R_M2</b -->   
 <input id="OUTROS_ALUGUEL.7ANO_ALUGUEL_MINIMO_MENSAL_R_M2" 
 
-name="OUTROS_ALUGUEL.7ANO_ALUGUEL_MINIMO_MENSAL_R_M2"  onKeyPress="
+name="OUTROS_ALUGUEL.7ANO_ALUGUEL_MINIMO_MENSAL_R_M2"  onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -3446,7 +3452,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.7ANO_PONTO_DE_EQUILIBRIO_R</b -->   
 <input id="OUTROS_ALUGUEL.7ANO_PONTO_DE_EQUILIBRIO_R" 
 
-name="OUTROS_ALUGUEL.7ANO_PONTO_DE_EQUILIBRIO_R"  onKeyPress="
+name="OUTROS_ALUGUEL.7ANO_PONTO_DE_EQUILIBRIO_R"  onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -3459,7 +3465,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.7ANO_PONTO_DE_EQUILIBRIO_R_M2</b -->   
 <input id="OUTROS_ALUGUEL.7ANO_PONTO_DE_EQUILIBRIO_R_M2" 
 
-name="OUTROS_ALUGUEL.7ANO_PONTO_DE_EQUILIBRIO_R_M2"  onKeyPress="
+name="OUTROS_ALUGUEL.7ANO_PONTO_DE_EQUILIBRIO_R_M2"  onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -3498,7 +3504,7 @@ tabindex="0" class="pp-select save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.7ANO_TOTAL_DE_MESES</b -->   
 <input id="OUTROS_ALUGUEL.7ANO_TOTAL_DE_MESES" name="OUTROS_ALUGUEL.7ANO_TOTAL_DE_MESES"  
 
-onKeyPress="
+onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -3511,7 +3517,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.7ANO_AMM_ANO_R</b -->   
 <input id="OUTROS_ALUGUEL.7ANO_AMM_ANO_R" name="OUTROS_ALUGUEL.7ANO_AMM_ANO_R"  
 
-onKeyPress="
+onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -3537,7 +3543,7 @@ tabindex="0" class="pp-select save">
 <!-- OUTROS_ALUGUEL.8CTO --> 
 <label class="pp-input-wrap">   
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.8CTO</b -->   
-<input id="OUTROS_ALUGUEL.8CTO" name="OUTROS_ALUGUEL.8CTO"  onKeyPress="
+<input id="OUTROS_ALUGUEL.8CTO" name="OUTROS_ALUGUEL.8CTO"  onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -3550,7 +3556,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.8ANO_ALUGUEL_MINIMO_MENSAL_R</b -->   
 <input id="OUTROS_ALUGUEL.8ANO_ALUGUEL_MINIMO_MENSAL_R" 
 
-name="OUTROS_ALUGUEL.8ANO_ALUGUEL_MINIMO_MENSAL_R"  onKeyPress="
+name="OUTROS_ALUGUEL.8ANO_ALUGUEL_MINIMO_MENSAL_R"  onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -3563,7 +3569,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.8ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU</b -->   
 <input id="OUTROS_ALUGUEL.8ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU" 
 
-name="OUTROS_ALUGUEL.8ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU"  onKeyPress="
+name="OUTROS_ALUGUEL.8ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU"  onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -3576,7 +3582,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.8ANO_ALUGUEL_MINIMO_MENSAL_R_M2</b -->   
 <input id="OUTROS_ALUGUEL.8ANO_ALUGUEL_MINIMO_MENSAL_R_M2" 
 
-name="OUTROS_ALUGUEL.8ANO_ALUGUEL_MINIMO_MENSAL_R_M2"  onKeyPress="
+name="OUTROS_ALUGUEL.8ANO_ALUGUEL_MINIMO_MENSAL_R_M2"  onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -3589,7 +3595,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.8ANO_PONTO_DE_EQUILIBRIO_R</b -->   
 <input id="OUTROS_ALUGUEL.8ANO_PONTO_DE_EQUILIBRIO_R" 
 
-name="OUTROS_ALUGUEL.8ANO_PONTO_DE_EQUILIBRIO_R"  onKeyPress="
+name="OUTROS_ALUGUEL.8ANO_PONTO_DE_EQUILIBRIO_R"  onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -3602,7 +3608,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.8ANO_PONTO_DE_EQUILIBRIO_R_M2</b -->   
 <input id="OUTROS_ALUGUEL.8ANO_PONTO_DE_EQUILIBRIO_R_M2" 
 
-name="OUTROS_ALUGUEL.8ANO_PONTO_DE_EQUILIBRIO_R_M2"  onKeyPress="
+name="OUTROS_ALUGUEL.8ANO_PONTO_DE_EQUILIBRIO_R_M2"  onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -3641,7 +3647,7 @@ tabindex="0" class="pp-select save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.8ANO_TOTAL_DE_MESES</b -->   
 <input id="OUTROS_ALUGUEL.8ANO_TOTAL_DE_MESES" name="OUTROS_ALUGUEL.8ANO_TOTAL_DE_MESES"  
 
-onKeyPress="
+onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -3654,7 +3660,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.8ANO_AMM_ANO_R</b -->   
 <input id="OUTROS_ALUGUEL.8ANO_AMM_ANO_R" name="OUTROS_ALUGUEL.8ANO_AMM_ANO_R"  
 
-onKeyPress="
+onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -3680,7 +3686,7 @@ tabindex="0" class="pp-select save">
 <!-- OUTROS_ALUGUEL.9CTO --> 
 <label class="pp-input-wrap">   
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.9CTO</b -->   
-<input id="OUTROS_ALUGUEL.9CTO" name="OUTROS_ALUGUEL.9CTO"  onKeyPress="
+<input id="OUTROS_ALUGUEL.9CTO" name="OUTROS_ALUGUEL.9CTO"  onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -3693,7 +3699,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.9ANO_ALUGUEL_MINIMO_MENSAL_R</b -->   
 <input id="OUTROS_ALUGUEL.9ANO_ALUGUEL_MINIMO_MENSAL_R" 
 
-name="OUTROS_ALUGUEL.9ANO_ALUGUEL_MINIMO_MENSAL_R"  onKeyPress="
+name="OUTROS_ALUGUEL.9ANO_ALUGUEL_MINIMO_MENSAL_R"  onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -3706,7 +3712,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.9ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU</b -->   
 <input id="OUTROS_ALUGUEL.9ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU" 
 
-name="OUTROS_ALUGUEL.9ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU"  onKeyPress="
+name="OUTROS_ALUGUEL.9ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU"  onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -3719,7 +3725,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.9ANO_ALUGUEL_MINIMO_MENSAL_R_M2</b -->   
 <input id="OUTROS_ALUGUEL.9ANO_ALUGUEL_MINIMO_MENSAL_R_M2" 
 
-name="OUTROS_ALUGUEL.9ANO_ALUGUEL_MINIMO_MENSAL_R_M2"  onKeyPress="
+name="OUTROS_ALUGUEL.9ANO_ALUGUEL_MINIMO_MENSAL_R_M2"  onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -3732,7 +3738,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.9ANO_PONTO_DE_EQUILIBRIO_R</b -->   
 <input id="OUTROS_ALUGUEL.9ANO_PONTO_DE_EQUILIBRIO_R" 
 
-name="OUTROS_ALUGUEL.9ANO_PONTO_DE_EQUILIBRIO_R"  onKeyPress="
+name="OUTROS_ALUGUEL.9ANO_PONTO_DE_EQUILIBRIO_R"  onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -3745,7 +3751,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.9ANO_PONTO_DE_EQUILIBRIO_R_M2</b -->   
 <input id="OUTROS_ALUGUEL.9ANO_PONTO_DE_EQUILIBRIO_R_M2" 
 
-name="OUTROS_ALUGUEL.9ANO_PONTO_DE_EQUILIBRIO_R_M2"  onKeyPress="
+name="OUTROS_ALUGUEL.9ANO_PONTO_DE_EQUILIBRIO_R_M2"  onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -3784,7 +3790,7 @@ tabindex="0" class="pp-select save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.9ANO_TOTAL_DE_MESES</b -->   
 <input id="OUTROS_ALUGUEL.9ANO_TOTAL_DE_MESES" name="OUTROS_ALUGUEL.9ANO_TOTAL_DE_MESES"  
 
-onKeyPress="
+onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -3797,7 +3803,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.9ANO_AMM_ANO_R</b -->   
 <input id="OUTROS_ALUGUEL.9ANO_AMM_ANO_R" name="OUTROS_ALUGUEL.9ANO_AMM_ANO_R"  
 
-onKeyPress="
+onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -3823,7 +3829,7 @@ tabindex="0" class="pp-select save">
 <!-- OUTROS_ALUGUEL.10CTO --> 
 <label class="pp-input-wrap">   
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.10CTO</b -->   
-<input id="OUTROS_ALUGUEL.10CTO" name="OUTROS_ALUGUEL.10CTO"  onKeyPress="
+<input id="OUTROS_ALUGUEL.10CTO" name="OUTROS_ALUGUEL.10CTO"  onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -3836,7 +3842,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.10ANO_ALUGUEL_MINIMO_MENSAL_R</b -->   
 <input id="OUTROS_ALUGUEL.10ANO_ALUGUEL_MINIMO_MENSAL_R" 
 
-name="OUTROS_ALUGUEL.10ANO_ALUGUEL_MINIMO_MENSAL_R"  onKeyPress="
+name="OUTROS_ALUGUEL.10ANO_ALUGUEL_MINIMO_MENSAL_R"  onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -3849,7 +3855,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.10ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU</b -->   
 <input id="OUTROS_ALUGUEL.10ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU" 
 
-name="OUTROS_ALUGUEL.10ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU"  onKeyPress="
+name="OUTROS_ALUGUEL.10ANO_ALUGUEL_MINIMO_MENSAL_DEGRAU"  onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -3862,7 +3868,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.10ANO_ALUGUEL_MINIMO_MENSAL_R_M2</b -->   
 <input id="OUTROS_ALUGUEL.10ANO_ALUGUEL_MINIMO_MENSAL_R_M2" 
 
-name="OUTROS_ALUGUEL.10ANO_ALUGUEL_MINIMO_MENSAL_R_M2"  onKeyPress="
+name="OUTROS_ALUGUEL.10ANO_ALUGUEL_MINIMO_MENSAL_R_M2"  onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -3875,7 +3881,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.10ANO_PONTO_DE_EQUILIBRIO_R</b -->   
 <input id="OUTROS_ALUGUEL.10ANO_PONTO_DE_EQUILIBRIO_R" 
 
-name="OUTROS_ALUGUEL.10ANO_PONTO_DE_EQUILIBRIO_R"  onKeyPress="
+name="OUTROS_ALUGUEL.10ANO_PONTO_DE_EQUILIBRIO_R"  onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -3888,7 +3894,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.10ANO_PONTO_DE_EQUILIBRIO_R_M2</b -->   
 <input id="OUTROS_ALUGUEL.10ANO_PONTO_DE_EQUILIBRIO_R_M2" 
 
-name="OUTROS_ALUGUEL.10ANO_PONTO_DE_EQUILIBRIO_R_M2"  onKeyPress="
+name="OUTROS_ALUGUEL.10ANO_PONTO_DE_EQUILIBRIO_R_M2"  onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -3927,7 +3933,7 @@ tabindex="0" class="pp-select save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.10ANO_TOTAL_DE_MESES</b -->   
 <input id="OUTROS_ALUGUEL.10ANO_TOTAL_DE_MESES" name="OUTROS_ALUGUEL.10ANO_TOTAL_DE_MESES"  
 
-onKeyPress="
+onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -3940,7 +3946,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.10ANO_AMM_ANO_R</b -->   
 <input id="OUTROS_ALUGUEL.10ANO_AMM_ANO_R" name="OUTROS_ALUGUEL.10ANO_AMM_ANO_R"  
 
-onKeyPress="
+onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -3956,7 +3962,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.TOTAL_AMM_DOBRADO_DEZEMBRO</b -->   
 <input id="OUTROS_ALUGUEL.TOTAL_AMM_DOBRADO_DEZEMBRO" 
 
-name="OUTROS_ALUGUEL.TOTAL_AMM_DOBRADO_DEZEMBRO"  onKeyPress="
+name="OUTROS_ALUGUEL.TOTAL_AMM_DOBRADO_DEZEMBRO"  onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -3969,7 +3975,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.TOTAL_CARENCIA</b -->   
 <input id="OUTROS_ALUGUEL.TOTAL_CARENCIA" name="OUTROS_ALUGUEL.TOTAL_CARENCIA"  
 
-onKeyPress="
+onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -3982,7 +3988,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.TOTAL_TOTAL_DE_MESES</b -->   
 <input id="OUTROS_ALUGUEL.TOTAL_TOTAL_DE_MESES" 
 
-name="OUTROS_ALUGUEL.TOTAL_TOTAL_DE_MESES"  onKeyPress="
+name="OUTROS_ALUGUEL.TOTAL_TOTAL_DE_MESES"  onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -3995,7 +4001,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_ALUGUEL.TOTAL_AMM_ANO_R</b -->   
 <input id="OUTROS_ALUGUEL.TOTAL_AMM_ANO_R" name="OUTROS_ALUGUEL.TOTAL_AMM_ANO_R"  
 
-onKeyPress="
+onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -4026,7 +4032,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_CDU_TT.TABELA_CDU</b -->   
 <input id="OUTROS_CDU_TT.TABELA_CDU" name="OUTROS_CDU_TT.TABELA_CDU"  
 
-onKeyPress="
+onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -4039,7 +4045,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_CDU_TT.TABELA_TAXA_TRANSFERENCIA</b -->   
 <input id="OUTROS_CDU_TT.TABELA_TAXA_TRANSFERENCIA" 
 
-name="OUTROS_CDU_TT.TABELA_TAXA_TRANSFERENCIA"  onKeyPress="
+name="OUTROS_CDU_TT.TABELA_TAXA_TRANSFERENCIA"  onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -4052,7 +4058,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_CDU_TT.TABELA_TAXA_ADESAO</b -->   
 <input id="OUTROS_CDU_TT.TABELA_TAXA_ADESAO" name="OUTROS_CDU_TT.TABELA_TAXA_ADESAO"  
 
-onKeyPress="
+onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -4065,7 +4071,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_CDU_TT.TABELA_MUTUO</b -->   
 <input id="OUTROS_CDU_TT.TABELA_MUTUO" name="OUTROS_CDU_TT.TABELA_MUTUO"  
 
-onKeyPress="
+onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -4081,7 +4087,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_CDU_TT.PROPOSTA_CDU</b -->   
 <input id="OUTROS_CDU_TT.PROPOSTA_CDU" name="OUTROS_CDU_TT.PROPOSTA_CDU"  
 
-onKeyPress="
+onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -4094,7 +4100,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_CDU_TT.PROPOSTA_TAXA_TRANSFERENCIA</b -->   
 <input id="OUTROS_CDU_TT.PROPOSTA_TAXA_TRANSFERENCIA" 
 
-name="OUTROS_CDU_TT.PROPOSTA_TAXA_TRANSFERENCIA"  onKeyPress="
+name="OUTROS_CDU_TT.PROPOSTA_TAXA_TRANSFERENCIA"  onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -4108,7 +4114,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_CDU_TT.PROPOSTA_TAXA_ADESAO</b -->   
 <input id="OUTROS_CDU_TT.PROPOSTA_TAXA_ADESAO" name="OUTROS_CDU_TT.PROPOSTA_TAXA_ADESAO"  
 
-onKeyPress="
+onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -4121,7 +4127,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_CDU_TT.PROPOSTA_MUTUO</b -->   
 <input id="OUTROS_CDU_TT.PROPOSTA_MUTUO" name="OUTROS_CDU_TT.PROPOSTA_MUTUO"  
 
-onKeyPress="
+onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -4138,7 +4144,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_CDU_TT.PROPOSTAM2_CDU</b -->   
 <input id="OUTROS_CDU_TT.PROPOSTAM2_CDU" name="OUTROS_CDU_TT.PROPOSTAM2_CDU"  
 
-onKeyPress="
+onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -4151,7 +4157,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_CDU_TT.PROPOSTAM2_TAXA_TRANSFERENCIA</b -->   
 <input id="OUTROS_CDU_TT.PROPOSTAM2_TAXA_TRANSFERENCIA" 
 
-name="OUTROS_CDU_TT.PROPOSTAM2_TAXA_TRANSFERENCIA"  onKeyPress="
+name="OUTROS_CDU_TT.PROPOSTAM2_TAXA_TRANSFERENCIA"  onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -4165,7 +4171,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_CDU_TT.PROPOSTAM2_TAXA_ADESAO</b -->   
 <input id="OUTROS_CDU_TT.PROPOSTAM2_TAXA_ADESAO" 
 
-name="OUTROS_CDU_TT.PROPOSTAM2_TAXA_ADESAO"  onKeyPress="
+name="OUTROS_CDU_TT.PROPOSTAM2_TAXA_ADESAO"  onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -4178,7 +4184,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_CDU_TT.PROPOSTAM2_MUTUO</b -->   
 <input id="OUTROS_CDU_TT.PROPOSTAM2_MUTUO" name="OUTROS_CDU_TT.PROPOSTAM2_MUTUO"  
 
-onKeyPress="
+onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -4192,7 +4198,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- OUTROS_CDU_TT.SINAL_CDU --> 
 <label class="pp-input-wrap">   
 <!-- b class="pp-label-text">OUTROS_CDU_TT.SINAL_CDU</b -->   
-<input id="OUTROS_CDU_TT.SINAL_CDU" name="OUTROS_CDU_TT.SINAL_CDU"  onKeyPress="
+<input id="OUTROS_CDU_TT.SINAL_CDU" name="OUTROS_CDU_TT.SINAL_CDU"  onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -4205,7 +4211,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_CDU_TT.SINAL_TAXA_TRANSFERENCIA</b -->   
 <input id="OUTROS_CDU_TT.SINAL_TAXA_TRANSFERENCIA" 
 
-name="OUTROS_CDU_TT.SINAL_TAXA_TRANSFERENCIA"  onKeyPress="
+name="OUTROS_CDU_TT.SINAL_TAXA_TRANSFERENCIA"  onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -4218,7 +4224,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_CDU_TT.SINAL_TAXA_ADESAO</b -->   
 <input id="OUTROS_CDU_TT.SINAL_TAXA_ADESAO" name="OUTROS_CDU_TT.SINAL_TAXA_ADESAO"  
 
-onKeyPress="
+onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -4231,7 +4237,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_CDU_TT.SINAL_MUTUO</b -->   
 <input id="OUTROS_CDU_TT.SINAL_MUTUO" name="OUTROS_CDU_TT.SINAL_MUTUO"  
 
-onKeyPress="
+onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -4245,7 +4251,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- OUTROS_CDU_TT.SALDO_CDU --> 
 <label class="pp-input-wrap">   
 <!-- b class="pp-label-text">OUTROS_CDU_TT.SALDO_CDU</b -->   
-<input id="OUTROS_CDU_TT.SALDO_CDU" name="OUTROS_CDU_TT.SALDO_CDU"  onKeyPress="
+<input id="OUTROS_CDU_TT.SALDO_CDU" name="OUTROS_CDU_TT.SALDO_CDU"  onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -4258,7 +4264,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_CDU_TT.SALDO_TAXA_TRANSFERENCIA</b -->   
 <input id="OUTROS_CDU_TT.SALDO_TAXA_TRANSFERENCIA" 
 
-name="OUTROS_CDU_TT.SALDO_TAXA_TRANSFERENCIA"  onKeyPress="
+name="OUTROS_CDU_TT.SALDO_TAXA_TRANSFERENCIA"  onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -4271,7 +4277,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_CDU_TT.SALDO_TAXA_ADESAO</b -->   
 <input id="OUTROS_CDU_TT.SALDO_TAXA_ADESAO" name="OUTROS_CDU_TT.SALDO_TAXA_ADESAO"  
 
-onKeyPress="
+onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -4284,7 +4290,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_CDU_TT.SALDO_MUTUO</b -->   
 <input id="OUTROS_CDU_TT.SALDO_MUTUO" name="OUTROS_CDU_TT.SALDO_MUTUO"  
 
-onKeyPress="
+onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -4300,7 +4306,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_CDU_TT.FORMA_DE_PAGAMENTO_DO_SALDO_CDU</b -->   
 <input id="OUTROS_CDU_TT.FORMA_DE_PAGAMENTO_DO_SALDO_CDU" 
 
-name="OUTROS_CDU_TT.FORMA_DE_PAGAMENTO_DO_SALDO_CDU"  onKeyPress="
+name="OUTROS_CDU_TT.FORMA_DE_PAGAMENTO_DO_SALDO_CDU"  onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -4315,7 +4321,7 @@ type="text" tabindex="0" class="pp-input save">
   
 <input id="OUTROS_CDU_TT.FORMA_DE_PAGAMENTO_DO_SALDO_TAXA_TRANSFERENCIA" 
 
-name="OUTROS_CDU_TT.FORMA_DE_PAGAMENTO_DO_SALDO_TAXA_TRANSFERENCIA"  onKeyPress="
+name="OUTROS_CDU_TT.FORMA_DE_PAGAMENTO_DO_SALDO_TAXA_TRANSFERENCIA"  onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -4328,7 +4334,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_CDU_TT.FORMA_DE_PAGAMENTO_DO_SALDO_TAXA_ADESAO</b -->   
 <input id="OUTROS_CDU_TT.FORMA_DE_PAGAMENTO_DO_SALDO_TAXA_ADESAO" 
 
-name="OUTROS_CDU_TT.FORMA_DE_PAGAMENTO_DO_SALDO_TAXA_ADESAO"  onKeyPress="
+name="OUTROS_CDU_TT.FORMA_DE_PAGAMENTO_DO_SALDO_TAXA_ADESAO"  onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -4341,7 +4347,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_CDU_TT.FORMA_DE_PAGAMENTO_DO_SALDO_MUTUO</b -->   
 <input id="OUTROS_CDU_TT.FORMA_DE_PAGAMENTO_DO_SALDO_MUTUO" 
 
-name="OUTROS_CDU_TT.FORMA_DE_PAGAMENTO_DO_SALDO_MUTUO"  onKeyPress="
+name="OUTROS_CDU_TT.FORMA_DE_PAGAMENTO_DO_SALDO_MUTUO"  onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -4360,7 +4366,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- OUTROS_VGL.VGL_R --> 
 <label class="pp-input-wrap">   
 <!-- b class="pp-label-text">OUTROS_VGL.VGL_R</b -->   
-<input id="OUTROS_VGL.VGL_R" name="OUTROS_VGL.VGL_R"  onKeyPress="
+<input id="OUTROS_VGL.VGL_R" name="OUTROS_VGL.VGL_R"  onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -4374,7 +4380,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_VGL.LEASING_SPREAD</b -->   
 <input id="OUTROS_VGL.LEASING_SPREAD" name="OUTROS_VGL.LEASING_SPREAD"  
 
-onKeyPress="
+onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -4388,7 +4394,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_VGL.COMERCIALIZACAO_PERC</b -->   
 <input id="OUTROS_VGL.COMERCIALIZACAO_PERC" name="OUTROS_VGL.COMERCIALIZACAO_PERC"  
 
-onKeyPress="calcularDadosTipoNegociacao()"     
+onKeyUp="calcularDadosTipoNegociacao()"     
 type="text" tabindex="0" class="pp-input save">  
 </label>  
 
@@ -4399,7 +4405,7 @@ type="text" tabindex="0" class="pp-input save">
 <!-- b class="pp-label-text">OUTROS_VGL.COMERCIALIZACAO_R</b -->   
 <input id="OUTROS_VGL.COMERCIALIZACAO_R" name="OUTROS_VGL.COMERCIALIZACAO_R"  
 
-onKeyPress="
+onKeyUp="
 calcularDadosTipoNegociacao()
 "     
 type="text" tabindex="0" class="pp-input save">  
@@ -4652,8 +4658,9 @@ type="text" tabindex="0" class="pp-input save">
     <script src="./js/tabs.js?1a1asa"></script>
     <script src="./js/collapse.js?1a1asa"></script>
     <script src="./js/ferramentas.js?1a1asa"></script>
-    <script src="./js/popup.js?a111asaaa21aaa"></script>  
-    <script src="./js/mask.js?a11asaaaa"></script>
+    <script src="./js/popup.js?a111asaaa21aaa1aqq"></script>  
+    <script src="./js/jquery.maskMoney.js?a11asaaaa1"></script>
+    <script src="./js/mask.js?a11asaaaa1"></script>
     <script src="./js/required.js?a1a1215544aa1454saa6a"></script>
     <script src="./js/moment.min.js?a1a12155441454aas6a"></script>
     <script src="./js/valida.js?a1a12155441454saa6a"></script>
