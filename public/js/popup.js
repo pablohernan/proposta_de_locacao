@@ -3253,7 +3253,7 @@ function salvaDados(callBackFn){
     entradasSalvas.push({'name' : objsArray[entradasSalvas.length].id , 'value' : String($( '#'+objsArray[entradasSalvas.length].id ).val())});
     salvaDados(callBackFn);
 
-  }, 200)
+  }, 500)
 
 }
 
