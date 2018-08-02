@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       //      disableForm();
 
           // populo com os dados da tabela
-     //     db_select(popular_grid);
+          setEntradas(function(){})
         });
      // }catch(e){console.log(e)}
 
@@ -3203,3 +3203,114 @@ function abreImpressao(){
 	
 	window.open('/CCenterWeb/Relatorio.dm?modoCrud=cadastrar&codAnexo=&method=visualizaRelatorio&nomeRelatorio=RelatorioAnalitico_Impressao&Edit_Distinto_0=' + cod + '&TipoDoParametro_0=texto&idComboParametroChanged=10&comboFormatoDoRelatorio=PDF_NO_BROWSER','impressao','menubar,scrollbars=no,width=800,height=600');
 }
+
+
+
+
+/* Pipefy functions */
+
+
+var entradas = [];
+function setEntradas(callBackFn){
+
+  if($( ".save" ).length == entradas.length)
+    return callBackFn();
+
+  var objsArray = $( ".save" ).toArray();
+  p.get('card', 'public', objsArray[entradas.length].id ).then((campo) => {
+      entradas.push({'name' : objsArray[entradas.length].id , 'value' : campo});
+      setEntradas(callBackFn);
+  }).catch((error) => {
+      entradas.push({'name' : objsArray[entradas.length].id , 'value' : null});
+      setEntradas(callBackFn);
+  });
+
+}
+
+function getEntrada(name){
+  for(var i=0; i<entradas.length; i++){
+    if(entradas[i].name == name)
+      return entradas[i].value;
+  }
+  return false;
+}
+
+
+
+
+
+var entradasSalvas = [];
+function salvaDados(callBackFn){
+
+  if($( ".save" ).length == entradasSalvas.length)
+    return callBackFn();
+
+  var objsArray = $( ".save" ).toArray();
+  setTimeout(function(){
+    
+    p.set('card', 'public', objsArray[entradasSalvas.length].id , String($( '#'+objsArray[entradasSalvas.length].id ).val()) );
+    console.log( objsArray[entradasSalvas.length].id + ' : ' + String($( '#'+objsArray[entradasSalvas.length].id ).val()) );
+    entradasSalvas.push({'name' : objsArray[entradasSalvas.length].id , 'value' : String($( '#'+objsArray[entradasSalvas.length].id ).val())});
+    salvaDados(callBackFn);
+
+  }, 200)
+
+}
+
+
+/* salvar */
+function salvar(){
+
+  var fromPhaseId = phase_1;
+  var toPhaseId;
+  if($('#MULTA_JUROS_COD').val() == 1){
+    toPhaseId = $('#SHOPPING option:selected').attr('phases'); // phase 2
+  }
+  else
+    toPhaseId = phase_4;
+
+  p.moveCard(cardId, { phaseId: fromPhaseId}, {phaseId: toPhaseId}).then(moved => {
+    console.log('## Move Card ##');
+    console.log('phase : ' + toPhaseId);
+  })  
+
+  p.showNotification('Formulario salvo!', 'success');
+  p.closeCard();  
+
+
+}
+/* salvar */ 
+
+function disableForm(){
+  $('#container').find('input, textarea, button, select').attr('disabled','disabled');
+  $('#btnSalvar').hide();
+  $('#radios_CPF_CNPJ').hide();
+  $('.pp-ico-add').hide();
+  
+}
+
+
+
+function popular(){
+try{
+
+  p.fields().then((fields) => {
+    console.log(fields); 
+  });
+
+  console.log('## get ##');
+  $( ".save" ).each(function( index ) {   
+    $( '#' + $( this ).attr('id') ).val(getEntrada($( this ).attr('id')));
+    console.log( $( this ).attr('id') + ' : ' + getEntrada($( this ).attr('id')) );
+  });
+  }catch(e){}
+  
+  showList();
+
+}
+
+
+
+
+
+
