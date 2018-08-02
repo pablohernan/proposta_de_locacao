@@ -3309,6 +3309,17 @@ try{
 
 }
 
+function close(){
+
+  //if( !rc_showMesages() && !rc_showMesagesData() ){
+      salvaDados(salvar);
+  //}else{
+   //   p.showNotification('Deve preencher os campos obrigatórios (*)', 'error');
+      //resize();
+  //}
+ 
+}
+
 
 
 
