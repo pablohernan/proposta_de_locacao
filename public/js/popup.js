@@ -24,8 +24,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
         p = PipefyApp.init();
         //PipefyApp.resizeTo("#list");
         
-        PipefyApp.render(function(){
-        });
+        //PipefyApp.render(function(){
+        //});
 
         
 
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
           init();
 
           
-            console.log(card.current_phase.id);
+          console.log(card.current_phase.id);
            /* se é outra phase */
       //    if(card.current_phase.id != phase_1)//2462801)
       //      disableForm();
