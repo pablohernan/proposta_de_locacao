@@ -3248,12 +3248,15 @@ function salvaDados(callBackFn){
   var objsArray = $( ".save" ).toArray();
   setTimeout(function(){
     
-    if ($( '#'+objsArray[entradasSalvas.length].id ).val() !== undefined && $( '#'+objsArray[entradasSalvas.length].id ).val() !== null){
-    	p.set('card', 'public', objsArray[entradasSalvas.length].id , String($( '#'+objsArray[entradasSalvas.length].id ).val()) );
-    	console.log( objsArray[entradasSalvas.length].id + ' : ' + String($( '#'+objsArray[entradasSalvas.length].id ).val()) );
+
+		var val = $( '[id=\''+objsArray[entradasSalvas.length].id+'\']' ).val();
+
+    if ( val !== undefined && val !== null){
+    	p.set('card', 'public', objsArray[entradasSalvas.length].id , String(val) );
+    	console.log( objsArray[entradasSalvas.length].id + ' : ' + String(val) );
     }
     
-    entradasSalvas.push({'name' : objsArray[entradasSalvas.length].id , 'value' : String($( '#'+objsArray[entradasSalvas.length].id ).val())});
+    entradasSalvas.push({'name' : objsArray[entradasSalvas.length].id , 'value' : String(val)});
     salvaDados(callBackFn);
 
   }, 250)
@@ -3302,8 +3305,8 @@ try{
   });
 
   console.log('## get ##');
-  $( ".save" ).each(function( index ) {   
-    $( '#' + $( this ).attr('id') ).val(getEntrada($( this ).attr('id')));
+  $( ".save" ).each(function( index ) { 
+    $( '[id=\''+ $( this ).attr('id')+'\']' ).val(getEntrada($( this ).attr('id')));
     console.log( $( this ).attr('id') + ' : ' + getEntrada($( this ).attr('id')) );
   });
   }catch(e){}
