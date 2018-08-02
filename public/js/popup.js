@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       //      disableForm();
 
           // populo com os dados da tabela
-          setEntradas(function(){})
+          setEntradas(popular);
         });
      // }catch(e){console.log(e)}
 
