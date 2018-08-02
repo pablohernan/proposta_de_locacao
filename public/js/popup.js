@@ -3248,10 +3248,11 @@ function salvaDados(callBackFn){
   var objsArray = $( ".save" ).toArray();
   setTimeout(function(){
     
-    if ($( '#'+objsArray[entradasSalvas.length].id ).val() !== undefined || $( '#'+objsArray[entradasSalvas.length].id ).val() !== null){
+    if ($( '#'+objsArray[entradasSalvas.length].id ).val() !== undefined && $( '#'+objsArray[entradasSalvas.length].id ).val() !== null){
     	p.set('card', 'public', objsArray[entradasSalvas.length].id , String($( '#'+objsArray[entradasSalvas.length].id ).val()) );
+    	console.log( objsArray[entradasSalvas.length].id + ' : ' + String($( '#'+objsArray[entradasSalvas.length].id ).val()) );
     }
-    console.log( objsArray[entradasSalvas.length].id + ' : ' + String($( '#'+objsArray[entradasSalvas.length].id ).val()) );
+    
     entradasSalvas.push({'name' : objsArray[entradasSalvas.length].id , 'value' : String($( '#'+objsArray[entradasSalvas.length].id ).val())});
     salvaDados(callBackFn);
 
