@@ -35,6 +35,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
           init();
 
+
           
           console.log(card.current_phase.id);
            /* se é outra phase */
@@ -96,6 +97,7 @@ function init(){
 	getEntradasFormulario();		
 	//InitEntradas();		
 	initFormulario();
+	selecionaTipoNegociacao($('id="DADOS_GERAIS.TIPO_NEGOCIACAO"').val());
 
 	
 	//if(FORM.modo.value == 'visualizacao')
