@@ -772,19 +772,19 @@ function selecionaTipoNegociacao(tipoNegociacao){
 	//OUTROS
 	
 	if(tipoNegociacao == 'OUTROS'){
-		$("#tbl_convencional").hide();
-		$("#tbl_popup").hide();
-		$("#tbl_outros").show();
+		$(".tbl_convencional").hide();
+		$(".tbl_popup").hide();
+		$(".tbl_outros").show();
 	}
 	else if(tipoNegociacao == 'POP_UP'){
-		$("#tbl_convencional").hide();
-		$("#tbl_popup").show();
-		$("#tbl_outros").hide();
+		$(".tbl_convencional").hide();
+		$(".tbl_popup").show();
+		$(".tbl_outros").hide();
 	}
 	else{//convencional. padrao selecionado
-		$("#tbl_convencional").show();
-		$("#tbl_popup").hide();
-		$("#tbl_outros").hide();
+		$(".tbl_convencional").show();
+		$(".tbl_popup").hide();
+		$(".tbl_outros").hide();
 	}	
 	calcularDadosTipoNegociacao();
 }

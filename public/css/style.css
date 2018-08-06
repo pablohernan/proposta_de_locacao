@@ -262,3 +262,6 @@
     -webkit-overflow-scrolling: touch;
     overflow-y: scroll;
 }
+
+
+.hidden{ display: none; }
