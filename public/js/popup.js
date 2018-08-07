@@ -97,7 +97,7 @@ function init(){
 	getEntradasFormulario();		
 	//InitEntradas();		
 	initFormulario();
-	selecionaTipoNegociacao($('id="DADOS_GERAIS.TIPO_NEGOCIACAO"').val());
+	//selecionaTipoNegociacao($('id="DADOS_GERAIS.TIPO_NEGOCIACAO"').val());
 
 	
 	//if(FORM.modo.value == 'visualizacao')
