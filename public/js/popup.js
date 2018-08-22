@@ -3180,7 +3180,7 @@ function popularDados(){
 
 			var lb = new local_base();
 		  lb.set(JSON.parse(ret));
-		  console.log( lb.get() );
+		  //console.log( lb.get() );
 
 			$('.save').each(function( index ) {
 				$( this ).val( lb.item_get($( this ).attr('id')) );
