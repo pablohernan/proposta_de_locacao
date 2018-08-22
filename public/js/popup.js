@@ -3205,8 +3205,9 @@ function salvaDados(callBackFn){
 function popularDados(){
 
 	var lb = new local_base();
-	p.get('card', 'public', lb.name ).then((ret,lb) => {
+	p.get('card', 'public', lb.name ).then((ret) => {
 
+			var lb = new local_base();
 		  lb.set(JSON.parse(ret));
 		  console.log( lb.get() );
 
