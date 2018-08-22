@@ -32,5 +32,9 @@ function local_base () {
 			this.obj = obj;
 		}
 
+		this.get = function(){
+			return this.obj;
+		}		
+
 }
 

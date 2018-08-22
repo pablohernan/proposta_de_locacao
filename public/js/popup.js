@@ -3251,7 +3251,7 @@ function salvaDados(callBackFn){
 	});
 
 
-	p.set('card', 'public', lb.name , lb.stringify(this.obj) );
+	p.set('card', 'public', lb.name , lb.stringify(lb.get()) );
 
 
 /*
