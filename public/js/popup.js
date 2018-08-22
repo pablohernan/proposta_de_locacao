@@ -3248,11 +3248,12 @@ function salvaDados(callBackFn){
 	var lb = new local_base('jsonFields');
 
 	$('.save').each(function( index ) {
-	  lb.lb_item_set($( this ).attr('id') ,  $( this ).val() );
+	  lb.item_set($( this ).attr('id') ,  $( this ).val() );
 	});
 
 
 	console.log(lb.obj);
+	console.log('value of "DADOS_GERAIS.SITUACAOANTERIOR_FANTASIA"' + lb.item_get("DADOS_GERAIS.SITUACAOANTERIOR_FANTASIA")
 
 /*
   if($( ".save" ).length == entradasSalvas.length)
