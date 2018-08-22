@@ -30,20 +30,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
         
 
         p.card().then(function(card) {
-          console.log('CARD_ID:'+card.id) // { id: '23abc', ... }
-          cardId = card.id;
 
           init();
 
-
-          
-          console.log(card.current_phase.id);
-           /* se é outra phase */
-      //    if(card.current_phase.id != phase_1)//2462801)
-      //      disableForm();
-
-          // populo com os dados da tabela
-          setEntradas(popular);
         });
      // }catch(e){console.log(e)}
 
@@ -54,54 +43,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 function init(){
 	
-	/*	$('*').each(function(){
-	if ( $(this).attr('title') !== undefined && $(this).attr('title') != '' && $(this).attr('class')=='toolTip' ){
-			$(this).tipTip();
-		}
-	});	
-	*/
-
-/*
-	$('.money').val('0,00');
-	$('.money').maskMoney({
-		thousands:'.', decimal:',', 
-		allowZero:true , 
-		precision:2, 
-		allowNegative:true
-	});
-	
-	$('.valorCalculoDecimal1').val('0,0');
-	$('.valorCalculoDecimal1').maskMoney({
-		thousands:'.', decimal:',', 
-		allowZero:true , 
-		precision:1, 
-		allowNegative:true
-	});
-	
-	//$('.valorSingularidade').val('0,00000');
-	$('.valorSingularidade').maskMoney({
-		thousands:'.', decimal:',', 
-		allowZero:true , 
-		precision:5, 
-		allowNegative:true
-	});
-
-		
-	$('.percentDois').mask('#.###.##0,00%', {reverse: true});
-	
-	$('.percentUm').mask('#.###.#0,0%', {reverse: true});
-*/
 	addOriginalClass();
 	populaCombos();
 	getCoeficientes();
 	getEntradasFormulario();		
-	//InitEntradas();		
-	initFormulario();
-	//selecionaTipoNegociacao($('id="DADOS_GERAIS.TIPO_NEGOCIACAO"').val());
 
-	
-	//if(FORM.modo.value == 'visualizacao')
-		//wiseit.dom.setFormDisable("formulario");
+	initFormulario();
+	popularDados();
+
 }
 
 function addOriginalClass(){
@@ -3244,16 +3193,18 @@ function getEntrada(name){
 
 function salvaDados(callBackFn){
 
-
 	var lb = new local_base();
 	$('.save').each(function( index ) {
 	  lb.item_set($( this ).attr('id') ,  $( this ).val() );
 	});
 
-
 	p.set('card', 'public', lb.name ,  JSON.stringify(lb.get()) );
 
+}
 
+function popularDados(){
+
+	var lb = new local_base();
 	p.get('card', 'public', lb.name ).then((ret) => {
 	  //console.log(ret); // return actual value stored
 	  lb.set(JSON.parse(ret));
@@ -3262,28 +3213,6 @@ function salvaDados(callBackFn){
 	  // Handle error
 	  console.log(error);
 	});	
-
-
-/*
-  if($( ".save" ).length == entradasSalvas.length)
-    return callBackFn();
-
-  var objsArray = $( ".save" ).toArray();
-  setTimeout(function(){
-    
-
-		var val = $( '[id=\''+objsArray[entradasSalvas.length].id+'\']' ).val();
-
-    //if ( val !== undefined && val !== null){
-    	p.set('card', 'public', objsArray[entradasSalvas.length].id , String(val) );
-    	console.log( objsArray[entradasSalvas.length].id + ' : ' + String(val) );
-    //}
-    
-    entradasSalvas.push({'name' : objsArray[entradasSalvas.length].id , 'value' : String(val)});
-    salvaDados(callBackFn);
-
-  }, 300)
-  */
 
 }
 
