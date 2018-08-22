@@ -3253,7 +3253,7 @@ function salvaDados(callBackFn){
 
 
 	console.log(lb.obj);
-	console.log('value of "DADOS_GERAIS.SITUACAOANTERIOR_FANTASIA"' + lb.item_get("DADOS_GERAIS.SITUACAOANTERIOR_FANTASIA")
+	console.log('value of "DADOS_GERAIS.SITUACAOANTERIOR_FANTASIA"' + lb.item_get("DADOS_GERAIS.SITUACAOANTERIOR_FANTASIA"));
 
 /*
   if($( ".save" ).length == entradasSalvas.length)
