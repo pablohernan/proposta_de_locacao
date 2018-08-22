@@ -3254,6 +3254,14 @@ function salvaDados(callBackFn){
 	p.set('card', 'public', lb.name ,  JSON.stringify(lb.get()) );
 
 
+	p.get('card', 'public', lb.name ).then((ret) => {
+	  console.log(ret); // return actual value stored
+	}).catch((error) => {
+	  // Handle error
+	  console.log(error);
+	});	
+
+
 /*
   if($( ".save" ).length == entradasSalvas.length)
     return callBackFn();
