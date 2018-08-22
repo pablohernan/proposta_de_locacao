@@ -3,10 +3,11 @@
 
 
 
-function local_base (name) {
+function local_base () {
 
-		this.name = name;
+		this.name = 'jsonFields';
 		this.obj = new Array();
+		this.p = p;
 
     this.item_set = function( name , value){
 			var item = new Object;
@@ -16,9 +17,19 @@ function local_base (name) {
 		}
 
     this.item_get = function( name ){
-			return this.obj.filter(function(obj) {
+			var arr = this.obj.filter(function(obj) {
 			    return obj.name === name;
 			});
+
+			if(arr.length>0)
+				return arr[0].value;
+
+			return '';
+
+		}
+
+		this.obj_set(obj){
+			this.obj = obj;
 		}
 
 }

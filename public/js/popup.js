@@ -3241,19 +3241,13 @@ function getEntrada(name){
 
 
 
-var entradasSalvas = [];
+
 function salvaDados(callBackFn){
 
-
-	var lb = new local_base('jsonFields');
-
+	var lb = new local_base();
 	$('.save').each(function( index ) {
 	  lb.item_set($( this ).attr('id') ,  $( this ).val() );
 	});
-
-
-	console.log(lb.obj);
-	console.log('value of "DADOS_GERAIS.SITUACAOANTERIOR_FANTASIA"' + lb.item_get("DADOS_GERAIS.SITUACAOANTERIOR_FANTASIA"));
 
 /*
   if($( ".save" ).length == entradasSalvas.length)
