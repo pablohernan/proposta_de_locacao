@@ -3205,12 +3205,11 @@ function salvaDados(callBackFn){
 function popularDados(){
 
 	var lb = new local_base();
-	p.get('card', 'public', lb.name ).then((ret) => {
+	p.get('card', 'public', lb.name ).then((ret,lb) => {
 
 		  lb.set(JSON.parse(ret));
 		  console.log( lb.get() );
 
-			var lb = new local_base();
 			$('.save').each(function( index ) {
 				$( this ).val( lb.item_get($( this ).attr('id')) );
 			});
