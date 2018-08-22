@@ -51,8 +51,6 @@ function init(){
 	initFormulario();
 	popularDados();
 
-	showList();
-
 }
 
 function addOriginalClass(){
@@ -3187,6 +3185,8 @@ function popularDados(){
 			$('.save').each(function( index ) {
 				$( this ).val( lb.item_get($( this ).attr('id')) );
 			});
+
+			showList();
 
 	}).catch((error) => {
 		  console.log(error);
