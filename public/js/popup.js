@@ -3255,7 +3255,9 @@ function salvaDados(callBackFn){
 
 
 	p.get('card', 'public', lb.name ).then((ret) => {
-	  console.log(ret); // return actual value stored
+	  //console.log(ret); // return actual value stored
+	  lb.set(JSON.parse(ret));
+	  console.log( lb.get() );
 	}).catch((error) => {
 	  // Handle error
 	  console.log(error);
