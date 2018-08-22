@@ -3244,6 +3244,17 @@ function getEntrada(name){
 var entradasSalvas = [];
 function salvaDados(callBackFn){
 
+
+	var lb = new local_base('jsonFields');
+
+	$('.save').each(function( index ) {
+	  lb.lb_item_set($( this ).attr('id') ,  $( this ).val() );
+	});
+
+
+	console.log(lb.obj);
+
+/*
   if($( ".save" ).length == entradasSalvas.length)
     return callBackFn();
 
@@ -3262,6 +3273,7 @@ function salvaDados(callBackFn){
     salvaDados(callBackFn);
 
   }, 300)
+  */
 
 }
 
