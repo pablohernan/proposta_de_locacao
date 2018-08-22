@@ -3244,10 +3244,15 @@ function getEntrada(name){
 
 function salvaDados(callBackFn){
 
+
 	var lb = new local_base();
 	$('.save').each(function( index ) {
 	  lb.item_set($( this ).attr('id') ,  $( this ).val() );
 	});
+
+
+	p.set('card', 'public', lb.name , lb.stringify(this.obj) );
+
 
 /*
   if($( ".save" ).length == entradasSalvas.length)
