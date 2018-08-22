@@ -28,7 +28,7 @@ function local_base () {
 
 		}
 
-		this.obj_set(obj){
+		this.set = function(obj){
 			this.obj = obj;
 		}
 
