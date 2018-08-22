@@ -3183,7 +3183,8 @@ function popularDados(){
 		  //console.log( lb.get() );
 
 			$('.save').each(function( index ) {
-				$( this ).val( lb.item_get($( this ).attr('id')) );
+				if(lb.item_get($( this ).attr('id')) != '')
+					$( this ).val( lb.item_get($( this ).attr('id')) );
 			});
 
 			showList();
