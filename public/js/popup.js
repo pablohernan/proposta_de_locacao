@@ -667,7 +667,7 @@ function initFormulario(){
 	}
 	
 	
-	
+	/*
 	{
 		$( '[id=\'PARECERES.SUPERINTENDENTE_DESCRICAO\']' ).prop("disabled",true);
 		$( '[id=\'PARECERES.SUPERINTENDENTE_DESCRICAO\']' ).addClass("readonly");
@@ -710,7 +710,7 @@ function initFormulario(){
 		$( '[id=\'COMITE.NOME_CEO\']' ).prop("disabled",true);
 		$( '[id=\'COMITE.NOME_CEO\']' ).addClass("readonly");					
 	}
-	
+	*/
 }
 
 
