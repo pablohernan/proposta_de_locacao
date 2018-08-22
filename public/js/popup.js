@@ -3206,12 +3206,17 @@ function popularDados(){
 
 	var lb = new local_base();
 	p.get('card', 'public', lb.name ).then((ret) => {
-	  //console.log(ret); // return actual value stored
-	  lb.set(JSON.parse(ret));
-	  console.log( lb.get() );
+
+		  lb.set(JSON.parse(ret));
+		  console.log( lb.get() );
+
+			var lb = new local_base();
+			$('.save').each(function( index ) {
+				$( this ).val( lb.item_get($( this ).attr('id')) );
+			});
+
 	}).catch((error) => {
-	  // Handle error
-	  console.log(error);
+		  console.log(error);
 	});	
 
 }
