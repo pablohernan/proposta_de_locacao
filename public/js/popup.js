@@ -51,6 +51,8 @@ function init(){
 	initFormulario();
 	popularDados();
 
+	showList();
+
 }
 
 function addOriginalClass(){
@@ -3160,38 +3162,7 @@ function abreImpressao(){
 
 /* Pipefy functions */
 
-
-var entradas = [];
-function setEntradas(callBackFn){
-
-  if($( ".save" ).length == entradas.length)
-    return callBackFn();
-
-  var objsArray = $( ".save" ).toArray();
-  p.get('card', 'public', objsArray[entradas.length].id ).then((campo) => {
-      entradas.push({'name' : objsArray[entradas.length].id , 'value' : campo});
-      setEntradas(callBackFn);
-  }).catch((error) => {
-      entradas.push({'name' : objsArray[entradas.length].id , 'value' : null});
-      setEntradas(callBackFn);
-  });
-
-}
-
-function getEntrada(name){
-  for(var i=0; i<entradas.length; i++){
-    if(entradas[i].name == name)
-      return entradas[i].value;
-  }
-  return false;
-}
-
-
-
-
-
-
-function salvaDados(callBackFn){
+function salvaDados(){
 
 	var lb = new local_base();
 	$('.save').each(function( index ) {
@@ -3199,6 +3170,8 @@ function salvaDados(callBackFn){
 	});
 
 	p.set('card', 'public', lb.name ,  JSON.stringify(lb.get()) );
+
+	p.closeModal()
 
 }
 
@@ -3222,29 +3195,6 @@ function popularDados(){
 }
 
 
-/* salvar */
-function salvar(){
-
-  var fromPhaseId = phase_1;
-  var toPhaseId;
-  if($('#MULTA_JUROS_COD').val() == 1){
-    toPhaseId = $('#SHOPPING option:selected').attr('phases'); // phase 2
-  }
-  else
-    toPhaseId = phase_4;
-
-  p.moveCard(cardId, { phaseId: fromPhaseId}, {phaseId: toPhaseId}).then(moved => {
-    console.log('## Move Card ##');
-    console.log('phase : ' + toPhaseId);
-  })  
-
-  p.showNotification('Formulario salvo!', 'success');
-  p.closeCard();  
-
-
-}
-/* salvar */ 
-
 function disableForm(){
   $('#container').find('input, textarea, button, select').attr('disabled','disabled');
   $('#btnSalvar').hide();
@@ -3253,36 +3203,13 @@ function disableForm(){
   
 }
 
-
-
-function popular(){
-try{
-
-  p.fields().then((fields) => {
-    console.log(fields); 
-  });
-
-  console.log('## get ##');
-  $( ".save" ).each(function( index ) { 
-    $( '[id=\''+ $( this ).attr('id')+'\']' ).val(getEntrada($( this ).attr('id')));
-    console.log( $( this ).attr('id') + ' : ' + getEntrada($( this ).attr('id')) );
-  });
-  }catch(e){}
-  
-  showList();
-
+function showList(){
+  $('#load').hide();
+  $('#list').show();
 }
 
-function close(){
 
-  //if( !rc_showMesages() && !rc_showMesagesData() ){
-      salvaDados(salvar);
-  //}else{
-   //   p.showNotification('Deve preencher os campos obrigatórios (*)', 'error');
-      //resize();
-  //}
- 
-}
+
 
 
 
