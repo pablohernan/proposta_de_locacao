@@ -49,7 +49,7 @@ function init(){
 	getEntradasFormulario();		
 
 	initFormulario();
-	popularDados();
+	popularDados(popularDados);
 
 
 }
@@ -3174,7 +3174,7 @@ function salvaDados(){
 
 }
 
-function popularDados(){
+function popularDados(callback){
 
 	var lb = new local_base();
 	p.get('card', 'public', lb.name ).then((ret) => {
@@ -3189,14 +3189,21 @@ function popularDados(){
 					});
 			}
 
-			selecionaTipoNegociacao(  $( '[id=\'DADOS_GERAIS.TIPO_NEGOCIACAO\']' ).val() );
-			showList();
+			callback();
 
 	}).catch((error) => {
 		  console.log(error);
 	});	
 
 }
+
+function posPopularDados(){
+		selecionaTipoNegociacao(  $( '[id=\'DADOS_GERAIS.TIPO_NEGOCIACAO\']' ).val() );
+		showList();
+}
+
+
+
 
 
 function disableForm(){
