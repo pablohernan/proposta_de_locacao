@@ -3174,7 +3174,7 @@ function salvaDados(){
 
 }
 
-function popularDados(callback){
+function popularDados(){
 
 	var lb = new local_base();
 	p.get('card', 'public', lb.name ).then((ret) => {
