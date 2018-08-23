@@ -263,5 +263,19 @@
     overflow-y: scroll;
 }
 
+.pp-label-text{
+        text-align: left;
+}
+
+#list {
+    padding-top: 14px;
+    padding-bottom: 10px;
+}
+#list a {
+    display:block;
+    padding: 10px;
+}
+
+
 
 .hidden{ display: none; }
