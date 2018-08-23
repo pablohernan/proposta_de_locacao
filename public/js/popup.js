@@ -20,7 +20,7 @@ var cardId;
 
 document.addEventListener("DOMContentLoaded", function(event) {
       
-      try{
+     // try{
         p = PipefyApp.init();
         //PipefyApp.resizeTo("#list");
         
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
           init();
 
         });
-      }catch(e){console.log(e)}
+     // }catch(e){console.log(e)}
 
 });
 
