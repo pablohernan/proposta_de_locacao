@@ -3178,14 +3178,15 @@ function popularDados(){
 	var lb = new local_base();
 	p.get('card', 'public', lb.name ).then((ret) => {
 
-			var lb = new local_base();
-		  lb.set(JSON.parse(ret));
-		  //console.log( lb.get() );
+			if(ret){
+					var lb = new local_base();
+				  lb.set(JSON.parse(ret));
 
-			$('.save').each(function( index ) {
-				if(lb.item_get($( this ).attr('id')) != '')
-					$( this ).val( lb.item_get($( this ).attr('id')) );
-			});
+					$('.save').each(function( index ) {
+						if(lb.item_get($( this ).attr('id')) != '')
+							$( this ).val( lb.item_get($( this ).attr('id')) );
+					});
+			}
 
 			showList();
 
