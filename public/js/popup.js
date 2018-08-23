@@ -50,6 +50,7 @@ function init(){
 
 	initFormulario();
 	popularDados();
+	selecionaTipoNegociacao(  $( '[id=\'DADOS_GERAIS.TIPO_NEGOCIACAO\']' ).val() );
 
 }
 
