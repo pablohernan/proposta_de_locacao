@@ -50,7 +50,7 @@ function init(){
 
 	initFormulario();
 	popularDados();
-	selecionaTipoNegociacao(  $( '[id=\'DADOS_GERAIS.TIPO_NEGOCIACAO\']' ).val() );
+
 
 }
 
@@ -3189,6 +3189,7 @@ function popularDados(){
 					});
 			}
 
+			selecionaTipoNegociacao(  $( '[id=\'DADOS_GERAIS.TIPO_NEGOCIACAO\']' ).val() );
 			showList();
 
 	}).catch((error) => {
