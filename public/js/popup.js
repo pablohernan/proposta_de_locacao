@@ -48,8 +48,9 @@ function init(){
 	getCoeficientes();
 	getEntradasFormulario();		
 
-	initFormulario();
 	popularDados();
+	initFormulario();
+
 	selecionaTipoNegociacao(  $( '[id=\'DADOS_GERAIS.TIPO_NEGOCIACAO\']' ).val() );
 
 }
