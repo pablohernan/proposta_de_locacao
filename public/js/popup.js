@@ -1,6 +1,7 @@
 
 var serverPath = 'https://wiseitcsc.partage.com.br:8445';
 var codEmpreendimento = '1';
+var numOcorrencia = '';
 
 document.addEventListener("DOMContentLoaded", function(event) {
      showList();
@@ -26,7 +27,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 
 function init(card){
-	
+
+	numOcorrencia = card.internalId;
 	addOriginalClass();
 	populaCombos();
 	getCoeficientes();
@@ -34,9 +36,6 @@ function init(card){
 
 	initFormulario();
 	popularDados();
-
-	$( '[id=\'DADOS_GERAIS.NUM_OCORRENCIA\']' ).val(card.internalId);
-
 
 }
 
@@ -3204,12 +3203,18 @@ function popularDados(){
 			}
 
 			selecionaTipoNegociacao(  $( '[id=\'DADOS_GERAIS.TIPO_NEGOCIACAO\']' ).val() );
+			setNumOcorrencia();
 			showList();
 
 	}).catch((error) => {
 		  console.log(error);
 	});	
 
+}
+
+
+function setNumOcorrencia(){
+	$( '[id=\'DADOS_GERAIS.NUM_OCORRENCIA\']' ).val(numOcorrencia);
 }
 
 
