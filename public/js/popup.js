@@ -4,7 +4,7 @@ var codEmpreendimento = '1';
 var numOcorrencia = '';
 
 document.addEventListener("DOMContentLoaded", function(event) {
-     showList();
+
       try{
         p = PipefyApp.init();
         //PipefyApp.resizeTo("#list");
