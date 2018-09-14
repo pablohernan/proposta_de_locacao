@@ -3174,15 +3174,25 @@ function abreImpressao(){
 
 /* Pipefy functions */
 
+function validaDados(){
+
+  if( !rc_showMesages() && !rc_showMesagesData() ){
+      salvaDados();
+  }else{
+      p.showNotification('Deve preencher os campos obrigatórios (*)', 'error');
+      //resize();
+  }
+
+}
+
+
 function salvaDados(){
 
 	var lb = new local_base();
 	$('.save').each(function( index ) {
 	  lb.item_set($( this ).attr('id') ,  $( this ).val() );
 	});
-
 	p.set('card', 'public', lb.name ,  JSON.stringify(lb.get()) );
-
 	p.closeModal()
 
 }
