@@ -8,8 +8,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
         p = PipefyApp.init();
         //PipefyApp.resizeTo("#list");
         
-        PipefyApp.render(function(){
-        });
+       // PipefyApp.render(function(){
+        //});
 
         
 
