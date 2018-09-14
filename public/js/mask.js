@@ -4,7 +4,7 @@
 $.getScript('./js/jquery.mask.js', function()
 {
 
-	$('.mask-number').mask('#', {placeholder: "CPF/CNPJ"});
+	$('.mask-number').mask('#', {placeholder: ""});
 
 	$('.mask-date').mask('00/00/0000', {placeholder: "__/__/____"});
 
@@ -24,7 +24,7 @@ $.getScript('./js/jquery.mask.js', function()
 
   $('.mask-cpf').mask('000.000.000-00', {reverse: true , placeholder: "___.___.___-__"});
 
-  $('.mask-cnpj').mask('00.000.000/0000-00', {reverse: true, placeholder: "00:00:00"});
+  $('.mask-cnpj').mask('00.000.000/0000-00', {reverse: true, placeholder: "__.___.___/____-__"});
 
   $('.mask-money').mask('000.000.000.000.000,00', {reverse: true, placeholder: "__.___.___/____-__"});
 

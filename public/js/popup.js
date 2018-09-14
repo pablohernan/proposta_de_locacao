@@ -3,29 +3,29 @@ var serverPath = 'https://wiseitcsc.partage.com.br:8445';
 var codEmpreendimento = '1';
 
 document.addEventListener("DOMContentLoaded", function(event) {
-      
-     // try{
+     showList();
+      try{
         p = PipefyApp.init();
         //PipefyApp.resizeTo("#list");
         
-        //PipefyApp.render(function(){
-        //});
+        PipefyApp.render(function(){
+        });
 
         
 
         p.card().then(function(card) {
 
-          init();
+          init(card);
 
         });
-     // }catch(e){console.log(e)}
+      }catch(e){console.log(e)}
 
 });
 
 
 
 
-function init(){
+function init(card){
 	
 	addOriginalClass();
 	populaCombos();
@@ -34,6 +34,8 @@ function init(){
 
 	initFormulario();
 	popularDados();
+
+	$( '[id=\'DADOS_GERAIS.NUM_OCORRENCIA\']' ).val(card.internalId);
 
 
 }
@@ -265,6 +267,34 @@ function addOriginalClass(){
 	$( '[id=\'CONVENCIONAL_VGL.COMERCIALIZACAO_PERC\']' ).addClass('percentDois');
 	$( '[id=\'POPUP_VGL.COMERCIALIZACAO_PERC\']' ).addClass('percentDois');
 	$( '[id=\'OUTROS_VGL.COMERCIALIZACAO_PERC\']' ).addClass('percentDois');
+
+
+//este valores foram pedidos , mas não estão no form original
+//num 
+	$( '[id=\'DADOS_GERAIS.NUM_OCORRENCIA\']' ).addClass('mask-number');
+	$( '[id=\'DADOS_GERAIS.SITUACAOANTERIOR_SUC_N\']' ).addClass('mask-number');
+	$( '[id=\'DADOS_GERAIS.MEDIAPORSEGMENTO_PRAZO\']' ).addClass('mask-number');
+	$( '[id=\'DADOS_GERAIS.MEDIAPORMARCA_PRAZO\']' ).addClass('mask-number');
+	$( '[id=\'DADOS_GERAIS.PROPOSTACOMERCIAL_SUC_N\']' ).addClass('mask-number');
+	$( '[id=\'DADOS_GERAIS.PROPOSTACOMERCIAL_PRAZO_MESES\']' ).addClass('mask-number');
+
+//prec
+	$( '[id=\'DADOS_GERAIS.PROPOSTACOMERCIAL_ALUGUEL_PERC\']' ).addClass('percentDois');
+	$( '[id=\'DADOS_GERAIS.SITUACAOANTERIOR_ALUGUEL_PERC\']' ).addClass('percentDois');
+
+//cnpj 
+	$( '[id=\'DADOS_GERAIS.PROPOSTACOMERCIAL_CNPJ\']' ).addClass('mask-cnpj');
+
+//data 
+	$( '[id=\'DADOS_GERAIS.PROPOSTACOMERCIAL_INICIO\']' ).addClass('mask-date');
+	$( '[id=\'DADOS_GERAIS.PROPOSTACOMERCIAL_TERMINO\']' ).addClass('mask-date');
+
+//money 
+	$( '[id=\'CONVENCIONAL_CDU_ADESAO_TT.FORMA_DE_PAGAMENTO_DO_SALDO_CDU\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_CDU_ADESAO_TT.FORMA_DE_PAGAMENTO_DO_SALDO_TAXA_TRANSFERENCIA\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_CDU_ADESAO_TT.FORMA_DE_PAGAMENTO_DO_SALDO_TAXA_ADESAO\']' ).addClass('money');
+	$( '[id=\'CONVENCIONAL_CDU_ADESAO_TT.FORMA_DE_PAGAMENTO_DO_SALDO_MUTUO\']' ).addClass('money');
+
 }
 
 
