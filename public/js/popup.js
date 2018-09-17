@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 function init(card){
 
 	numOcorrencia = card.internalId;
+	addOnChange();
 	addOriginalClass();
 	populaCombos();
 	getCoeficientes();
@@ -37,6 +38,181 @@ function init(card){
 	initFormulario();
 	popularDados();
 
+}
+
+
+function addOnChange(){
+	$( '[id=\'DADOS_GERAIS.TIPO_NEGOCIACAO\']' ).on("change", function(event) {
+	selecionaTipoNegociacao(this.value)
+	} );
+	$( '[id=\'DADOS_GERAIS.PROPOSTACOMERCIAL_MARCA\']' ).on("change", function(event) {
+	getMediaMarca(this)
+	} );
+	$( '[id=\'DADOS_GERAIS.PROPOSTACOMERCIAL_SEGMENTO\']' ).on("change", function(event) {
+	getMediaSegmento(this);calculaCRD();
+	} );
+	$( '[id=\'DADOS_GERAIS.PROPOSTACOMERCIAL_LOCALIZACAO\']' ).on("change", function(event) {
+	calculaCRD();
+	} );
+	$( '[id=\'CONVENCIONAL_ALUGUEL.1ANO_AMM_DOBRADO_DEZEMBRO\']' ).on("change", function(event) {
+	calcularDadosTipoNegociacao()
+	} );
+	$( '[id=\'CONVENCIONAL_ALUGUEL.1ANO_CARENCIA\']' ).on("change", function(event) {
+	calcularDadosTipoNegociacao()
+	} );
+	$( '[id=\'CONVENCIONAL_ALUGUEL.2ANO_AMM_DOBRADO_DEZEMBRO\']' ).on("change", function(event) {
+	calcularDadosTipoNegociacao()
+	} );
+	$( '[id=\'CONVENCIONAL_ALUGUEL.2ANO_CARENCIA\']' ).on("change", function(event) {
+	calcularDadosTipoNegociacao()
+	} );
+	$( '[id=\'CONVENCIONAL_ALUGUEL.3ANO_AMM_DOBRADO_DEZEMBRO\']' ).on("change", function(event) {
+	calcularDadosTipoNegociacao()
+	} );
+	$( '[id=\'CONVENCIONAL_ALUGUEL.3ANO_CARENCIA\']' ).on("change", function(event) {
+	calcularDadosTipoNegociacao()
+	} );
+	$( '[id=\'CONVENCIONAL_ALUGUEL.4ANO_AMM_DOBRADO_DEZEMBRO\']' ).on("change", function(event) {
+	calcularDadosTipoNegociacao()
+	} );
+	$( '[id=\'CONVENCIONAL_ALUGUEL.4ANO_CARENCIA\']' ).on("change", function(event) {
+	calcularDadosTipoNegociacao()
+	} );
+	$( '[id=\'CONVENCIONAL_ALUGUEL.5ANO_AMM_DOBRADO_DEZEMBRO\']' ).on("change", function(event) {
+	calcularDadosTipoNegociacao()
+	} );
+	$( '[id=\'CONVENCIONAL_ALUGUEL.5ANO_CARENCIA\']' ).on("change", function(event) {
+	calcularDadosTipoNegociacao()
+	} );
+	$( '[id=\'CONVENCIONAL_ALUGUEL.6ANO_AMM_DOBRADO_DEZEMBRO\']' ).on("change", function(event) {
+	calcularDadosTipoNegociacao()
+	} );
+	$( '[id=\'CONVENCIONAL_ALUGUEL.6ANO_CARENCIA\']' ).on("change", function(event) {
+	calcularDadosTipoNegociacao()
+	} );
+	$( '[id=\'CONVENCIONAL_ALUGUEL.7ANO_AMM_DOBRADO_DEZEMBRO\']' ).on("change", function(event) {
+	calcularDadosTipoNegociacao()
+	} );
+	$( '[id=\'CONVENCIONAL_ALUGUEL.7ANO_CARENCIA\']' ).on("change", function(event) {
+	calcularDadosTipoNegociacao()
+	} );
+	$( '[id=\'CONVENCIONAL_ALUGUEL.8ANO_AMM_DOBRADO_DEZEMBRO\']' ).on("change", function(event) {
+	calcularDadosTipoNegociacao()
+	} );
+	$( '[id=\'CONVENCIONAL_ALUGUEL.8ANO_CARENCIA\']' ).on("change", function(event) {
+	calcularDadosTipoNegociacao()
+	} );
+	$( '[id=\'CONVENCIONAL_ALUGUEL.9ANO_AMM_DOBRADO_DEZEMBRO\']' ).on("change", function(event) {
+	calcularDadosTipoNegociacao()
+	} );
+	$( '[id=\'CONVENCIONAL_ALUGUEL.9ANO_CARENCIA\']' ).on("change", function(event) {
+	calcularDadosTipoNegociacao()
+	} );
+	$( '[id=\'CONVENCIONAL_ALUGUEL.10ANO_AMM_DOBRADO_DEZEMBRO\']' ).on("change", function(event) {
+	calcularDadosTipoNegociacao()
+	} );
+	$( '[id=\'CONVENCIONAL_ALUGUEL.10ANO_CARENCIA\']' ).on("change", function(event) {
+	calcularDadosTipoNegociacao()
+	} );
+	$( '[id=\'POPUP_ALUGUEL.1ANO_MODELO\']' ).on("change", function(event) {
+	calcularDadosTipoNegociacao()
+	} );
+	$( '[id=\'POPUP_ALUGUEL.1ANO_AMM_DOBRADO_DEZEMBRO\']' ).on("change", function(event) {
+	calcularDadosTipoNegociacao()
+	} );
+	$( '[id=\'POPUP_ALUGUEL.1ANO_CARENCIA\']' ).on("change", function(event) {
+	calcularDadosTipoNegociacao()
+	} );
+	$( '[id=\'OUTROS_ALUGUEL.1ANO_MODELO\']' ).on("change", function(event) {
+	calcularDadosTipoNegociacao()
+	} );
+	$( '[id=\'OUTROS_ALUGUEL.1ANO_AMM_DOBRADO_DEZEMBRO\']' ).on("change", function(event) {
+	calcularDadosTipoNegociacao()
+	} );
+	$( '[id=\'OUTROS_ALUGUEL.1ANO_CARENCIA\']' ).on("change", function(event) {
+	calcularDadosTipoNegociacao()
+	} );
+	$( '[id=\'OUTROS_ALUGUEL.2ANO_MODELO\']' ).on("change", function(event) {
+	calcularDadosTipoNegociacao()
+	} );
+	$( '[id=\'OUTROS_ALUGUEL.2ANO_AMM_DOBRADO_DEZEMBRO\']' ).on("change", function(event) {
+	calcularDadosTipoNegociacao()
+	} );
+	$( '[id=\'OUTROS_ALUGUEL.2ANO_CARENCIA\']' ).on("change", function(event) {
+	calcularDadosTipoNegociacao()
+	} );
+	$( '[id=\'OUTROS_ALUGUEL.3ANO_MODELO\']' ).on("change", function(event) {
+	calcularDadosTipoNegociacao()
+	} );
+	$( '[id=\'OUTROS_ALUGUEL.3ANO_AMM_DOBRADO_DEZEMBRO\']' ).on("change", function(event) {
+	calcularDadosTipoNegociacao()
+	} );
+	$( '[id=\'OUTROS_ALUGUEL.3ANO_CARENCIA\']' ).on("change", function(event) {
+	calcularDadosTipoNegociacao()
+	} );
+	$( '[id=\'OUTROS_ALUGUEL.4ANO_MODELO\']' ).on("change", function(event) {
+	calcularDadosTipoNegociacao()
+	} );
+	$( '[id=\'OUTROS_ALUGUEL.4ANO_AMM_DOBRADO_DEZEMBRO\']' ).on("change", function(event) {
+	calcularDadosTipoNegociacao()
+	} );
+	$( '[id=\'OUTROS_ALUGUEL.4ANO_CARENCIA\']' ).on("change", function(event) {
+	calcularDadosTipoNegociacao()
+	} );
+	$( '[id=\'OUTROS_ALUGUEL.5ANO_MODELO\']' ).on("change", function(event) {
+	calcularDadosTipoNegociacao()
+	} );
+	$( '[id=\'OUTROS_ALUGUEL.5ANO_AMM_DOBRADO_DEZEMBRO\']' ).on("change", function(event) {
+	calcularDadosTipoNegociacao()
+	} );
+	$( '[id=\'OUTROS_ALUGUEL.5ANO_CARENCIA\']' ).on("change", function(event) {
+	calcularDadosTipoNegociacao()
+	} );
+	$( '[id=\'OUTROS_ALUGUEL.6ANO_MODELO\']' ).on("change", function(event) {
+	calcularDadosTipoNegociacao()
+	} );
+	$( '[id=\'OUTROS_ALUGUEL.6ANO_AMM_DOBRADO_DEZEMBRO\']' ).on("change", function(event) {
+	calcularDadosTipoNegociacao()
+	} );
+	$( '[id=\'OUTROS_ALUGUEL.6ANO_CARENCIA\']' ).on("change", function(event) {
+	calcularDadosTipoNegociacao()
+	} );
+	$( '[id=\'OUTROS_ALUGUEL.7ANO_MODELO\']' ).on("change", function(event) {
+	calcularDadosTipoNegociacao()
+	} );
+	$( '[id=\'OUTROS_ALUGUEL.7ANO_AMM_DOBRADO_DEZEMBRO\']' ).on("change", function(event) {
+	calcularDadosTipoNegociacao()
+	} );
+	$( '[id=\'OUTROS_ALUGUEL.7ANO_CARENCIA\']' ).on("change", function(event) {
+	calcularDadosTipoNegociacao()
+	} );
+	$( '[id=\'OUTROS_ALUGUEL.8ANO_MODELO\']' ).on("change", function(event) {
+	calcularDadosTipoNegociacao()
+	} );
+	$( '[id=\'OUTROS_ALUGUEL.8ANO_AMM_DOBRADO_DEZEMBRO\']' ).on("change", function(event) {
+	calcularDadosTipoNegociacao()
+	} );
+	$( '[id=\'OUTROS_ALUGUEL.8ANO_CARENCIA\']' ).on("change", function(event) {
+	calcularDadosTipoNegociacao()
+	} );
+	$( '[id=\'OUTROS_ALUGUEL.9ANO_MODELO\']' ).on("change", function(event) {
+	calcularDadosTipoNegociacao()
+	} );
+	$( '[id=\'OUTROS_ALUGUEL.9ANO_AMM_DOBRADO_DEZEMBRO\']' ).on("change", function(event) {
+	calcularDadosTipoNegociacao()
+	} );
+	$( '[id=\'OUTROS_ALUGUEL.9ANO_CARENCIA\']' ).on("change", function(event) {
+	calcularDadosTipoNegociacao()
+	} );
+	$( '[id=\'OUTROS_ALUGUEL.10ANO_MODELO\']' ).on("change", function(event) {
+	calcularDadosTipoNegociacao()
+	} );
+	$( '[id=\'OUTROS_ALUGUEL.10ANO_AMM_DOBRADO_DEZEMBRO\']' ).on("change", function(event) {
+	calcularDadosTipoNegociacao()
+	} );
+	$( '[id=\'OUTROS_ALUGUEL.10ANO_CARENCIA\']' ).on("change", function(event) {
+	calcularDadosTipoNegociacao()
+	} );
 }
 
 function addOriginalClass(){
@@ -283,6 +459,7 @@ function addOriginalClass(){
 
 //cnpj 
 	$( '[id=\'DADOS_GERAIS.PROPOSTACOMERCIAL_CNPJ\']' ).addClass('mask-cnpj');
+
 
 //data 
 	$( '[id=\'DADOS_GERAIS.PROPOSTACOMERCIAL_INICIO\']' ).addClass('mask-date');
