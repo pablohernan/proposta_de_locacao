@@ -24,7 +24,7 @@ function fr_showRequired(){
 
 		if(index != ''){
 		 	$(this).find('a').each(function(){
-				if( index = $(this).attr('tabindex') ){
+				if( index == $(this).attr('tabindex') ){
 					$(this).click();
 				}
 			})
