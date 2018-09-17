@@ -3179,6 +3179,7 @@ function validaDados(){
   if( !rc_showMesages() && !rc_showMesagesData() ){
       salvaDados();
   }else{
+  		fr_showRequired();
       p.showNotification('Deve preencher os campos obrigatórios (*)', 'error');
       //resize();
   }
