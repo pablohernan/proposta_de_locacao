@@ -6,14 +6,17 @@ function fr_showRequired(){
 	// collapse
 	$('.pp-collapse').each(function(index) { 
 		if ($(this).find('.pp-error').length > 0) { 
-			$(this).addClass('pp-collapse-opened'); 
+			if($(this).hasClass('pp-collapse-closed')){
+				$( this ).addClass('pp-collapse-opened');		
+				$( this ).removeClass('pp-collapse-closed');		
+			} 
 		}
 	})
 
 	// abas
-	$('.pp-tab').each(function(index){
+	$('.pp-tab li').each(function(index){
 		if($(this).find('.pp-error').length > 0){
-			$(this).click();
+			$(this).find('a').click();
 		}
 	})
 
