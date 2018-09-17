@@ -22,8 +22,8 @@ function rc_showMesages(){
 			$(this).find('.pp-input').keypress(function(event) {
 		    event = event || window.event;
 		    var target = event.target || evtobj.srcElement; 
-	    	$('#'+target.id).parent().removeClass('pp-error');
-	    	$('#'+target.id).parent().find('.pp-help-message').remove();
+		    $( '[id=\''+target.id+'\']' ).parent().removeClass('pp-error');
+		    $( '[id=\''+target.id+'\']' ).parent().find('.pp-help-message').remove();
 			});
 			ret = true;
 		}
@@ -39,8 +39,8 @@ function rc_showMesages(){
 			$(this).find('.pp-select').change(function(event) {
 		    event = event || window.event;
 		    var target = event.target || evtobj.srcElement; 
-	    	$('#'+target.id).parent().parent().removeClass('pp-error');
-	    	$('#'+target.id).parent().parent().find('.pp-help-message').remove();
+		    $( '[id=\''+target.id+'\']' ).parent().parent().removeClass('pp-error');
+		    $( '[id=\''+target.id+'\']' ).parent().parent().find('.pp-help-message').remove();   
 			});			
 			ret = true;
 		}	
@@ -68,8 +68,8 @@ function rc_showMesagesGrid(id){
 			$(this).find('.pp-input').keypress(function(event) {
 		    event = event || window.event;
 		    var target = event.target || evtobj.srcElement; 
-	    	$('#'+target.id).parent().removeClass('pp-error');
-	    	$('#'+target.id).parent().find('.pp-help-message').remove();
+	    	$( '[id=\''+target.id+'\']' ).parent().removeClass('pp-error');
+	    	$( '[id=\''+target.id+'\']' ).parent().find('.pp-help-message').remove();
 			});
 			ret = true;
 		}
@@ -85,8 +85,8 @@ function rc_showMesagesGrid(id){
 			$(this).find('.pp-select').change(function(event) {
 		    event = event || window.event;
 		    var target = event.target || evtobj.srcElement; 
-	    	$('#'+target.id).parent().parent().removeClass('pp-error');
-	    	$('#'+target.id).parent().parent().find('.pp-help-message').remove();
+	    	$( '[id=\''+target.id+'\']' ).parent().parent().removeClass('pp-error');
+	    	$( '[id=\''+target.id+'\']' ).parent().parent().find('.pp-help-message').remove();
 			});			
 			ret = true;
 		}	
@@ -122,8 +122,8 @@ function rc_showMesagesData(){
 			$(this).find('.pp-input').keypress(function(event) {
 		    event = event || window.event;
 		    var target = event.target || evtobj.srcElement; 
-	    	$('#'+target.id).parent().removeClass('pp-error');
-	    	$('#'+target.id).parent().find('.pp-help-message').remove();
+	    	$( '[id=\''+target.id+'\']' ).parent().removeClass('pp-error');
+	    	$( '[id=\''+target.id+'\']' ).parent().find('.pp-help-message').remove();
 			});
 			ret = true;
 		}
