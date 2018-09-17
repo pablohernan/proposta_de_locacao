@@ -14,10 +14,22 @@ function fr_showRequired(){
 	})
 
 	// abas
-	$('.pp-tab li').each(function(index){
-		if($(this).find('.pp-error').length > 0){
-			$(this).find('a').click();
+	var index = ''
+	$('.tabs').each(function(index){
+		$(this).find('.tab').each(function(){
+			if($(this).find('.pp-error').length > 0){
+				index = $(this).attr('tabindex');
+			}
+		})
+
+		if(index != ''){
+		 	$(this).find('a').each(function(){
+				if( index = $(this).attr('tabindex') ){
+					$(this).click();
+				}
+			})
 		}
+
 	})
 
 }
